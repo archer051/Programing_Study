@@ -1,0 +1,70 @@
+* {
+  margin:0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "맑은 고딕";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#sect1 {
+  width: 100%;
+  height: 60%;
+  background-color: black;
+}
+
+#sect2,#sect4 {
+  width: 100%;
+  height: 5%;
+  background-color: yellow;
+}
+
+#sect3 {
+  width: 100%;
+  height: 30%;
+  position: relative;
+}
+
+#sect3_imgarea {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 100%;
+  background-color: #666;
+}
+
+#sect3_imgs {
+  width: 20%;
+  height: 100%;
+  background-color: purple;
+  float: left;
+}
+
+#sect3_imgs a img{
+  width: 100%;
+  height: 100%;
+}
+
+#sect3_imgs_modal {
+  z-index: 1;
+  display:none;
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+}
+
+#sect3_imgs_modal .sect3_imgs_body {
+  width: 550px;
+  margin-top:50px;
+  background-color: #fff;
+  text-align: center;
+  padding: 25px 0;
+  cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>20200522 Test 01 무결성체크 Do it! 자바스크립트 제이쿼리 p110</title>
+    <script>
+      /*무결성체크============================================================*/
+      var userEmail=prompt("당신의 이메일 주소?","");
+      var arrUrl=[".co.kr",".com",".net",".or.kr",".go.kr"];
+      /*========================================================================
+      var arrUrl=new Array();
+      var arrUrl[0]=".co.kr";arrUrl[1]=".com";....
+      ========================================================================*/
+      var check1=false;
+      var check2=false;
+      //이메일 유알엘을 체크 하기 위해서
+      if (userEmail.indexOf("@") > 0) {
+        check1=true;
+      }
+      for (var i=0; i<arrUrl.length; i++) {
+        if(userEmail.indexOf(arrUrl[i]) > 0) {
+          check2=true;
+        }
+      }
+      /*if (check1 == true && check2 == true) 둘다같다 if (check1 && check2)*/
+      if (check1 && check2) {
+        document.write(userEmail);
+      }else {
+        alert("이메일 형식이 잘못되었습니다.");
+      }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

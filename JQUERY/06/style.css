@@ -1,0 +1,57 @@
+* {
+  margin:0 auto;
+  padding:0;
+  list-style: none;
+  font-family: "맑은 고딕";
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+#partner {
+  width: 250px;
+  cursor: pointer;
+}
+#partner img {
+  width: 100%;
+  display: block;
+}
+#partner_up {
+  /* 전체검정 투명톤을 */
+  /* Partner-up외우는 법 : 지오디의 백그라운드포지션은 하이탑 */
+  z-index: 1;
+  opacity: 0;
+  display: none;
+  background-color: rgba(0,0,0,0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#partner_up .body {
+  margin-top:50px;
+  width: 500px;
+  padding:15px 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+#partner_up .body img{
+  display: block;
+}
+
+#partner_up .body .Btnclose {
+  padding: 6px 12px;
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*partner_up에 active라는 클래스를 만들어 붙여준다*/
+#partner_up.active {
+  display: block;
+  opacity: 1;
+}

@@ -1,0 +1,7 @@
+	//수정 삭제//
+	update 테이블 set 컬럼='바꿀값';
+
+	update student set age=29, email='aaa@gmail.com',
+	addr='부산시 영도구' where hp='1111';
+
+	delete from 테이블 where 

@@ -1,0 +1,25 @@
+*{
+		margin: 0 auto;/**/
+		padding: 0;
+		list-style: none;
+		font-family: "맑은 고딕";
+}
+a{
+	text-decoration: none;
+	color: inherit; 
+}
+.p_color{
+	color: #00ff00;
+	font-size: 0.5em;
+	background-color: black;
+	padding: 5px;
+	width: 250px;
+	margin-top: 20px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.p_color:hover{
+	background-color: red;
+	font-size: 1.2em;
+}

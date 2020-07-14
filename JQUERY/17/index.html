@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<title></title>
+<style>
+*{margin:0 auto;padding:0;list-style:none;font-family:"맑은 고딕"}
+a{text-decoration:none;color:inherit;}
+#slides{width:784px;height:40px;}
+.prev,.next{
+width:30px;height:40px;background-color:#ddd;border:1px solid #999;text-align:center;font-size:3em;cursor:pointer;float:left;line-height:30px;}
+.prev.off,.next.off{opacity:0.5;cursor:default;}
+#imgslide{width:720px;height:40px;position:relative;overflow:hidden;float:left;border-top:1px solid #999;border-bottom:1px solid #999;}
+.imgs{width:960px;height:40px;position:absolute;}
+.imgs img{width:120px;height:40px;float:left;}
+</style>
+<script>
+$(function(){
+	var curr_index=0;
+	var imgLeft;
+	
+	$(".prev").addClass("off");
+	
+	$(".next").click(function(){
+		if(curr_index>-2){
+			curr_index--;
+			imgLeft=curr_index*120;
+			$(".imgs").css("margin-left",imgLeft);
+			$(".prev").removeClass("off");
+		}
+		if(curr_index==-2){
+			$(".next").addClass("off");
+		}
+	});
+	$(".prev").click(function(){
+		if(curr_index<0){
+			curr_index++;
+			imgLeft=curr_index*120;
+			$(".imgs").css("margin-left",imgLeft);
+			$(".next").removeClass("off");
+		}
+		if(curr_index==0){
+			$(".prev").addClass("off");
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<br><br>
+	<div id="slides">
+		<div class="prev">&#8249;</div>
+		<div id="imgslide">
+			<div class="imgs">
+				<img src="imgs/1.gif">
+				<img src="imgs/2.gif">
+				<img src="imgs/3.jpg">
+				<img src="imgs/4.jpg">
+				<img src="imgs/5.jpg">
+				<img src="imgs/6.gif">
+				<img src="imgs/7.gif">
+				<img src="imgs/8.gif">
+			</div>
+		</div>
+		<div class="next">&#8250;</div>
+	</div>
+</body>
+</html>

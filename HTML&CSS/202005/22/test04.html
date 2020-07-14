@@ -1,0 +1,218 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>20200522 Test 야구 회원가입입력폼</title>
+  <style>
+    .body_table {
+      margin-top: 10%;
+      border-top: 2px solid #666;
+      border-bottom: 2px solid #666;
+      border-collapse: collapse;
+      color: #666;
+      text-align: center;
+    }
+
+    .body_table_tdleft {
+      width: 70px;
+      height: 40px;
+      border-bottom: 1px solid #666;
+    }
+
+    .body_table_tdright {
+      width: 200px;
+      height: 40px;
+      border-bottom: 1px solid #666;
+      position: relative;
+    }
+
+    .body_table_tdright2 {
+      width: 200px;
+      height: 40px;
+      border-bottom: 1px solid #666;
+      text-align: left;
+    }
+
+    .body_table_text {
+      width: 200px;
+      height: 36px;
+      border: 1px solid #666;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .body_table_text:focus {
+      background-color: #666;
+      color: white;
+      font-size: 1.0em;
+      text-align: center;
+    }
+
+    .body_table_text2 {
+      position: absolute;
+      width: 100px;
+      height: 36px;
+      border: 1px solid #666;
+      border-radius: 10px;
+      text-align: center;
+      left: 0;
+      bottom: 1px;
+    }
+
+    .body_table_text2:focus {
+      background-color: #666;
+      color: white;
+      font-size: 1.0em;
+    }
+
+    .body_table_text3 {
+      position: absolute;
+      width: 100px;
+      height: 36px;
+      border: 1px solid #666;
+      border-radius: 10px;
+      text-align: center;
+      right: 0;
+      bottom: 1px;
+    }
+
+    .body_table_text3:focus {
+      background-color: #666;
+      color: white;
+      font-size: 1.0em;
+      text-align: center;
+    }
+
+    .body_table_select {
+      width: 200px;
+      height: 40px;
+      border: 1px solid #666;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 10px;
+    }
+
+    .body_table_select:focus {
+      background-color: #666;
+      color: white;
+      font-size: 1.0em;
+    }
+
+    .body_table_select_option {
+      text-align-last: center;
+    }
+
+    .body_table_button {
+      width: 70px;
+      height: 40px;
+      border: 1px solid #666;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+      background-color: #666;
+    }
+
+    .body_table_button:hover {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.0em;
+    }
+
+    .body_table_checkbox {
+      width:50px;
+      height:40px;
+      border:1px solid #666;
+      vertical-align:middle;
+
+  }
+  </style>
+  <script>
+    //Do it! 자바스크립티 제이쿼리 p113
+    // /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/
+    //var sKorean1=["ㄱ","ㅎ"];//ㄱ:12593 ㅎ:12622
+    //var sKorean2=["ㅏ","ㅣ"];//ㅏ:12623 ㅣ:12643
+    //var sKorean3=["가","힣"];//가:44032 힣:55203
+    function koreancheck() {
+      var sInputTemp = frm1.Name.value;
+      var iAsciicode10;
+      var check = false;
+      var iKoreancount=0;
+        for (var i = 0; i < sInputTemp.length; i++) {
+          iAsciicode10=sInputTemp.charCodeAt(i);
+          console.log(iAsciicode10);
+          if ((iAsciicode10 >= 12593 && iAsciicode10 <= 12643) ||
+        iAsciicode10 >= 44032 && iAsciicode10 <= 55203) {
+            iKoreancount++;
+          }
+        }
+      if (iKoreancount == sInputTemp.length) {
+        check=true;
+      }
+      if(!check) {
+        alert("한글만 입력가능합니다.");
+        //sInputTemp.length
+        frm1.Name.value="";
+        frm1.Name.focus();
+      }
+    }
+    function input() {
+    }
+  </script>
+</head>
+
+<body>
+  <form name="frm1">
+    <table class="body_table">
+      <tr>
+        <td class="body_table_tdleft">이름</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Name" class="body_table_text" onkeyup="koreancheck()">
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">소속구단</td>
+        <td class="body_table_tdright">
+          <select class="body_table_select" name="Affiliated_team">
+            <option value="롯데" class="body_table_select_option" name="Lotte" id="Affiliated_team1">롯데</option>
+            <option value="기아" class="body_table_select_option" name="Kia" id="Affiliated_team2">기아</option>
+            <option value="NC" class="body_table_select_option" name="Nc" id="Affiliated_team3">NC</option>
+            <option value="SK" class="body_table_select_option" name="Sk" id="Affiliated_team4">SK</option>
+            <option value="LG" class="body_table_select_option" name="Lg" id="Affiliated_team5">LG</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">주민번호</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Jumin1" class="body_table_text2" onkeyup="">-
+          <input type="text" name="Jumin2" class="body_table_text3" onkeyup="">
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">연봉</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Annualsalary" class="body_table_text" onkeyup=""> (2000~입력가능)
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">포지션</td>
+        <td class="body_table_tdright2">
+          <input type="checkbox" name="Pitcher" id="Position1" value="투수" class="body_table_checkbox">투수
+          <input type="checkbox" name="Pitcher" id="Position2" value="포수" class="body_table_checkbox">포수
+          <input type="checkbox" name="Pitcher" id="Position3" value="내야" class="body_table_checkbox">내야
+          <input type="checkbox" name="Pitcher" id="Position4" value="외야" class="body_table_checkbox">외야
+          <input type="checkbox" name="Pitcher" id="Position5" value="지명타자" class="body_table_checkbox">지명타자
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="body_table_tdleft">
+          <input type="text" class="body_table_button" value="입력" onclick="input()">
+          <input type="text" class="body_table_button" value="출력" onclick="output()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

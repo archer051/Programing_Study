@@ -1,0 +1,20 @@
+0~1023포트는 웰노운 포트 번호 
+포트번호 = 응용서비스를 찾아가는 번호, 전송계층
+/20 : FTP File Trans Protocol 파일전송프로토콜 
+/21 : FTP File Trans Protocol 제어 (명령)프로토콜
+/22 : SSH secure shell - ssh scp, sftp같은 프로토콜 및 포트포워딩
+/23 : 텔넷 프로토콜 - 암호화되지 않는 텍스트 통신
+/25 : SMTP : 이메일 전송 Simple Message Transfer Protocol
+/53 : DNS : 도메인 네임 서버
+/69 : TFTP : 
+TFTP(Trivial File Transfer Protocol)는 임의의 시스템이 원격 시스템으로부터 부팅(Booting) 코드를 
+다운로드하는 데 사용되는 프로토콜이다.
+/80 : HTTP Hyper Text Transfer Protocol 웹페이지 전송 프로토콜
+/110 : POP3 Post Office Protocol version 3전자우편 가져오기에 사용
+/123 : NTP Network Time Protocl 시간동기화
+/143 : IMAP4 인터넷 메세지 접근 프로토콜 4 - 이메일 가져오기에 사용
+/443 : HTTPS - HTTP over SSL (암호화전송)
+/993 : SSL 위의 IMAP4 (암호화전송)
+/995 : SSL 위의 POP3 (암호화전송)
+
+SSL : 월드 와이드 웹 브라우저와 웹 서버 간에 데이터를 안전하게 주고받기 위한 업계 표준 프로토콜.

@@ -1,0 +1,1 @@
+<a href="name.php?name=kelvin"> 안녕, 난 kelvin이야!</a>

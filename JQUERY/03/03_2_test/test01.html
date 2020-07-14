@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script>
+    $(function() {
+      //선택자.메서드설정
+      //전체선택자
+      //$("*").css("border","1px solid blue");
+      //아이디선택자
+      //-체인방식.css.css
+      //$("#tit").css("background-color","#ff0").css("border","2px solid #f00");
+      //-일반적으로 많이 쓰는 방식
+      //$("#tit").css({"background-color":"#ff0","border":"2px solid #f00","color":"#666"});
+      $("#bt1").click(function() {
+        $("#tit").css({"background-color":"#ff0","border":"2px solid #f00","color":"#666"});
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>제이쿼리</h1>
+  <h2 id="tit">선택자</h2>
+  <h3>직접선택자</h3>
+  <input type="button" id="bt1" value="바꾸기" onclick="">
+</body>
+</html>

@@ -1,0 +1,45 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "맑은 고딕";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.table1 {
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.table1 tr>th {
+  padding: 7px;
+  border-bottom:1px solid #999;
+}
+.table1 tr>td {
+  padding: 7px;
+  border-bottom:1px solid #999;
+}
+/* :last-of-type 마지막부터 선택된것 */
+.table1 tr:not(:first-child):not(:last-child):not(:nth-last-of-type(2)):hover {
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bt1 {
+  background-color: #666;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 0.9em;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+.bt1:hover {
+  opacity: 0.5;
+}

@@ -1,0 +1,47 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font_font-family: "맑은 고딕";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.table {
+  width: 500px;
+  border-top: 2px solid #555;
+  border-bottom: 2px solid #555;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table tr>td {
+  
+  border-bottom: 1px solid #555;
+  padding: 5px;
+  /*text-overflow: ellipsis;
+  white-space: nowrap;*/
+}
+
+.bt {
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #555;
+  color: white;
+  background-color: #555;
+  font-size: 1.0em;
+  margin-top: 10px;
+}
+
+.bt:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.write_area_title {
+  width: 500px;
+  padding-top: 5px;
+}

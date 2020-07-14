@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var sTable;
+sTable = "<table border='1' style='border-collapse:collapse;'>";
+document.write();
+for(var i=0; i < 9; i++) {
+  sTable += "<tr>";
+  for(var j=0; j < 9; j++) {
+    if(i==0 || i==1)
+     continue;
+    sTable += "<td>";
+    sTable += i;
+    sTable += " * ";
+    sTable += (j+1);
+    sTable += " = "
+    sTable += i*(j+1);
+    sTable += "</td>";
+  }
+  sTable += "</tr>";
+}
+sTable += "</table>";
+document.write(sTable);
+</script>
+</head>
+<body></body>
+</html>

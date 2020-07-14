@@ -1,0 +1,160 @@
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+var cnt=-1;
+var nam =new Array();
+var career=new Array();
+var score=new Array();
+var style=new Array();
+var sp=new Array();
+var str="";
+function input() {
+  cnt++;
+  nam[cnt]=frm1.name.value;
+  career[cnt]=frm1.career.value;
+  score[cnt]=frm1.score.value;
+  style[cnt]=frm1.style.value;
+  if(document.getElementById("sp1").
+  checked==true){
+    str+=document.getElementById("sp1").value;
+  }
+  if(document.getElementById("sp2").
+  checked==true){
+    str+=document.getElementById("sp2").value;
+  }
+  if(document.getElementById("sp3").
+  checked==true){
+    str+=document.getElementById("sp3").value;
+  }
+  if(document.getElementById("sp4").
+  checked==true){
+    str+=document.getElementById("sp4").value;
+  }
+  if(document.getElementById("sp5").
+  checked==true){
+    str+=document.getElementById("sp5").value;
+  }
+  if(document.getElementById("sp6").
+  checked==true){
+    str+=document.getElementById("sp6").value;
+  }
+  sp[cnt]=str;
+  //배열에 데이터저장 끝났으면 화면 초기화.
+  frm1.name.value="";
+  document.getElementById("career").selectedIndex=0;
+  document.getElementById("score").selectedIndex=0;
+  document.getElementById("style").selectedIndex=0;
+  document.getElementById("sp1").checked=false;
+  document.getElementById("sp2").checked=false;
+  document.getElementById("sp3").checked=false;
+  document.getElementById("sp4").checked=false;
+  document.getElementById("sp5").checked=false;
+  document.getElementById("sp6").checked=false;
+  frm1.name.focus();
+  }
+  function output(){
+    document.write("<table border='1'>");
+    document.write("<tr>");
+    document.write("<td>이름</td>");
+    document.write("<td>구력</td>");
+    document.write("<td>점수</td>");
+    document.write("<td>스타일</td>");
+    document.write("<td>주특기</td>");
+    document.write("</tr>");
+  for(var i=0;i<nam.length;i++){
+    document.write("<tr>");
+    document.write("<td>");
+    document.write(nam[i]+" ");
+    document.write("</td>");
+    document.write("<td>");
+    document.write(career[i]+" ");
+    document.write("</td>");
+    document.write("<td>");
+    document.write(score[i]+" ");
+    document.write("</td>");
+    document.write("<td>");
+    document.write(style[i]+" ");
+    document.write("</td>");
+    document.write("<td>");
+    document.write(sp[i]+"<br>");
+    document.write("</td>");
+    document.write("</tr>");
+  }
+  document.write("</table>");
+}
+</script>
+</head>
+<body>
+<form name="frm1">
+  <table border="l" width="600" height="150">
+    <tr>
+      <td>이름</td>
+      <td>
+      <input type="text" name="name">
+      </td>
+    </tr>
+    <tr>
+      <td>구력</td>
+      <td>
+      <select name="career" id="career">
+        <option value="1년">1년</option>
+        <option value="2년">2년</option>
+        <option value="3년">3년</option>
+        <option value="4년">4년</option>
+        <option value="6년">5년</option>
+        <option value="7년">7년</option>
+        <option value="8년">8년</option>
+        <option value="9년">9년</option>
+        <option value="10년">10년</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>점수</td>
+      <td>
+      <select name="score" id="score">
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="80">80</option>
+        <option value="100">100</option>
+        <option value="120">120</option>
+        <option value="150">150</option>
+        <option value="200">200</option>
+        <option value="250">250</option>
+        <option value="300">300</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>스타일</td>
+      <td>
+      <select name="style" id="style">
+        <option value="깔끔">깔끔</option>
+        <option value="비매너">비매너</option>
+        <option value="지저분">지저분</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>주특기</td>
+      <td>
+      <input type="checkbox" name="sp1" id="sp1" value="히끼">히끼
+      <input type="checkbox" name="sp2" id="sp2" value="우라마시">우라마시
+      <input type="checkbox" name="sp3" id="sp3" value="오마시">오마시
+      <input type="checkbox" name="sp4" id="sp4" value="맛세이">맛세이
+      <input type="checkbox" name="sp5" id="sp5" value="기리까시">기리까시
+      <input type="checkbox" name="sp6" id="sp6" value="오시">오시
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+      <input type="button" value="입력" onclick="input()">
+      <input type="button" value="출력" onclick="output()">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

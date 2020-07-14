@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko"> 
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>  
+  <!-- jQuery 라이브러리 참조 -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>  
+  <!-- plugin 참조 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!--// plugin 참조 -->
+  <script>
+    $(document).ready(function(){
+        // 저장된 쿠키값이 Y가 아니라면 팝업창을 생성
+        if ($.cookie("nopopup") != "Y") {
+            window.open("popup.html", "win_popup", "width=300, height=300");
+        }
+    });
+  </script>
+ </head>
+ <body>     
+    <h1>부모창</h1>
+    <div>
+        이 페이지는 팝업창을 여는 페이지입니다.<br>
+        팝업창 열기 제한이 설정된 경우 팝업창이 나타나지 않을 수 있습니다.<br><br>        
+    </div>
+ </body>
+</html>

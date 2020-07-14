@@ -1,0 +1,28 @@
+Do it! Javascript Jquery p170,p218
+
+Jquery란? javascript를 간결하게 사용하기 위해서 구성되어진 API함수들 집합
+Jquery 구성요소 3가지
+1.선택자:대상이 선택되어야
+2.메서드:어떻게작동하라?
+3.이벤트:이벤트가 일어났을때
+
+event exam)바람이 불고 날씨기 추우면(사건), 대상(나에게,나의아들에게), 메서드(
+옷을 두껍게 입게 하라)
+->click(사건), 대상(#아이디, .클래스, h1,a,body...),메서드(css());
+=>위의 간단한 원리만 파악하면 jquery는 game over.
+->jquery를 세부적으로 구현하기 위해서는 javascript문법이 필수(변수,함수,if,while,배열,setinterval,clearinterval)
+
+jquery/jquery01/
+->jquery01.html
+->style.css
+->javascript.js
+
+jquery/jquery02/
+->jquery02.html
+->style.css
+->javascript.js
+
+jquery/jquery03/
+->jquery03.html
+->style.css
+->javascript.js

@@ -1,0 +1,27 @@
+@charset "utf-8";
+*{
+	margin:0 auto;padding:0;list-style:none;font-family:"맑은 고딕";
+}
+#imgslide{
+	width:1000px;height:400px;position:relative;overflow:hidden;
+}
+.imgs{
+	width:5000px;height:400px;position:absolute;
+}
+.imgs img{
+	float:left;
+}
+.btn_dot{
+	position:relative;width:80px;height:15px;text-align:center;
+	margin:20px auto;
+}
+.btn_dot>ul>li{
+	float:left;width:15px;height;15px;
+}
+.welcome{
+	width:250px;height:80px;
+	background-color:rgba(255,255,255,0.2);
+	color:white;text-align:center;
+	position:relative;border-radius:10px;
+	line-height:80px;margin:120px auto;
+}

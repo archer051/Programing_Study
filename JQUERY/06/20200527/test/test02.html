@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>20200527</title>
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script>
+  $(function() {
+    $("#p1").addClass("aqua"); //클래스 지정
+    $("#p2").removeClass("red"); //클래스지정한것 없애기
+    $("#p3").toggleClass("green"); //그린클래스 지정이 안되어있으면 클래스지정
+    $("#p4").toggleClass("green"); //기존 그린이면 그린클래스 없애고 다른클래스면 없애고 그린적용함
+    //$("#p6").text("메롱");
+    $("#p6").text($("#p5").hasClass("green")); //이건 이해안됨....
+  });
+</script>
+<style>
+  .aqua {
+    background-color: #0ff;
+  }
+  .red {
+    background-color: #f00;
+  }
+  .green {
+    background-color: #0f0;
+  }
+  .yellow {
+    background-color: #ff0;
+  }
+</style>
+</head>
+
+<body>
+  <p id="p1">내용1</p>
+  <p id="p2" class="red">내용2</p>
+  <p id="p3">내용3</p>
+  <p id="p4" class="green">내용4</p>
+  <p id="p5" class="yellow">내용5</p>
+  <p id="p6">내용6</p>
+
+</body>
+
+</html>

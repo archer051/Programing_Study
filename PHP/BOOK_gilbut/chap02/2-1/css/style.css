@@ -1,0 +1,10 @@
+@charset "UTF-8";
+body{
+	margin: 10;
+	padding: 10;
+	font-family: 바탕, 나눔고딕, 궁서, 굴림, sans-serif;
+}
+.main-contents h1{
+	padding: 5px 0 5px 30px;
+	font-size: 32px;
+}

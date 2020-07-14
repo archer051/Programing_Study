@@ -1,0 +1,16 @@
+1.로그인 로그아웃 회원가입 및 수정
+
+2.해당가게의 메뉴 추가/삭제하기(매우중요... 젤잘하는사람이 할것)
+ex) 홍콩반점:볶음밥,짬뽕,짜장면 추가하기
+create table store_menu(
+  no int auto_increment primary key comment '일련번호'
+  ,pno int comment 'store테이블의번호'
+  ,name varchar(30) comment '메뉴명'
+  ,price int comment '가격'
+  ,pic varchar(100) comment '사진명'
+  ,memo text comment '메모'
+);
+
+3.공지사항기능추가(admin권한만 가능하도록)
+
+4.맛집후기(일반회원으로 로그인해서 글쓰고 댓글가능)

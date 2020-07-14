@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script>
+    function send() {
+      var sJuminno=frm1.Juminno.value;
+      //"-"문자를 ""치환
+      sJuminno = sJuminno.replace("-","");
+      //13자리인지 검사하기 위해
+      var check1 = false;
+      if (sJuminno.length == 13) {
+        check1=true;
+      }
+
+      //숫자인지 아닌지 구분하기 위해
+      var check2=false;
+      var iString=0;
+      var iNumcount=0;
+      for (var i=0; i < sJuminno.length; i++) {
+        //문자 하나씩 가져와
+        iString=sJuminno.charCodeAt(i);
+        //console.log(iString);
+        //숫자인지 검사해
+        if (iString >= 48 && iString <= 57) {
+          iNumcount++;
+        }
+      }
+      if(iNumcount == sJuminno.length) {
+        check2=true;
+      }
+
+      //7번째자리 1,2,3,4가 아니면 탈락! ㅋㅋㅋ
+      var check3=false;
+      //7번째자리 글자 하나 가져와
+      var sTemp;
+      sTemp=sJuminno.substr(6,1);
+      //console.log(sTemp);
+      iString=sTemp.charCodeAt(0);
+      for(var i=0; i<4; i++) {
+        if(iString >= 49 && iString <= 52) {
+          check3=true;
+        }
+      }
+
+      //주민번호 월 체크 하기 위해
+      var check4=false;
+      //월을 가져와
+      sTemp=sJuminno.substr(1,2);
+      iString=Number(sTemp);//p154
+      if()
+
+      //주민번호 일 체크 하기 위해
+      var check5=false;
+
+      if (check1 && check2 && check3 && check4 && check5) {
+        document.write("유효");
+      }else {
+        alert("유효하지 않은 주민번호입니다.");
+      }
+    }
+  </script>
+</head>
+<body>
+<form name="frm1">
+  <input type="text" name="Juminno" maxlength="14">
+  <input type="button" value="주민번호체크" onclick="send()">
+</form>
+</body>
+</html>

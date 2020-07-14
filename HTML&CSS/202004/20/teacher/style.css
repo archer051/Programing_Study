@@ -1,0 +1,65 @@
+*{
+	margin:0 auto;
+	padding:0;
+	list-style:none;
+	font-family:"맑은 고딕";
+}
+a{text-decoration:none;color:inherit;}
+#header{width:1000px;height:150px;}
+#logo{
+	width:200px;height:150px;
+	background-color:pink;float:left;
+}
+#logo > a > img{width:200px;height:150px;}
+#topmenu{
+	width:800px;height:150px;
+	background-color:yellow;float:left;
+	text-align:right;
+}
+#wrap{width:1000px;min-height:500px;}
+#leftmenu{
+	width:200px;min-height:500px;
+	background-color:green;float:left;
+}
+#content{
+	width:600px;min-height:500px;
+	float:left;
+}
+.table1{
+	margin-top:50px;
+	font-size:0.9em;
+	color:#666666;
+	border-top:2px solid #4298cc;
+	border-bottom:2px solid #4298cc;
+	width:500px;border-collapse:collapse;
+}
+.table1 tr>th{
+	padding:5px;
+	border-bottom:1px solid #4298cc;
+}
+.table1 tr>td{
+	padding:5px;
+	border-bottom:1px solid #4298cc;
+}
+.table1 tr:not(:first-child):not(:last-child):hover{
+	background-color:#666;color:#fff;
+	cursor:pointer;
+}
+.bt1{
+	font-size:0.9em;color:#fff;
+	background-color:#893700;
+	padding:5px;border-radius:5px;
+	cursor:pointer;border:none;
+}
+.bt1:hover{
+	/*background-color:#18709c;*/
+	opacity:0.5;
+}
+#banner{
+	width:200px;min-height:500px;
+	background-color:gray;float:left;
+}
+#footer{width:1000px;height:100px;
+background-color:purple;}
+
+

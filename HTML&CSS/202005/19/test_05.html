@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      function send() {
+        /*윤년인지 아닌지를 판별하시오.
+        4로 나누어떨어지고 100으로 나누어 떨어지지 않는년도
+        400으로 나누어 떨어지면 무조건 윤년*/
+        var iTempyear=parseInt(frm1.year.value);
+        if(((iTempyear % 4) == 0 && (iTempyear % 100) != 0 || (iTempyear % 400) == 0) ) {
+          alert("윤년입니다");
+        }else {
+          alert("윤년이 아니다 ");
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <form name="frm1">
+      <input type="text" name="year" maxlength="4">
+      <input type="button" value="윤년판별" onclick="send()">
+    </form>
+  </body>
+</html>

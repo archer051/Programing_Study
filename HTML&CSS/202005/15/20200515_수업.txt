@@ -1,0 +1,522 @@
+년도 선수일련번호 타율 타점 홈런 승 패 방어율
+2020  1           330   10  1     0 0   0
+2019  1           300   98  21    0 0   0
+2020  2           320   8   1     0 0   0
+2019  2           300   77  15    0 0   0
+2020  4           0     0   0     1 0   3.00
+2019  4           0     0   0     9 9   4.75
+
+create table kbo_member_record(
+  year char(4) not null comment '년도',
+  no int not null comment '선수일련번호',
+  aver int default 0 comment '타율',
+  point int default 0 comment '타점',
+  homerun int default 0 comment '홈런',
+  win int default 0 comment '승',
+  lose int default 0 comment '패',
+  era float default 0 comment '방어율'
+);
+
+alter table kbo_member_record
+add constraint pk_kbo_member_record primary key(year,no);
+제약조건 하나를 추가하겠다. pk_kbo_member_record이름의 제약조건
+이 제약조건의 성격은 프라이머리 키대상?(year칼럼,no칼럼을 동시에 묶어서)
+제약조건 pk_kbo_member_record라는 이름으로 프라이머리 키 대상(year,no)대상으로.
+
+alter table kbo_member_record
+add constraint fk_kbo_member_record foreign key(no) references kbo_member(serial_num);
+add constraint fk_kbo_member_record foreign key(no) references 참조할테이블명(선수일련번호컬럼);
+
+제약조건 하나를 추가하겠다. fk_kbo_member_record이름의 제약조건
+이 제약조건의 성격은 포린티(외래키) 현재칼럼을 다른테이블의 PK를 참조.
+
+이대호,손아섭,이재학의 2018,2019년 성적을 입력
+insert into kbo_member_record (year,no,aver,point,homerun) values ('2018',1,330,100,30);
+insert into kbo_member_record (year,no,aver,point,homerun) values ('2019',1,300,90,20);
+insert into kbo_member_record (year,no,aver,point,homerun) values ('2018',2,300,80,20);
+insert into kbo_member_record (year,no,aver,point,homerun) values ('2019',2,290,70,20);
+insert into kbo_member_record (year,no,win,lose,era) values ('2018',4,9,9,4.00);
+insert into kbo_member_record (year,no,win,lose,era) values ('2019',4,10,9,5.00);
+
+1-1단계
+select
+  kbo_member.name,
+  kbo_member_record.aver,
+  kbo_member_record.point,
+  kbo_member_record.homerun,
+  kbo_member_record.win,
+  kbo_member_record.lose,
+  kbo_member_record.era
+from
+  kbo_member,kbo_member_record
+where
+  kbo_member.serial_num = kbo_member_record.no
+and
+  kbo_member_record.year='2018';
+
+1-2단계
+select
+  m.name,
+  r.aver,
+  r.point,
+  r.homerun,
+  r.win,
+  r.lose,
+  r.era
+from
+  kbo_member m,kbo_member_record r
+  -- kbo_member as m,kbo_member_record as r
+where
+  m.serial_num = r.no
+and
+  r.year='2018'
+order by r.aver,r.point desc;
+
+1-3단계 컬럼에 별칭주기
+select
+  m.name as name,
+  r.aver as aver ,
+  r.point as point,
+  r.homerun as homerun,
+  r.win as win,
+  r.lose as lose,
+  r.era as era
+from
+  kbo_member m,kbo_member_record r
+  -- kbo_member as m,kbo_member_record as r
+where
+  m.serial_num = r.no
+and
+  r.year='2018';
+
+유럽리그 선수관리(eul_member)
+선수일련번호  선수명   국적      나이    포지션       소속팀     이적료
+serial_num    name    nation     age     position     teamname   transfer_fee
+int           varchar(20) varchar(20) int varchar(20) varchar(20) bigint
+1             메시     아르헨티나 34      스트라이커   바셀       100000000
+2             손흥민   대한민국   29      스트라이커   토트       10000000
+3             네이마르 브라질     29      스트라이커   PSG        200000000
+4             날강두   포르투갈   35      스트라이커   유벤       100000000
+5             이승우   대한민국   21      공격수       벨로나     1000000
+6             델리알리 영국       26      미드필더     토트넘     5000000
+7             헤리케인 영국       28      스트라이커   토트넘     20000000
+8             라멜라   아르헨티나 27      미드필더     토트넘     5000000
+
+create table eul_member(
+  serial_num int not null primary key comment '선수일련번호',
+  name varchar(20) not null comment '선수명',
+  nation varchar(20) not null comment '국적',
+  age int not null comment '나이',
+  position varchar(20) comment '포지션',
+  teamname varchar(20) comment '소속팀',
+  transfer_fee bigint comment '이적료'
+)comment='유럽리그 선수관리';
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (1
+  ,'메시'
+  ,'아르헨티나'
+  ,34
+  ,'스트라이커'
+  ,'바셀'
+  ,100000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (2
+  ,'손흥민'
+  ,'대한민국'
+  ,29
+  ,'스트라이커'
+  ,'토트넘'
+  ,10000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (3
+  ,'네이마르'
+  ,'브라질'
+  ,29
+  ,'스트라이커'
+  ,'PSG'
+  ,200000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (4
+  ,'날강두'
+  ,'포르투갈'
+  ,35
+  ,'스트라이커'
+  ,'유벤'
+  ,100000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (5
+  ,'이승우'
+  ,'대한민국'
+  ,21
+  ,'공격수'
+  ,'벨로나'
+  ,1000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (6
+  ,'델리알리'
+  ,'영국'
+  ,26
+  ,'미드필더'
+  ,'토트넘'
+  ,5000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (7
+  ,'헤리케인'
+  ,'영국'
+  ,28
+  ,'스트라이커'
+  ,'토트넘'
+  ,20000000);
+
+insert into eul_member
+  (serial_num
+  ,name
+  ,nation
+  ,age
+  ,position
+  ,teamname
+  ,transfer_fee)
+VALUES
+  (8
+  ,'라멜라'
+  ,'아르헨티나'
+  ,27
+  ,'미드필더'
+  ,'토트넘'
+  ,5000000);
+
+유럽리그 선수기록(eul_member_record)
+년도    선수일련번호  골     어시스트    연봉        수상기록
+year    serial_num    goal    asist     salary      award_record
+int     int           int     int       bigint      varchar(50)
+2019    1             20      20        1000        발롱도르
+2018    1             30      30        1000        발롱도르
+2019    2             15      15        700         올해의선수
+2018    2             10      10        500         올해의선수
+2019    3             10      10        2000
+2018    3             10      10        2000
+2019    4             20      20        1500        세리에득점왕
+2019    6             5       5         800
+2019    7             20      20        2000        EPL득점왕
+2019    8             6       6         800
+
+Table생성1.
+create table eul_member_record(
+  year int not null comment '년도',
+  serial_num int not null comment '선수일련번호',
+  goal int default 0 comment '골',
+  asist int default 0 comment '어시스트',
+  salary bigint default 0 comment '연봉',
+  award_record varchar(50) comment '수상기록'
+)comment='유럽리그 선수관리';
+
+Table수정1.
+alter table eul_member_record
+add constraint pk_eul_member_record primary key (year,serial_num);
+  -- add constraint fk_kbo_member_record foreign key(serial_num) references 참조할테이블명(컬럼)
+alter table eul_member_record
+add constraint fk_eul_member_record foreign key(serial_num) references eul_member(serial_num);
+
+
+Table생성2.테이블생성1과 같은데 한방쿼리임.아 이것땜에 뻘짓 한시간이 몇시간인지..
+create table eul_member_record(
+  year int not null comment '년도',
+  serial_num int not null comment '선수일련번호',
+  goal int default 0 comment '골',
+  asist int default 0 comment '어시스트',
+  salary bigint default 0 comment '연봉',
+  award_record varchar(50) comment '수상기록',
+  constraint pk_eul_member_record primary key(year,serial_num),
+  constraint fk_eul_member_record foreign KEY(serial_num) references eul_member(serial_num)
+)COMMENT='유럽리그 선수기록';
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2019
+  ,1
+  ,20
+  ,20
+  ,1000
+  ,'발롱도르');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2018
+  ,1
+  ,30
+  ,30
+  ,1000
+  ,'발롱도르');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2019
+  ,2
+  ,15
+  ,15
+  ,700
+  ,'올해의선수');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2018
+  ,2
+  ,10
+  ,10
+  ,500
+  ,'올해의선수');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary)
+VALUES
+  (2019
+  ,3
+  ,10
+  ,10
+  ,2000);
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  )
+VALUES
+  (2018
+  ,3
+  ,10
+  ,10
+  ,2000);
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2019
+  ,4
+  ,20
+  ,20
+  ,1500
+  ,'세리에득점왕');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary)
+VALUES
+  (2019
+  ,6
+  ,5
+  ,5
+  ,800);
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary
+  ,award_record)
+VALUES
+  (2019
+  ,7
+  ,20
+  ,20
+  ,2000
+  ,'EPL득점왕');
+
+insert into eul_member_record
+  (year
+  ,serial_num
+  ,goal
+  ,asist
+  ,salary)
+VALUES
+  (2019
+  ,8
+  ,6
+  ,6
+  ,800);
+
+Q1.2019년도 선수명 골 어시스트 연봉 수상기록 쿼리
+A1.조회문
+select
+  em.name,
+  emr.goal,
+  emr.asist,
+  emr.salary,
+  emr.award_record
+from
+  eul_member as em,
+  eul_member_record as emr
+where
+  em.serial_num = emr.serial_num
+and
+  emr.year = 2019;
+
+Q2.2018년도 연봉이 1000만달러 이상인 사람의 선수명과 소속팀을 쿼리
+select
+  em.name,
+  em.teamname
+from
+  eul_member as em,
+  eul_member_record as emr
+where
+  em.serial_num = emr.serial_num
+and
+  emr.year = 2018
+and
+  emr.salary >= 1000;
+
+Q3.2019년도 20골 이상을 기록한 선수의 선수명과 나이와 포지션을 쿼리 골순으로 내림차순 정렬하시오.
+select
+  em.name,
+  em.age,
+  em.position
+from
+  eul_member as em,
+  eul_member_record as emr
+where
+  em.serial_num = emr.serial_num
+and
+  emr.year = 2019
+and
+  emr.goal >= 20
+order by
+  emr.goal desc;
+
+Q4.손흥민과 같은 팀소속 선수들의 선수명과 2019년도 골,어시스트 연봉을 쿼리.
+select
+  em.name,
+  emr.goal,
+  emr.asist,
+  emr.salary
+from
+  eul_member as em,
+  eul_member_record as emr
+where
+  em.serial_num = emr.serial_num
+and
+  em.teamname =
+    (select
+    	teamname
+    from
+      eul_member as em
+    where
+      em.name = '손흥민')
+and
+  emr.year = 2019;
+
+Q5.팀별 최고 이적료를 기록한 선수의 이름과 소속팀을 쿼리하시오.
+select
+  em_a.name,
+  em_a.teamname
+from
+  eul_member as em_a
+inner join (select
+              teamname,
+              max(transfer_fee) as transfer_fee
+            from
+              eul_member
+            group by teamname
+  ) as em_b
+  on (em_a.teamname = em_b.teamname and
+  em_a.transfer_fee = em_b.transfer_fee);

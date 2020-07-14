@@ -1,0 +1,15 @@
+-- CREATE TABLE member(
+-- id VARCHAR(15) NOT NULL PRIMARY KEY,
+-- pw VARCHAR(15) NOT NULL,
+-- name varchar(20) not null,
+-- hp VARCHAR(15) NOT NULL,
+-- emil VARCHAR(20) NOT NULL,
+-- gender CHAR(1) NOT NULL,
+-- hobby1 VARCHAR(10),
+-- hobby2 VARCHAR(10),
+-- hobby3 VARCHAR(10),
+-- hobby4 VARCHAR(10),
+-- hobby5 VARCHAR(10),
+-- testdbcomment TEXT,
+-- level varchar(15)
+-- );

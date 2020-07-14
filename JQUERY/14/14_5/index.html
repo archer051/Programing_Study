@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script>
+    $(function () {
+
+      $(".btn1").click(function () {
+        //기본적인형태
+        // $(".txt1").animate({
+        //   "margin-left": "500px",
+        //   "font-size": "30px",
+        //   "opacity": "0.5"
+        // }, 2000, "linear", function () {
+        //   alert("모션완료");
+        // });
+
+        //보통사용하는형태
+        $(".txt1").animate({
+          "margin-left": "500px",
+          "font-size": "30px",
+          "opacity": "0.5"
+        }, 2000);
+      });
+
+      $(".btn2").click(function () {
+        $(".txt2").animate({ "margin-left": "+=50px" }, 1000);
+      });
+    });
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+</body>
+<p>
+  <button class="btn1">버튼1</button>
+</p>
+<span class="txt1">500px 이동</span>
+<p>
+  <button class="btn2">버튼2</button>
+</p>
+<span class="txt2">50px씩 이동</span>
+
+</html>

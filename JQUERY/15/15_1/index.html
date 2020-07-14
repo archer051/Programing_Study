@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <title></title>
+  <style>
+    * {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      font-family: "맑은 고딕"
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    #pic_big {
+      width: 600px;
+      height: 400px;
+    }
+
+    #pic_small {
+      margin-top: 10px;
+      width: 600px;
+      height: 100px;
+    }
+
+    #pic_small>li {
+      float: left;
+    }
+
+    #pic_small>li img {
+      width: 120px;
+      height: 100px;
+      cursor: pointer;
+    }
+
+    #pic_small>li img:hover {
+      opacity: 0.5;
+    }
+  </style>
+  <script>
+    $(function () {
+      $("#pic_big").css("background-image", "url('images/1.jpg')");
+
+      $("#pic_small>li").mouseover(function () {
+        var idx = $("#pic_small>li").index(this);
+        // console.log("idx:" + idx);
+        if (idx == 0) {
+          $("#pic_big").css("background-image", "url('images/1.jpg')");
+        } else if (idx == 1) {
+          $("#pic_big").css("background-image", "url('images/2.jpg')");
+        } else if (idx == 2) {
+          $("#pic_big").css("background-image", "url('images/3.jpg')");
+        } else if (idx == 3) {
+          $("#pic_big").css("background-image", "url('images/4.jpg')");
+        } else if (idx == 4) {
+          $("#pic_big").css("background-image", "url('images/5.jpg')");
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <br><br>
+  <div id="pic_big"></div>
+  <ul id="pic_small">
+    <li><img src="images/1.jpg"></li>
+    <li><img src="images/2.jpg"></li>
+    <li><img src="images/3.jpg"></li>
+    <li><img src="images/4.jpg"></li>
+    <li><img src="images/5.jpg"></li>
+  </ul>
+</body>
+
+</html>

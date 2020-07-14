@@ -1,0 +1,165 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	font-family: "맑은 고딕";
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+header{
+	width: 100%;
+	height: 110px;
+	position: relative;
+}
+	.adminlogin{
+		position: absolute;
+		width: 150px;
+		height: 50px;
+		right: 0px;
+		color: green;
+		text-align: right;
+		font-size: 20px;
+		margin-top: 5px;
+		border:1px solid;
+	}
+	.adminlogin:hover{
+		cursor: pointer;
+		font-weight: bold;
+		/*background-color: rgba(0,0,0,0.5);*/
+	}
+	.logo{
+		width: 250px;
+		height: 110px;
+	}
+	.logo>a>img{
+		width: 100%;
+		height: 100%;
+	}
+nav{
+	width: 100%;
+	height: 50px;
+	background-color: #666;	/*회색*/
+	color: #fff; /*흰색*/	
+	text-align: center;
+}
+	.menu{
+		width: 600px;
+
+	}
+	.menu>li{
+		width: 193px;
+		margin-top: 7px;
+		text-align: center;
+		float: left;
+		/*
+		padding: 7px 0; 
+		상/하 로 7px 주고 좌우는 0px 설정할때
+		*/
+		padding: 7px 0; 
+		/*
+		깜빡거리는 효과
+		transition : 영문번역  이행,변천,변화
+		all : 모든메뉴 
+		0.4s : 시간
+		*/
+		transition: all 0.4s;
+		position: relative;
+	}
+	.menu>li:hover{
+		background-color: skyblue; 
+	}
+		.submenu{
+			position: absolute;
+			width: 100%;
+			margin-top: 7px;
+			background-color: rgba(255,255,255,0.5);
+/*z-index = 높은숫자가 가장빨리 올라오게 
+우선순위가 높은것을 주는 개념. 
+왜 사용하느냐 하면 사진올라오고 글자 안올라오는
+현상을 막기 위해서*/
+			z-index: 99;
+/*
+display : block; 기본 옵션
+none;은 아무것도 표출하지 않는다
+인터넷 참조
+먼저 ​display:none 속성은 아예 말끔히 사라지는 것이라고 생각하면 쉽다.
+즉, HTML요소가 보이지 않는 것은 물론이고 공간도 차지하지 않게 된다.
+이에 반해, visibility:hidden 속성은 HTML요소가 보이지 않게 되지만 공간은 그대로 차지한다. 
+HTML 요소에 width와 height 값을 늘리면 그만큼 더 많은 공간을 차지하게 된다.
+참조주소:https://blog.naver.com/nopain343/221490034667
+*/
+			display: none; 
+		}
+		.submenu>li{
+			padding: 7px 0;
+			color: #000;
+			transition: all 0.4s;
+		}
+		.submenu>li:hover{
+			background-color: skyblue;
+			color: #fff; /*흰색*/
+		}
+#wrap{
+
+}
+	#imgslide{
+		width: 100%;
+		height: 350px;
+		background-color: #ccdce2;
+		box-shadow: 2px 2px 20px #3b6778 inset;
+		padding: 40px 0px;
+		position:relative;
+	}
+		.welcome{
+			position:absolute;
+			width: 500px;
+			height: 50px;
+			z-index: 1;
+			background-color: rgba(255,255,255,0.5);
+			color: #893700;
+			font-size: 20px;
+			font-weight:bold;
+			text-align: center;
+			line-height: 50px;
+			top: 180px;
+			/*transform: translate();*/
+			left: 50%;
+			transform: translateX(-50%); /*X축 -50%*/
+			border-bottom-left-radius: 15px;
+			border-top-right-radius: 15px;
+
+		}
+		.imgs{
+			width: 1000px;
+			height: 350px;
+			background-color: #000;
+			/*
+			overflow: hidden;
+			불러오는 이미지파일의 크기가 넘어갈때 안보이게 하기 위해
+			히든을 사용함.
+			*/
+			overflow: hidden;
+			position: relative;
+		}
+		/*
+		상속자 넣는것
+		.imgs> img{
+		}
+		상속자 안넣는것
+		.imgs img{
+		}
+		*/
+		.imgs img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+	#content{
+
+	}
+footer{
+
+}
+

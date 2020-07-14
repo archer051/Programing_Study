@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 구구단표 </title>
+
+<style type="text/css">
+table.timesTables    { text-align: center; border: 1px solid gray; }
+table.timesTables td { padding: 3px 8px; }
+</style>
+
+<script type="text/javascript">
+function timesTables_2 (){
+
+    var table = "<table border='1' class='timesTables'>";
+    var tdStart = "<td>";
+
+    var thead = "";
+    var tbody = "";
+
+    for ( var times = 1; times < 10; times++ ) {
+
+       if ( times < 9 ) thead += "<th>" + ( times + 1 ) + "</th>";
+
+       tbody += "<tr>";
+
+       for ( var number = 2; number < 10; number++ ) {
+
+          var answer = number * times;
+          if ( answer < 10 ) answer =  " &nbsp; "  +  answer;
+
+          tbody +=  tdStart  +  number  +  " x "  +  times  +  " = "  +  answer  +  "</td>";
+
+       }
+
+       tbody += "</tr>";
+
+    }
+
+    table += "<thead>" + thead + "</thead>" + "<tbody>" + tbody + "</tbody>" + "</table>";
+
+    return table;
+}
+
+
+
+function display (){    times_tables.innerHTML = timesTables_2();    }
+
+</script>
+
+</head>
+<body>
+
+
+<button onclick="display()"> 클릭하세요 </button>
+
+<div id="times_tables"></div>
+
+</body>
+</html>

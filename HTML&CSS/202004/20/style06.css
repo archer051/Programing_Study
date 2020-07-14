@@ -1,0 +1,47 @@
+/* 전체영역 */
+*{
+	margin: 0 auto;/* 화면제일왼쪽에서부터시작, auto 는 중앙정렬*/
+	padding: 0;/* 칸사이는 영역은 0만큼*/
+	list-style: none; /* none을 안하면 숫자나 점이 들어감*/
+	font-family: "맑은 고딕"; /* 폰트는 맑은 고딕으로..*/
+}
+/* a태그정의 */
+a{
+	text-decoration: none;/* 줄을 긋지 않습니다*/
+	color:inherit; /* color는 inherit 상속 한다*/
+}
+/* 헤더영역 정의*/
+#header{/* 헤더영역P */
+	width: 1000px;
+	height:150px;
+}
+#header_logo{/* 헤더영역C 로고 */
+	width: 150px;
+	height: 150px;
+	background-color: gray;
+	float: left;
+}
+#header_topmenu{ /* 헤더영역C 메뉴 */
+	width: 850px;
+	height: 150px;
+	background-color: pink;
+	float: left;
+}
+
+/* 내용영역 정의*/
+#wrap{/* 내용영역P */
+	width: 1000px;
+	height:500px;
+}
+#wrap_left{/* 내용영역C 왼쪽메뉴 */
+	width: 150px;
+	height: 500px;
+	background-color: #ff0; /*배경색상:옐로우*/
+	float: left;/*띄워서 왼쪽으로 붙임*/
+}
+#wrap_content{/* 내용영역C 내용 */
+	width: 850px;
+	height: 500px;
+	background-color: #0f0;/*배경색상:그린*/
+	float: left;/*띄워서 왼쪽으로 붙임*/
+}

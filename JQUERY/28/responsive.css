@@ -1,0 +1,163 @@
+@charset "utf-8";
+*{
+	margin:0 auto;padding:0;
+	list-style:none;font-family:"맑은 고딕";
+}
+a{text-decoration:none;}
+header{
+	overflow:hidden;
+	background-color:pink;
+	padding:20px;
+}
+.logo{
+	float:left;
+	font-size:20px;
+	color:#fff;
+}
+nav{
+	float:right;
+}
+nav a{
+	font-size:20px;
+	color:#fff;
+	padding:0 5px;
+}
+footer{
+	height:50px;
+	line-height:50px;
+	font-size:14px;
+	background-color:#ccc;
+	color:#000;
+	text-align:center;
+}
+.list{
+	overflow:hidden;
+}
+.list li{
+	float:left;
+	width:20%;
+}
+.inner{
+	display:block;
+	margin:5px;
+	border:1px solid #000;
+}
+.thumb img{
+	width:100%;
+	height:auto;
+}
+.title{
+	overflow:hidden;
+	padding: 10px 0;
+	text-align:center;
+	font-size: 14px;
+	color:#555;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+section{
+	overflow:hidden;
+	max-width:900px;
+    margin:50px auto;
+}
+.gnb_menu{
+	display: none;
+}
+/*@media screen and (max-width: 768px), screen and (max-height: 768px) and (orientation: landscape)*/
+@media screen and (max-width:768px){
+	header{
+		background-color: lightseagreen;
+	}
+	.logo{
+		width: 100px;float: none;display: block;
+		margin: 0 auto;font-size: 40px;text-align: center;
+
+	}
+	nav{
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin-top: 20px;
+		float: none;
+		white-space: nowrap;
+	}
+	nav a{
+		font-size: 25px;
+	}	
+	.list{
+		
+	}
+	.list li{
+		width:25%;
+	}
+	.inner{
+		margin:2px
+	}
+	.title{
+		padding:10px 0;
+	}
+	footer{
+		background-color:lightcoral;
+		color:#fff;
+	}
+}
+/*@media screen and (max-width: 375px), screen and (max-height: 375px) and (orientation: landscape)*/
+@media screen and (max-width: 375px){
+	nav{
+		display: none;
+		position: absolute;
+		top: 78px;
+		left:0;
+		bottom: 0;
+		z-index: 10;
+		width: 200px;
+		margin:0;
+		background-color: lightslategray;
+	}
+	nav a{
+		display: block;
+		padding: 20px 10px;
+		font-size: 20px;
+		border-bottom: 1px solid #fff;
+	}
+	.gnb_menu{
+		position: absolute;
+		top: 12px;
+		left:12px;
+		display: block;
+		width: 40px;
+		height: 35px;
+		font-size:1px;
+		color: transparent;
+		background: linear-gradient(#fff 50%, transparent 50%);
+		background-size: 100% 10px;
+	}
+	section{
+		margin: 0;
+	}
+	.list li {
+		width: 100%;
+	}
+	.inner{
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		margin: 0;
+		border: none;
+		border-top: 1px solid #000;
+	}
+	.thumb{
+		display: table-cell;
+		width: 100px;
+	}
+	.title{
+		display: table-cell;		
+		vertical-align: middle;
+		background-color:#fff;
+		padding: 8px;
+		color:#000;
+		text-overflow: inherit;
+		white-space: inherit;
+		text-align: left;
+	}
+}
+

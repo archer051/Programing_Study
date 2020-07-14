@@ -1,0 +1,183 @@
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script>
+    var iarSeq = 0;
+    var arName = [];
+    var arLeague = [];
+    var arSpeed = [];
+    var arBalltype = [];
+    var arBalltypecnt = [];
+
+    function input() {
+      arName[iarSeq] = frm1.sName.value;
+      // console.log("FunctionInput[" + iarSeq + "]:" + "arName[" + iarSeq + "]:" + arName[iarSeq]);
+      arLeague[iarSeq] = frm1.sLeague.value;
+      // console.log("FunctionInput[" + iarSeq + "]:" + "arLeague[" + iarSeq + "]:" + arLeague[iarSeq]);
+      arSpeed[iarSeq] = frm1.sSpeed.value;
+      // console.log("FunctionInput[" + iarSeq + "]:" + "arSpeed[" + iarSeq + "]:" + arSpeed[iarSeq]);
+      var sBalltype = "";
+      var iTemp = 0;
+      if (document.getElementById("sBalltype1").checked == true) {
+        sBalltype += document.getElementById("sBalltype1").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      if (document.getElementById("sBalltype2").checked == true) {
+        sBalltype += document.getElementById("sBalltype2").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      if (document.getElementById("sBalltype3").checked == true) {
+        sBalltype += document.getElementById("sBalltype3").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      if (document.getElementById("sBalltype4").checked == true) {
+        sBalltype += document.getElementById("sBalltype4").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      if (document.getElementById("sBalltype5").checked == true) {
+        sBalltype += document.getElementById("sBalltype5").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      if (document.getElementById("sBalltype6").checked == true) {
+        sBalltype += document.getElementById("sBalltype6").value;
+        iTemp++;
+        // console.log("FunctionInput[" + iarSeq + "]:" + "iTemp:" + iTemp);
+      }
+      arBalltype[iarSeq] = sBalltype;
+      arBalltypecnt[iarSeq] = iTemp;
+      // console.log("FunctionInput[" + iarSeq + "]:" + "sballtype:" + sBalltype);
+      // console.log("FunctionInput[" + iarSeq + "]:" + "arBalltypeCnt[" + iarSeq + "]:" + arBalltypeCnt[iarSeq]);
+
+      //폼 객체 초기화
+      frm1.sName.value = "";
+      document.getElementById("sLeague1").checked = false;
+      document.getElementById("sLeague2").checked = false;
+      document.getElementById("sLeague3").checked = true;
+      frm1.sSpeed.value = "";
+      document.getElementById("sBalltype1").checked = false;
+      document.getElementById("sBalltype2").checked = false;
+      document.getElementById("sBalltype3").checked = false;
+      document.getElementById("sBalltype4").checked = false;
+      document.getElementById("sBalltype5").checked = false;
+      document.getElementById("sBalltype6").checked = false;
+      iarSeq++;
+    }
+
+    function output() {
+      var sTable = "";
+      sTable += "<table border='1' style='border-collapse:collapse;'>";
+      sTable += "<tr>";
+      sTable += "<td>";
+      sTable += "이름";
+      sTable += "</td>";
+      sTable += "<td>";
+      sTable += "리그";
+      sTable += "</td>";
+      sTable += "<td>";
+      sTable += "구속";
+      sTable += "</td>";
+      sTable += "<td>";
+      sTable += "구종";
+      sTable += "</td>";
+      sTable += "<td>";
+      sTable += "연봉";
+      sTable += "</td>";
+      sTable += "</tr>";
+      var iCount = parseInt(arName.length);
+      for (var i = 0; i < iCount; i++) {
+        sTable += "<tr>";
+        sTable += "<td>";
+        sTable += arName[i];
+        sTable += "</td>";
+        sTable += "<td>";
+        sTable += arLeague[i];
+        sTable += "</td>";
+        sTable += "<td>";
+        sTable += arSpeed[i];
+        sTable += "</td>";
+        sTable += "<td>";
+        sTable += arBalltype[i];
+        sTable += "</td>";
+        sTable += "<td>";
+        var iBasicsalary = 100000000;
+        if (arLeague[i] == "메이저리그") {
+          iBasicsalary += 100000000;
+        } else if (arLeague[i] == "마이너리그") {
+          iBasicsalary += 50000000;
+        }
+        if (arSpeed[i] >= 150) {
+          iBasicsalary += 100000000;
+        } else if (arSpeed[i] >= 145 && arSpeed[i] <= 149) {
+          iBasicsalary += 50000000;
+        }
+        // console.log("FunctionOutput[" + i + "]:" + "arBalltype[" + i + "]:" + arBalltype[i]);
+        if (arBalltype[i] != "") {
+          // console.log("FunctionOutput[" + i + "]:" + "arBalltypecnt[" + i + "]:" + arBalltypecnt[i]);
+          for (var j = 0; j < arBalltypecnt[i]; j++) {
+            // console.log("FunctionOutput[" + i + "]:" + "arBalltypeCnt[" + i + "]:" + arBalltypecnt[i]+"j:"+(j+1));
+            iBasicsalary += 50000000;
+          }
+        }
+        sTable += iBasicsalary;
+        sTable += "</td>";
+        sTable += "</tr>";
+      }
+      sTable += "</table>";
+      document.write(sTable);
+      sTable = "";
+    }
+  </script>
+</head>
+
+<body>
+  <form name="frm1">
+    <table border="1" style="border-collapse:collapse;">
+      <tr>
+        <td>이름</td>
+        <td>
+          <input type="text" name="sName">
+        </td>
+      </tr>
+      <tr>
+        <td>리그</td>
+        <td>
+          <input type="radio" name="sLeague" id="sLeague1" value="메이저리그">메이저리그
+          <input type="radio" name="sLeague" id="sLeague2" value="마이너리그">마이너리그
+          <input type="radio" name="sLeague" id="sLeague3" value="독립리그" checked>독립리그
+        </td>
+      </tr>
+      <tr>
+        <td>구속</td>
+        <td>
+          <input type="text" name="sSpeed" maxlength="3">
+        </td>
+      </tr>
+      <tr>
+        <td>구종</td>
+        <td>
+          <input type="checkbox" name="sBalltype1" id="sBalltype1" value="커브 ">커브
+          <input type="checkbox" name="sBalltype2" id="sBalltype2" value="슬라이더 ">슬라이더
+          <input type="checkbox" name="sBalltype3" id="sBalltype3" value="체인지업 ">체인지업<br>
+          <input type="checkbox" name="sBalltype4" id="sBalltype4" value="너클볼 ">너클볼
+          <input type="checkbox" name="sBalltype5" id="sBalltype5" value="커터 ">커터
+          <input type="checkbox" name="sBalltype6" id="sBalltype6" value="싱커 ">싱커
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" value="입력" onclick="input()">
+          <input type="button" value="출력" onclick="output()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

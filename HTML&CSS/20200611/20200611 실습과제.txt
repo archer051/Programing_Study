@@ -1,0 +1,28 @@
+20200611 실습과제
+만들어야할 홈페이지
+login_ok.php
+login.php
+logout.php
+index.php
+content.php
+del.php
+write.php
+write_ok.php
+search.php
+
+
+테이블만들기
+create table dog(
+  no int auto_increment primary key comment '순번'
+  ,dogTypeName varchar(20) comment '견종'
+  ,bMonth varchar(20) comment '생후나이 2개월,2살'
+  ,price int comment '가격'
+  ,picFName varchar(20) comment '이미지파일이름'
+  ,gender char(1) comment '암,수구분'
+  ,memo text comment '내용');
+
+작업순서
+write.php->write_ok.php->index.php->content.php->del.php->search.php->login.php->login_ok.php->logout.php
+
+들어가야할 기술
+페이징처리,파일서버업로드,로그인로그아웃 세션처리, 멤버테이블에서 레벨이 어드민인 관리자만 신규강아지등록/삭제 가능할것

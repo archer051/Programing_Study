@@ -1,0 +1,69 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      for(var i=0; i<10; i++) {
+        if(i%2==0){
+          document.write(i+1,"<br>");
+        }
+      }
+      var today=new Date(); //파라미터가 없으면 현재날짜인식
+      var nowYear=today.getFullYear();
+      document.write("년: "+nowYear,"<br>");
+      var nowMonth=today.getMonth();
+      document.write("월: "+(nowMonth+1),"<br>");
+      var nowDay=today.getDate();
+      document.write("일: "+nowDay,"<br>");
+      var nowWeek=today.getDay();
+      document.write("요일: "+nowWeek,"<br>");
+
+      var day_w=new Date(nowYear,nowMonth,nowDay);
+      var day_th=new Date(nowYear,nowMonth,(nowDay+1));
+      var day_f=new Date(nowYear,nowMonth,(nowDay+2));
+      var day_sa=new Date(nowYear,nowMonth,(nowDay+3));
+      var day_su=new Date(nowYear,nowMonth,(nowDay+4));
+      var day_m=new Date(nowYear,nowMonth,(nowDay+5));
+      var day_tu=new Date(nowYear,nowMonth,(nowDay+6));
+      document.write((day_w.getDate())+"일: "+day_w.getDay()+" 수요일","<br>");
+      document.write((day_th.getDate())+"일: "+day_th.getDay()+" 목요일","<br>");
+      document.write((day_f.getDate())+"일: "+day_f.getDay()+" 금요일","<br>");
+      document.write((day_sa.getDate())+"일: "+day_sa.getDay()+" 토요일","<br>");
+      document.write((day_su.getDate())+"일: "+day_su.getDay()+" 일요일","<br>");
+      document.write((day_m.getDate())+"일: "+day_m.getDay()+" 월요일","<br>");
+      document.write((day_tu.getDate())+"일: "+day_tu.getDay()+" 화요일","<br>");
+      function weekname(weeknum) {
+        var iWeeknum=parseInt(weeknum);
+        var sWeekname;
+        switch(iWeeknum)
+        {
+          case 0:
+          sWeekname="일요일";
+          break;
+          case 1:
+          sWeekname= "월요일";
+          break;
+          case 2:
+          sWeekname= "화요일";
+          break;
+          case 3:
+          sWeekname= "수요일";
+          break;
+          case 4:
+          sWeekname= "목요일";
+          break;
+          case 5:
+          sWeekname= "금요일";
+          break;
+          case 6:
+          sWeekname= "토요일";
+          break;
+        }
+        return sWeekname;
+      }
+      for(var i=0; i<7; i++) {
+        var day=new Date(nowYear,nowMonth,(nowDay+i));
+        document.write((day.getDate())+"일: "+weekname(day.getDay()),"<br>");
+      }
+    </script>
+  </head>  <body>  </body></html>

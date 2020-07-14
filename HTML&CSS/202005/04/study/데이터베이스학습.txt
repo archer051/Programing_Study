@@ -1,0 +1,61 @@
+1.데이터베이스 기초
+	sql구문사용법
+	데이터베이스,테이블 생성기법
+	->localhost/phpmyadmin root // autosuet
+	->create database testdb
+	->use testdb
+	->drop database testdb
+	추가,조회,삽입,삭제
+		->
+		create table student(
+		hp varchar(15) not null primary key,
+		name varchar(20),
+		gender char(1),
+		age int,
+		addr varchar(50),
+		email varchar(20),
+		grade varchar(15),
+		major varchar(15),
+		homepage varchar(30)
+		);
+
+		->
+		select 
+			* 
+		from 
+		student
+
+		select * from student where hp = '1111'
+
+		select * from student where hp = '1111' and age >= 20
+
+		select grade from student where age >= 20
+		and name = '이인환'
+
+		->
+		INSERT INTO `student` (`hp`, `name`, `gender`, `age`, `addr`, `email`, `grade`, `major`, `homepage`) VALUES ('1111', '홍길동', 'm', '24', '부산', 'aaaa@naver.com', '대졸', '식품영약', '없음');
+
+		
+	고급Sql구문 사용기법
+2.데이터베이스 연동
+	웹에서 데이터베이스 서버 연동하기
+	간단한 실무 프로젝트를 생성
+3.세션관리
+	로그인,로그아웃 시스템
+4.회원가입&탈퇴
+5.아이디&비번찾기
+	4,5번 항목도 역시 데이터베이스연동기법
+
+
+
+
+table1-student
+전화번호	number		char(13) 		primarykey
+이름			name			varchar(20)
+성별			gender		char(1)
+나이			age				int
+주소			addr		varchar(50)
+이메일		email			varchar(20)
+최종학력	grade 			varchar(15)
+전공			major		varchar(15)
+홈피주소	homepage	varchar(30)

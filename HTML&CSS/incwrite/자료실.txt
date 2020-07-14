@@ -1,0 +1,12 @@
+use testdb;
+desc inc;
+CREATE TABLE inc (
+    no INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    writer VARCHAR(50),
+    writeday VARCHAR(50),
+    content TEXT,
+    fname VARCHAR(255),
+    hit INT DEFAULT 0
+);
+    

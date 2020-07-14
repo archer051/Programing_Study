@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var i=0,j=0;
+var sTable;
+sTable = "<table border='1' style='border-collapse:collapse;'>";
+document.write();
+while(i++ < 9) {
+  sTable += "<tr>";
+  while(j++ < 9) {
+    if(i==1)
+     continue;
+    sTable += "<td>";
+    sTable += i;
+    sTable += " * ";
+    sTable += j;
+    sTable += " = "
+    sTable += i*j;
+    sTable += "</td>";
+  }
+  sTable += "</tr>";
+  j=0;
+}
+sTable += "</table>";
+document.write(sTable);
+</script>
+</head>
+<body></body>
+</html>

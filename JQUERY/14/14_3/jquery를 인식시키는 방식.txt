@@ -1,0 +1,14 @@
+jquery를 인식시키는 방식
+1.<script src="script.js" defer="defer"></script>
+  외부파일작성
+2.<script src="script.js"></script>
+  외부파일에서 document.ready이벤트 걸어주기
+  $(document).ready(function() {
+    각종소스코드실행
+  });
+3.내부파일
+  <script>
+    $(function() {
+      각종소스코드실행
+    });
+  </script>

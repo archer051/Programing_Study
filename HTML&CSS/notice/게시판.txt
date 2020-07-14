@@ -1,0 +1,54 @@
+각종게시판 알고리즘
+세션제어
+php+mysql+html+css+javascript=> 페이징과 검색기능
+1.공지사항(관리자)
+  1.1 미련없이 데이터를 다 가져오기
+  1.2 하단에 페이지를 찍어주자 [1] [2] [3]...
+  1.3 하단의 페이지를 눌렀을 때 해당페이지의 10건만 데이터를 출력
+  1.4 5페이지 단위로 그룹화 시켜준다
+    ->1그룹:1,2,3,4,5 2그룹:6,7,8,9,10 3그룹:11,12,13,14,15
+  1.5 다음 5개 페이지로 이동시켜준다
+  1.6 이전 5개 페이지로 이동시켜준다
+  1.7 페이지카운트를 넘어가는 페이지제어 및 현재페이지 활성화
+  1.8 맨마지막 페이지로 이동하기
+  1.9 맨처음페이지로 이동하기
+2.자료실(관리자)
+3.질문과답변(일반회원)
+4.방명록(일반회원)
+회원가입=>세션에 따른 제어
+
+20200605 수업진행순서
+1교시
+mysql -> test_db에 notice테이블 생성
+public_html>notice 폴더생성
+notice.php 파일 생성
+bulk_insert.php파일 생성 및 작성
+
+2교시
+style.css파일 생성 및 작성
+1.2단계 진행
+
+3교시
+1.3단계 진행
+1.4단계 진행
+1.5단계 진행
+
+4교시
+1.6단계 진행
+1.7단계 진행
+1.8단계 진행
+
+reference
+CREATE TABLE `notice` (
+	`no` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(50) NULL COLLATE 'utf8mb4_general_ci',
+	`writer` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`writeday` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`content` TEXT NULL COLLATE 'utf8mb4_general_ci',
+	`hit` INT(11) NULL DEFAULT '0',
+	PRIMARY KEY (`no`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=178
+;

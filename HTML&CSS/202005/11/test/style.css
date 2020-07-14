@@ -1,0 +1,42 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "맑은 고딕";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.index_table {
+  width: 800px;
+  border-collapse: collapse;
+  border-top: 2px solid #555;
+  border-bottom: 2px solid #555;
+}
+
+.index_table tr>td {
+  border-bottom: 1px solid #555;
+  padding:1px 10px;
+}
+
+/* .index_table tr:nth-child(1) {
+background-color: #555;
+} */
+
+.index_bt {
+  border: none;
+  border-radius: 7px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #222;
+  font-size: 1.0em;
+}
+
+.index_bt:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  font-weight: bold;
+}

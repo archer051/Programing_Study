@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title></title>
+  <script>
+    function plus() {
+      //var kor=frm1.kor.value;
+      //var eng=frm1.english.value;
+      //var math=frm1.math.value;
+      //var total=kor+eng+math;
+      //frm1.total.value=total;
+
+      //parseInt 를 사용하는 이유는 위의 예제에서는 value값을 가지고 오면 문자형으로
+      //받아서 숫자형으로 바꿔주기 위해서 parseInt형명령을 사용
+      var kor=parseInt(frm1.kor.value);
+      var eng=parseInt(frm1.english.value);
+      var math=parseInt(frm1.math.value);
+      var total=kor+eng+math;
+      frm1.total.value=total;
+    }
+
+    function avg() {
+      var kor=parseInt(frm1.kor.value);
+      var eng=parseInt(frm1.english.value);
+      var math=parseInt(frm1.math.value);
+      var avg=(kor+eng+math)/3;
+      //frm1.aver.value=avg;
+      //소수점 없애기
+      frm1.aver.value=parseInt(avg);
+    }
+  </script>
+  </head>
+  <body>
+    <form name="frm1">
+      국어:<input type="text" name="kor">
+      <br>
+      영어:<input type="text" name="english">
+      <br>
+      수학:<input type="text" name="math">
+      <br>
+      <input type="button" value="총점" onclick="plus()">
+      <input type="button" value="평균" onclick="avg()">
+      <br>
+      총점:<input type="text" name="total">
+      평균:<input type="text" name="aver">
+      </form>
+    </body>
+</html>

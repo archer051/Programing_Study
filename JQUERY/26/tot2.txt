@@ -1,0 +1,48 @@
+<div class="partner">
+	<h3>Partner Site</h3>
+	<img src="images/partner/PARTNER.png">
+</div>
+<div class="modal">
+	<div class="body">
+		<img src="images/partner/PARTNER_UP.png">
+		<div align="center">
+		<button>닫 기</button>
+		</div>
+	</div>
+</div>
+
+.partner{
+	width:50%;float:right;text-align:center;
+}
+.partner img{
+	cursor:pointer;
+}
+.partner>h3{
+	margin-top:30px;margin-bottom:20px;text-align:center;
+}
+.modal{
+	z-index:1;display:none;position:fixed;
+	width:100%;height:100%;top:0;left:0;
+	background-color:rgba(0,0,0,0.8);
+}
+.modal .body{
+	margin:20px auto;background-color:white;
+	padding:20px;width:600px;
+}
+.modal .body img{
+	//display:block;
+	margin-bottom:20px;
+}
+.modal .body button{
+	background-color:#009968;color:white;
+	padding:7px;font-size:14px;border:none;
+	border-radius:5px;
+}
+
+$(".partner img").click(function(){
+	$(".modal").fadeIn(1000);
+});
+
+$(".modal button").click(function(){
+	$(".modal").fadeOut(1000);
+});

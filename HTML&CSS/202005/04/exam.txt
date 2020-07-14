@@ -1,0 +1,33 @@
+우리 회사 인사팀에서 사원관리 프로그램 의뢰가 들어왔다. 여기에 맞는 웹개발팀 로직을 만들어 보자.
+사원(영문전호나)
+사원번호(pk)
+이름
+부서명
+직급
+전화번호
+주소
+이메일
+혼인여부
+성별
+연봉
+생년월일
+경력여부
+최종학력
+전공
+
+create table enum(
+	enum varchar(10) not null primary key,
+	name varchar(20),
+	partname varchar(20),
+	position varchar(20),
+	hp varchar(20),
+	addr varchar(50),
+	email varchar(20),
+	marriage_yn varchar(20),
+	gender char(1),
+	cash varchar(20),
+	birthday varchar(20),
+	career_yn char(2),
+	laststudy varchar(20),
+	major varchar(20),
+);

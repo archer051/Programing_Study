@@ -1,0 +1,122 @@
+
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Home</title>
+  <body>
+    <script>
+      /*
+      변수를 선언하는 방법을 다음과 같이 한다.
+      변수란 메모리의 특정 주소를 잡아서 값을 저장하기
+      위한 공간이다.
+
+      JavaScript 기본문법
+      javascript -> document 는 내장객체(클래스) 파라미터를 보내주면 실행한다.
+      도큐먼트 html의 문서, 그 문서에 write명령을 실행.
+      */
+      var age=35;
+      if(age>20)
+      {
+        document.write("당신은 성인입니다.");
+        document.write("<br>");
+      }else{
+        document.write("당신은 미성년자입니다.");
+        document.write("<br>");
+      }
+
+      var age2=prompt("당신의 나이는?","0");
+      if(age2>20)
+      {
+        document.write("당신은 성인입니다.");
+        document.write("<br>");
+      }else{
+        document.write("당신은 미성년자입니다.");
+        document.write("<br>");
+      }
+
+      var v1=10;
+      document.write(v1);
+      document.write("<br>");
+      v1=30;
+      document.write(v1);
+      document.write("<br>");
+      //누적을 시키고 싶다면
+      v1=v1+50; //좌변의 변수에 넣는식은 우변의 v1+50을 실행한뒤 좌변의 v1에 값을 대입한다
+      document.write(v1);
+      document.write("<br>");
+
+      //문자형 변수는 반드시 쌍따옴표를 사용한다
+      var s="javascript";
+      var num="100";
+      var tag="<h1>String</h1>";
+      document.write(s);
+      document.write("<br>");
+      document.write(num);
+      document.write("<br>");
+      document.write(tag);
+      document.write("<br>");
+
+      //숫자형데이터
+      var s2=100;
+      //문자형데이터
+      var t="500";
+      var result = s2+t;
+      document.write(result);
+      document.write("<br>");
+
+      //숫자형데이터 문자형데이터숫자로들어가있는것을 숫자형으로 인식하게 하는 함수 Number 영어대문자N 정확히 입력해야함.
+      var s3=100;
+      var t3=Number("500");
+      var result2=s3+t3;
+      document.write(result2);
+      document.write("<br>");
+      //논리형데이터 true or false
+      var v1=true;
+      var v2=10>=100;//false
+      var v3=Boolean("hello");//True Boolean형은 ()안에 값이 들어가있으면 ture 값이 없으면 false;
+      document.write(v1);
+      document.write("<br>");
+      document.write(v2);
+      document.write("<br>");
+      document.write(v3);
+      document.write("<br>");
+
+      var s_a=true;
+      var s_b=false;
+      var s_c=10>5;//true
+      var s_d=Boolean(null);//false
+      document.write("<br>");
+      document.write(s_a,"<br>");
+      document.write(s_b,"<br>");
+      document.write(s_c,"<br>");
+      document.write(s_d,"<br>");
+
+      //변수 타입이 무엇인지 알아보는 typeof 명령
+      var num=100;
+      var str="자바스크립트";
+      document.write("<br>");
+      document.write(typeof num,"<br />");
+      document.write(typeof str,"<br />");
+      document.write("<br>");
+
+      //사칙연산
+      var num1=15;
+      var num2=2;
+      var result_a;
+      result_a=num1+num2;
+      document.write(result_a,"<br />");//더하기
+      result_b=num1-num2;
+      document.write(result_b,"<br />");//빼기
+      result_c=num1*num2;
+      document.write(result_c,"<br />");//곱하기
+      result_d=num1/num2;
+      document.write(result_d,"<br />");//나누기
+      result_e=num1%num2;
+      document.write(result_e,"<br />");//나머지
+      document.write("<br />");
+
+    </script>
+
+  </body>
+</head>
+</html>

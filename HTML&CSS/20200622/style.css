@@ -1,0 +1,757 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-family: 'Gamja Flower', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: #EAEAEA;
+}
+
+header {
+    border-top: 1px solid#BDBDBD;
+    border-bottom: 1px solid#BDBDBD;
+    width: 100%;
+    height: 160px;
+    /*overflow:hidden;*/
+}
+
+.gnb_menu {
+    display: none;
+}
+
+.logo {
+    width: 300px;
+    padding: 5px;
+    float: left;
+    margin: 25px 0 0 20px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+nav {
+    width: 450px;
+    float: left;
+}
+
+.menu {
+    width: 610px;
+    height: 20px;
+    margin-top: 55px;
+    font-size: 40px;
+}
+
+.menu li {
+    width: 200px;
+    text-align: center;
+    float: left;
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.4s;
+}
+
+.menu li:hover {
+    background-color: #EAEAEA;
+    color: black;
+    border: 1px solid#333;
+}
+
+.submenu {
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(140, 140, 140, 0.7);
+    margin-top: 5px;
+    display: none;
+    color: #000;
+    font-size: 0.6em;
+}
+
+.submenu li {
+    transition: all 0.4s;
+}
+
+section {
+    overflow: hidden;
+    max-width: 100%;
+    margin: 50px auto;
+}
+
+.list {
+    overflow: hidden;
+}
+
+.list li {
+    float: left;
+    width: 23%;
+    height: 210px;
+    padding: 1%;
+}
+
+.list>li>a {
+    border-radius: 20px;
+}
+
+.inner {
+    display: block;
+    background-color: white;
+}
+
+.thumb {}
+
+.thumb:hover {
+    border: 2px solid#FFBB00;
+    border-radius: 20px;
+}
+
+.thumb>img {
+    width: 100%;
+    height: 190px;
+    border-radius: 20px;
+}
+
+.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 25px;
+    color: #555;
+}
+
+
+/* 민준 댓글 */
+
+.table_re {
+    border-collapse: collapse;
+    text-align: center;
+    width: 500px;
+    /*margin:20px;*/
+}
+
+.table_re tr>td {
+    padding: 7px;
+    border-bottom: 1px solid #666;
+}
+
+.table_re tr>th {}
+
+.btn1 {
+    font-size: 0.9em;
+    padding: 5px;
+    background-color: #666;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ta {
+    width: 400px;
+    height: 100px;
+}
+
+.hf {
+    font-family: "맑은 고딕";
+}
+
+
+/* 민준 댓글 끝 */
+
+
+/* 준혁 수정 부분시작 */
+
+.login {
+    width: 400px;
+    float: right;
+    color: #666;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.table2 {
+    width: 800px;
+    text-align: left;
+}
+
+.table2 tr>th {
+    color: #8C8C8C;
+    font-size: 3em;
+}
+
+.table2 tr>td {
+    border-bottom: 2px solid#D5D5D5;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.table2 tr>td>input {
+    width: 200px;
+    height: 25px;
+    font-size: 0.9em;
+}
+
+.table2 tr>td>select {
+    width: 70px;
+    height: 28px;
+    font-size: 1.05em;
+}
+
+.table2 tr>td>textarea {
+    font-size: 1.05em;
+}
+
+.table3 {
+    width: 500px;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.table3 tr>th {
+    color: #8C8C8C;
+    font-size: 3em;
+}
+
+.table3 tr>td {
+    border-bottom: 2px solid#D5D5D5;
+    font-size: 1.2em;
+    color: #333;
+    padding: 10px;
+}
+
+.table3 tr>td>input {
+    width: 170px;
+    height: 25px;
+    font-size: 0.9em;
+}
+
+.login_table tr>th {
+    border-bottom: 3px solid#8c8c8c;
+    font-size: 0.8em;
+    color: #8c8c8c;
+}
+
+.login_table tr>td {
+    padding: 5px;
+}
+
+.bt1 {
+    width: 100px;
+    height: 30px;
+    background-color: #BDBDBD;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px
+}
+
+.bt1:hover {
+    background-color: #8C8C8C;
+}
+
+
+/* 준혁 수정 부분끝 */
+
+
+/*슬라이드 시작*/
+
+.imgslide {
+    width: 100%;
+    height: 350px;
+    position: relative;
+}
+
+.imgs {
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+    height: 300px;
+}
+
+.imgs img {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.btn_prev {
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    left: 5%;
+    top: 130px;
+    color: white;
+    font-size: 5em;
+    line-height: 1.0em;
+    text-align: center;
+}
+
+.btn_next {
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    right: 5%;
+    top: 130px;
+    color: white;
+    font-size: 5em;
+    line-height: 1.0em;
+    text-align: center;
+}
+
+
+/*슬라이드 끝*/
+
+
+/* 대현 수정 부분 시작20200618 */
+
+.table1 {
+    width: 700px;
+    height: 400px;
+    margin-top: 10px;
+    background-color: rgba(180, 140, 120, 0.8);
+    border-radius: 20px;
+}
+
+.table1 tr th {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.table1 tr td {
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.bt2 {
+    width: 100px;
+    height: 30px;
+    background-color: rgba(120, 90, 100, 0.8);
+    color: #fff;
+    border-radius: 20px;
+}
+
+.bt2:hover {
+    opacity: 0.7;
+}
+
+footer {
+    width: 100%;
+    height: 65px;
+    background-color: #8C8C8C;
+    position: absolute;
+    color: #EAEAEA;
+    font-size: 1.1em;
+}
+
+.leftfooter {
+    position: relative;
+    float: left;
+    margin-left: 28%;
+    color: black;
+}
+
+.leftfooter>p>a {
+    color: #fff;
+}
+
+.leftfooter>p>a:hover {
+    opacity: 0.5;
+}
+
+.rightfooter {
+    position: relative;
+    float: right;
+    margin-right: 22%;
+    margin-top: 10px;
+    color: black;
+}
+
+.details {
+    width: 650px;
+    border: 1px solid #BDBDBD;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+/* 대현 수정 부분 끝20200618 */
+
+
+/* 석준 변경 영역 시작 20200618*/
+
+.table_content {
+    widows: 100%;
+    position: relative;
+}
+
+.food {
+    width: 300px;
+    border: 1px solid;
+    float: left;
+    margin-left: 25%;
+    /* border: 1px solid; */
+}
+
+.food img {
+    width: 300px;
+}
+
+.clear {
+    clear: both;
+}
+
+.table_food {
+    margin-left: 5%;
+    font-size: 1.2em;
+    width: 200px;
+    float: left;
+    height: 300px;
+}
+
+.table_food>th {
+    font-weight: bold;
+}
+
+.table_order {
+    font-size: 1.1em;
+    /* width: 700px; */
+    width: 90%;
+    min-height: 300px;
+    border-collapse: collapse;
+}
+
+.table_order tr>th {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.table_order tr>td {
+    font-weight: bold;
+    color: #8c8c8c;
+    font-size: 1.2em;
+    border-bottom: 1px solid#bdbdbd;
+}
+
+.table_order tr>td>input {
+    font-size: 1.05em;
+}
+
+
+/*
+.notice {
+  width: 800px;
+  margin-left: 22%;
+  margin-bottom: 100px;
+}
+
+.notice tr>td {
+  padding: 4px;
+  text-align: center;
+}
+
+.notice tr>th {
+  border-bottom: 1px solid#BDBDBD;
+}
+
+.notice tr>td>a>img {
+  width: 200px;
+}
+*/
+
+.notice {
+    width: 900px;
+    margin-left: 18%;
+    margin-bottom: 30px;
+}
+
+.notice tr>td {
+    width: 180px;
+    padding: 4px;
+    text-align: center;
+}
+
+.notice tr>th {
+    width: 180px;
+    border-bottom: 1px solid#BDBDBD;
+}
+
+.notice tr>td>a>img {
+    width: 180px;
+    height: 100px;
+    float: left;
+    margin-left: 85px;
+}
+
+.notice tr>td>a {
+    margin-left: -100px;
+    /*방금 만드거*/
+}
+
+.notice_Notice {
+    width: 900px;
+    margin-left: 19%;
+    margin-bottom: 100px;
+}
+
+.notice_Notice tr>td {
+    padding: 4px;
+    text-align: center;
+}
+
+.notice_Notice tr>th {
+    border-bottom: 1px solid#BDBDBD;
+}
+
+.table_menu {
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+.table_menu tr>td {
+    width: 200px;
+    height: 100px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.table_menu img {
+    width: 100%;
+}
+
+.border_bottom td {}
+
+
+/* 석준 변경 영역 끝 20200618*/
+
+@media screen and (max-width:767px),
+screen and(max-height:767px) and(orientation:landscape) {
+    header {
+        width: 100%;
+        height: 150px;
+        border-top: none;
+    }
+
+    .ta {
+        width: 200px;
+        height: 80px;
+    }
+
+    .table2 {
+        width: 100%;
+        margin-top: 150px;
+        font-size: 0.9em;
+    }
+
+    .login {
+        /* font-size: 1.1em; */
+        width: 100%;
+        margin-left: 60px;
+        float: none;
+        height: 15px
+    }
+
+    .logo {
+        float: none;
+        width: 300px;
+        margin: 0 auto;
+        /* position: absolute; */
+        margin: 0 0 0 80px;
+    }
+
+    .logo>img {
+        width: 100%;
+        height: 100%
+    }
+
+    .food {
+        width: 100%;
+        margin: 0 auto;
+        border: none;
+    }
+
+    .gnb_menu {
+        display: block;
+        position: absolute;
+        float: left;
+        top: 12px;
+        left: 12px;
+        width: 40px;
+        height: 35px;
+        background: linear-gradient(#666 50%, transparent 50%);
+        background-size: 100% 10px;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        bottom: 0;
+        z-index: 10;
+        width: 200px;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        opacity: 0.5;
+    }
+
+    .menu {
+        width: 200px;
+        height: 20px;
+    }
+
+    .menu>li {
+        width: 160px;
+        text-align: left;
+        float: none;
+        padding: 15px 0;
+        position: relative;
+        transition: all 0.4s;
+    }
+
+    .menu>li:hover {
+        background-color: inherit;
+        color: white;
+    }
+
+    .list>li {
+        width: 100%;
+        padding: 0;
+        height: 230px;
+    }
+
+    .submenu {
+        width: 90%;
+        text-align: left;
+        position: relative;
+        background-color: inherit;
+        z-index: 1;
+        margin-top: 5px;
+        display: none;
+        color: #fff;
+        font-size: 0.9em;
+    }
+
+    .submenu>li {
+        padding: 5px;
+        transition: all 04.s;
+        list-style: square;
+        list-style-position: inside;
+    }
+
+    .submenu>li:hover {
+        background-color: inherit;
+        color: white;
+    }
+
+    .notice {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .notice_Notice {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .notice tr>td>a {
+        margin: 0;
+    }
+
+    .notice tr>td>a>img {
+        padding: 0;
+        float: none;
+        margin: 0 auto;
+        width: 120px;
+    }
+
+    .table2 {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8em;
+    }
+
+    .table2 tr>td {
+        padding: 0px;
+    }
+
+    .table2 tr>td>input {
+        width: 120px;
+        height: 25px;
+        font-size: 0.8em;
+    }
+
+    .table2 tr>td>select {
+        width: 70px;
+        height: 28px;
+        font-size: 0.8em;
+    }
+
+    .table2 tr>td>textarea {
+        width: 300px;
+        height: 150px;
+        font-size: 0.8em;
+    }
+
+    .table3 {
+        width: 100%;
+        text-align: left;
+        margin-left: 30px;
+    }
+
+    .table3 tr>th {
+        color: #8C8C8C;
+        font-size: 3em;
+    }
+
+    .table3 tr>td {
+        border-bottom: 0px solid#D5D5D5;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .table3 tr>td>input {
+        width: 120px;
+        height: 25px;
+        font-size: 0.9em;
+    }
+
+    .table_food {
+        margin-left: 5%;
+        font-size: 1.2em;
+        width: 300px;
+        float: none;
+        height: 300px;
+    }
+
+    .table_re {
+        width: 100%;
+        padding: 0;
+    }
+
+    footer {
+        height: 120px;
+    }
+
+    .rightfotter {
+        left: 5px;
+    }
+}

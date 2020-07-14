@@ -1,0 +1,177 @@
+<html lang="ko">
+
+<head>
+  <title></title>
+  <script>
+    var cnt = -1;
+    var name1 = new Array();
+    var arleague = new Array();
+    var ballspeed = new Array();
+    var breakingball = new Array();
+    var str = "";
+    var money = new Array();
+
+    function input() {
+      cnt++;
+      name1[cnt] = frm1.name1.value;
+      arleague[cnt] = frm1.league.value;
+      ballspeed[cnt] = frm1.ballspeed.value;
+      if (document.getElementById('curve').checked == true) {
+        str += document.getElementById('curve').value + " ";
+      }
+      if (document.getElementById('slider').checked == true) {
+        str += document.getElementById('slider').value + " ";
+      }
+      if (document.getElementById('changeup').checked == true) {
+        str += document.getElementById('changeup').value + " ";
+      }
+      if (document.getElementById('knuckle').checked == true) {
+        str += document.getElementById('knuckle').value + " ";
+      }
+      if (document.getElementById('cutter').checked == true) {
+        str += document.getElementById('cutter').value + " ";
+      }
+      if (document.getElementById('sinker').checked == true) {
+        str += document.getElementById('sinker').value + " ";
+      }
+      breakingball[cnt] = str;
+      var sum = 0;
+      if (frm1.curve.checked == true) {
+        sum++;
+      }
+      if (frm1.slider.checked == true) {
+        sum++;
+      }
+      if (frm1.changeup.checked == true) {
+        sum++;
+      }
+      if (frm1.knuckle.checked == true) {
+        sum++;
+      }
+      if (frm1.cutter.checked == true) {
+        sum++;
+      }
+      if (frm1.sinker.checked == true) {
+        sum++;
+        console.log(sum)
+      }
+      if (frm1.league.value == "독립리그" && frm1.ballspeed.value >= 150 && sum) {
+        money[cnt] = 1 + 1 + (sum * 0.5);
+      }
+      if (frm1.league.value == "독립리그" && frm1.ballspeed.value >= 145 && sum) {
+        money[cnt] = 1 + 0.5 + (sum * 0.5);
+      }
+      if (frm1.league.value == "독립리그" && frm1.ballspeed.value < 145 && sum) {
+        money[cnt] = 1 + 0 + (sum * 0.5);
+      }
+      if (frm1.league.value == "마이너리그" && frm1.ballspeed.value >= 150 && sum) {
+        money[cnt] = 1.5 + 1 + (sum * 0.5);
+      }
+      if (frm1.league.value == "마이너리그" && frm1.ballspeed.value >= 145 && sum) {
+        money[cnt] = 1.5 + 0.5 + (sum * 0.5);
+      }
+      if (frm1.league.value == "마이너리그" && frm1.ballspeed.value < 145 && sum) {
+        money[cnt] = 1.5 + 0 + (sum * 0.5);
+      }
+      if (frm1.league.value == "메이저리그" && frm1.ballspeed.value >= 150 && sum) {
+        money[cnt] = 2 + 1 + (sum * 0.5);
+      }
+      if (frm1.league.value == "메이저리그" && frm1.ballspeed.value >= 145 && sum) {
+        money[cnt] = 2 + 0.5 + (sum * 0.5);
+      }
+      if (frm1.league.value == "메이저리그" && frm1.ballspeed.value < 145 && sum) {
+        money[cnt] = 2 + 0 + (sum * 0.5);
+      }
+      frm1.name1.value = "";
+      frm1.ballspeed.value = "";
+      frm1.name1.focus();
+      console.log(league)
+    }
+
+    function output() {
+      let table1 = "<table border ='1'>"
+      table1 += "<tr>";
+      table1 += "<td>";
+      table1 += "이름";
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += "리그";
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += "구속";
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += "구종";
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += "연봉";
+      table1 += "</td>";
+      table1 += "</tr>";
+      for (let i = 0; i < name1.length; i++) {
+        table1 += "<tr>";
+        table1 += "<td>";
+        table1 += name1[i];
+        table1 += "</td>";
+        table1 += "<td>";
+        table1 += arleague[i];
+        console.log(arleague[i]);
+        table1 += "</td>";
+        table1 += "<td>";
+        table1 += ballspeed[i];
+        table1 += "</td>";
+        table1 += "<td>";
+        table1 += breakingball[i];
+        table1 += "</td>";
+        table1 += "<td>";
+        table1 += money[i] + "억";
+        table1 += "</td>";
+        table1 += "</tr>";
+      }
+      table1 += "</table>"
+      document.write(table1);
+    }
+  </script>
+</head>
+
+<body>
+  <form name="frm1">
+    <h3>투수데이터베이스</h3>
+    <table border="1" cellspacing="3" cellpadding="11">
+      <tr>
+        <td>이름</td>
+        <td><input type="text" name="name1"></td>
+      </tr>
+      <tr>
+        <td>리그</td>
+        <td>
+          <input type="radio" name="league" id="major" value="메이져리그" checked>메이져리그
+          <input type="radio" name="league" id="minor" value="마이너리그" >마이너리그
+          <input type="radio" name="league" id="independent" value="독립리그" >독립리그
+        </td>
+      </tr>
+      <tr>
+        <td>구속</td>
+        <td><input type="text" name="ballspeed">km</td>
+      </tr>
+      <tr>
+        <td>구종</td>
+        <td>
+          <input type="checkbox" name="curve" id="curve" value="커브">커브
+          <input type="checkbox" name="slider" id="slider" value="슬라이더">슬라이더
+          <input type="checkbox" name="changeup" id="changeup" value="체인지업">체인지업
+          <input type="checkbox" name="knuckle" id="knuckle" value="너클볼">너클볼
+          <input type="checkbox" name="cutter" id="cutter" value="커터">커터
+          <input type="checkbox" name="sinker" id="sinker" value="싱커">싱커
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" value="입력" onclick="input()">
+          <input type="button" value="출력" onclick="output()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

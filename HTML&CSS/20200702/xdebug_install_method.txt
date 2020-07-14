@@ -1,0 +1,77 @@
+php 디버그툴을 사용하기 위한 방법
+index.php 파일을 만들어서 
+<?php phpinfo() ?>
+입력 한뒤 브라우저에서 해당 index.php파일을 연다
+그리고 브라우저에 나온정보를 전체 복사를 한다.
+따로 phpinfo.php파일로 붙여넣기 하든 텍스트파일로 저장하든 알아서 저장한다
+브라우저에서 https://xdebug.org/ 페이지로 들어간다
+문서에서 설치방법으로 들어간다
+================================================================================================
+Installing on Windows
+There are a few precompiled modules for Windows, they are all for the non-debug version of PHP. 
+You can get those at the download page. Follow these instructions to get Xdebug installed.
+================================================================================================
+위의 these instructions 하이퍼링크로 들어간다
+installation wizard 페이지에서
+phpinfo.php파일에 복사한 정보를 붙여넣기한다
+그리고 버튼 analyse my phpinfo() output 버튼을 클릭
+================================================================================================
+Instructions
+Download php_xdebug-2.9.6-7.2-vc15-x86_64.dll
+Move the downloaded file to C:\AutoSet10\Server\bin\ext
+Edit C:\AutoSet10\server\conf\php.ini and add the line
+zend_extension = C:\AutoSet10\Server\bin\ext\php_xdebug-2.9.6-7.2-vc15-x86_64.dll
+Restart the webserver
+================================================================================================
+이부분이 나타나면 Download php_xdebug-2.9.6-7.2-vc15-x86_64.dll
+이것을 다운로드 한뒤 apache 서버에 확장 드라이버 설치하는구간 
+여기선 autoset server bin ext 폴더에 php_xdebug-2.9.6-7.2-vc15-x86_64.dll 을 다운로드 한 파일을
+붙여넣는다.
+C:\AutoSet10\server\conf\php.ini 파일에 가서 제일 밑으로 가서
+zend_extension = C:\AutoSet10\Server\bin\ext\php_xdebug-2.9.6-7.2-vc15-x86_64.dll
+해당 부분을 붙여넣기 한다.
+그리고 웹서버를 멈추기 했다가 다시 시작한다.
+그리고 추가해야 될 부분은 한가지가 더 있다.
+xdebug.remote_enable=1
+xdebug.remote_autostart=on
+vscode에서 xdebug 확장플러그인을 설치한다 그리고 C:\AutoSet10\server\conf\php.ini 파일에 
+제일 밑 부분 xDebug영역에서 zend밑에 위 코드를 추가한다.
+다시 크롬브라우저로 가서 xdebug 확장 플러그인을 추가한다. 브라우저에서 플러그인 활성화를 시킨다
+다시 vscode로 돌아와서 디버깅 영역에서 설정부분에 추가할게 남았다
+"runtimeExecutable": "C:\\AutoSet10\\server\\bin\\php.exe"
+해당부분을 추가한다.
+
+예제
+================================================================================================
+{
+  // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+  // 기존 특성에 대한 설명을 보려면 가리킵니다.
+  // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9000
+    },
+    {
+      "name": "Launch currently open script",
+      "type": "php",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "port": 9000,
+      "runtimeExecutable": "C:\\AutoSet10\\server\\bin\\php.exe"
+    }
+  ]
+}
+================================================================================================
+
+수고했다
+끝났다
+이제 디버깅해라
+
+
+xampp

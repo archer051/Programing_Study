@@ -1,0 +1,13 @@
+git config --global user.email "깃 이메일"
+git config --global user.name "깃 아이디"
+
+cd 구문
+
+git init (폴더를 처음 올릴때)
+git add . (모든파일 올릴때)
+git add [파일명]
+git commit -m "하고싶은말"
+
+git remote add origin [레포지토리 주소] 최초 1회만 
+
+git push origin master

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      var sTemp15="ABC";
+      sTemp15="ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //65~90 대문자 10진수
+      sTemp15="abcdefghijklmnopqrstuvwxyz"; //97~122 소문자 10진수
+      sTemp15="0123456789"; //48~57 숫자 10진수
+      sTemp15="~!@#$%^&*()_+=-/'\"\\|[]{?}.><,";
+      /*charCodeAt(index)=========================================================
+      문자열에 index에 해당 문자의 아스키 코드값을 10진수 반환합니다
+      예:var str="ABC",str.charCodeAt(0) -> "A"의 아스키 코드값 65를 반환함
+      ==========================================================================*/
+      //var result15=sTemp15.charCodeAt(0);
+      //document.write(result15,"<br>");
+      /*(for (var i = 0; i < sTemp15.length; i++) {
+        document.write(sTemp15.charCodeAt(i),"&nbsp;");
+      }*/
+      for (var i = 0; i < sTemp15.length; i++) {
+        document.write("문자:"+sTemp15.substr(i,1)+"  =  "+"아스키코드10진수:"+sTemp15.charCodeAt(i),"<br>");
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

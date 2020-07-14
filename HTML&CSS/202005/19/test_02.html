@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script>
+      function send() {
+        /*세과목의 평균이 90이상이면 A학점
+        80~89이며 B학점
+        70~79이면 C학점
+        60~69이면 D학점
+        60미만이면 F학점을 출력하는 IF문작성*/
+        var kor=parseInt(frm1.kor.value);
+        var eng=parseInt(frm1.eng.value);
+        var math=parseInt(frm1.math.value);
+        var result=(kor+eng+math)/3;
+        if(result >= 90) {
+          alert("A학점입니다.");
+        }else if(result >= 80 && result <= 89) {
+          alert("B학점입니다.");
+        }else if(result >= 70 && result <= 79) {
+          alert("C학점입니다.");
+        }else if(result >= 60 && result <= 69) {
+          alert("D학점입니다.");
+        }else {
+          alert("F학점입니다.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="frm1">
+      <table border="1" cellspacing="5" cellpadding="10">
+         <tr>
+            <td>국어</td>
+            <td><input type="text" name="kor"></td>
+         </tr>
+         <tr>
+            <td>영어</td>
+            <td><input type="text" name="eng"></td>
+         </tr>
+         <tr>
+            <td>수학</td>
+            <td><input type="text" name="math"></td>
+         </tr>
+         <tr>
+            <td colspan="2" align="center">
+               <input type="button" value="평점구하기" onclick="send()">
+            </td>
+         </tr>
+      </table>
+   </form>
+  </body>
+</html>

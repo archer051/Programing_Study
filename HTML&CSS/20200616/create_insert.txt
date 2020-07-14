@@ -1,0 +1,459 @@
+--use testdb;
+create table menu(
+	code char(2) not null primary key comment '대분류코드'
+  ,name varchar(20) not null comment '대분류이름'
+);
+insert into menu values ('01','한식');
+insert into menu values ('02','중식');
+insert into menu values ('03','양식');
+
+select * from menu;
+
+create table submenu(
+   code char(3) not null primary key comment '서브코드'
+    ,pcode char(2) not null	comment '대분류코드'
+    ,name varchar(20) not null	comment '서브이름'
+   );
+
+insert into submenu values('001','01','찌개');
+insert into submenu values('002','01','면류');
+insert into submenu values('003','01','전골');
+
+insert into submenu values('004','02','북경요리');
+insert into submenu values('005','02','우한요리');
+insert into submenu values('006','02','광동성요리');
+
+insert into submenu values('007','03','스테이크');
+insert into submenu values('008','03','피자');
+insert into submenu values('009','03','햄버거');
+
+select * from submenu;
+
+create table store(
+	no int auto_increment primary key comment '순번'
+  ,pcode char(3) not null comment '서브코드'
+  ,store_name varchar(20) comment '가게이름'
+  ,manager varchar(20) comment '담당자'
+  ,address varchar(50) comment '주소'
+  ,tel varchar(20) comment '전화번호'
+  ,pic varchar(30) comment '사진파일명'
+);
+
+alter table store modify pic varchar(100);
+
+insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('001'
+  ,'김찌찌개가게'
+  ,'이사장'
+  ,'부산'
+  ,'0511111111'
+  ,'001_1.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('001'
+  ,'된장찌개가게'
+  ,'김사장'
+  ,'부산'
+  ,'0511111112'
+  ,'001_2.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('001'
+  ,'순두부찌개가게'
+  ,'박사장'
+  ,'부산'
+  ,'0511111113'
+  ,'001_3.jpg'
+  );
+insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('002'
+  ,'짜장면가게'
+  ,'이사장'
+  ,'부산'
+  ,'0511111113'
+  ,'002_1.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('002'
+  ,'돈코츠라면한국가게'
+  ,'김사장'
+  ,'부산'
+  ,'0511111122'
+  ,'002_2.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('002'
+  ,'미소라면한국가게'
+  ,'박사장'
+  ,'부산'
+  ,'0511111133'
+  ,'002_3.jpg'
+  );
+insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('003'
+  ,'짜장면가게'
+  ,'이사장'
+  ,'부산'
+  ,'0511111133'
+  ,'003_1.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('003'
+  ,'돈코츠라면한국가게'
+  ,'김사장'
+  ,'부산'
+  ,'0511111132'
+  ,'003_2.jpg'
+  );
+  insert into store 
+	(pcode
+	,store_name
+	,manager
+	,address
+	,tel,
+	pic) 
+values 
+	('003'
+  ,'미소라면한국가게'
+  ,'박사장'
+  ,'부산'
+  ,'0511111333'
+  ,'003_3.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('004'
+  ,'가잔니'
+  ,'사장'
+  ,'경기도 용인'
+  ,'0312631113'
+  ,'004_1.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('004'
+  ,'북경반점'
+  ,'사장'
+  ,'부산 부산진구'
+  ,'0516364046'
+  ,'004_2.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('004'
+  ,'베이징코야'
+  ,'사장'
+  ,'서울 종로구'
+  ,'023135292'
+  ,'004_3.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('005'
+  ,'월드프라자'
+  ,'사장'
+  ,'중국 우한'
+  ,'4001086527'
+  ,'005_1.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('005'
+  ,'한지에'
+  ,'사장'
+  ,'중국 우한'
+  ,'4001056724'
+  ,'005_2.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('005'
+  ,'혜화양육관'
+  ,'사장'
+  ,'중국 우한'
+  ,'4071026482'
+  ,'005_3.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('006'
+  ,'쥬에'
+  ,'사장'
+  ,'서울 용산구'
+  ,'027989700'
+  ,'006_1.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('006'
+  ,'딩딤1968'
+  ,'사장'
+  ,'서울 강남구'
+  ,'025171968'
+  ,'006_2.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('006'
+  ,'청키면가'
+  ,'사장'
+  ,'서울 중구'
+  ,'025383913'
+  ,'006_3.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('007'
+  ,'토마호크 스테이크'
+  ,'본부장'
+  ,'부산'
+  ,'05122445566'
+  ,'007_1.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('007'
+  ,'안심 스테이크'
+  ,'노과장'
+  ,'부산'
+  ,'05111223344'
+  ,'007_2.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('007'
+  ,'등심 스테이크'
+  ,'이사'
+  ,'부산'
+  ,'05199887755'
+  ,'007_3.jpg'
+  );
+
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('008'
+  ,'새우 쉬프림 피자'
+  ,'본부장'
+  ,'서울'
+  ,'0266339856'
+  ,'008_1.jpg'
+  );
+  insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('008'
+  ,'불고기 피자'
+  ,'사장'
+  ,'부산'
+  ,'05166102050'
+  ,'008_2.jpg'
+  );
+  insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('008'
+  ,'시카고 피자'
+  ,'매니저'
+  ,'부산'
+  ,'05144445555'
+  ,'008_3.jpg'
+  );
+insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('009'
+  ,'쉑쉑버거'
+  ,'매니저'
+  ,'부산'
+  ,'05111114444'
+  ,'009_1.jpg'
+  );
+  insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('009'
+  ,'스테이크 버거'
+  ,'사장'
+  ,'부산'
+  ,'05199998888'
+  ,'009_2.jpg'
+  );
+  insert into store 
+   (pcode
+   ,store_name
+   ,manager
+   ,address
+   ,tel,
+   pic) 
+values 
+   ('009'
+  ,'버거인 뉴욕'
+  ,'사장'
+  ,'대구'
+  ,'05188789899'
+  ,'009_3.jpg'
+  );
+
+select * 
+      from 
+        store 
+      

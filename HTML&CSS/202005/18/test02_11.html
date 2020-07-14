@@ -1,0 +1,28 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function cal() {
+          //삼항조건연산자 ㅋㅋㅋㅋㅋ
+            var kor = parseInt(frm1.kor.value);
+            var eng = parseInt(frm1.eng.value);
+            var math = parseInt(frm1.math.value);
+            var avg = (kor+eng+math)/3;
+            var result;
+            result = avg >= 90 ? "우등" : "보통";
+            // avg가크거나같으면(true) 우등 아니면(false) 보통
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+<form name="frm1">
+    <input type="text" name="kor"><br>
+    <input type="text" name="eng"><br>
+    <input type="text" name="math"><br>
+    <input type="button" value="우등상여부" onclick="cal()">
+</form>
+
+</body>
+</html>

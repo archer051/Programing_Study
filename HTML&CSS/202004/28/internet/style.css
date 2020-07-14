@@ -1,0 +1,160 @@
+*{
+	margin:0 auto;
+	padding:0;
+	list-style:none;
+	font-family:"맑은 고딕";
+}
+a{
+	text-decoration:none;
+	color:inherit;
+}
+
+header{
+	width:1000px;
+	height:150px;
+	background-color:black;
+}
+.logo{
+	width:200px;
+	height:150px;
+	float:left;
+	line-height:150px;
+}
+.logo img{
+	width:100%;
+	height:100%;
+}
+.menu{
+	width:800px;
+	height:150px;
+	line-height:60px;
+	color:white;
+}
+.menu li{
+	width:230px;
+	float:left;
+	color:white;
+	text-align:center;
+}
+.menu>li:hover{
+	background-color:rgba(255,255,255,0.6);
+	color:white;
+}
+.submenu{
+	width:230px;
+	height:50px;
+	color:white;
+	z-index:99;
+	display:none;
+	position:absolute;
+}
+.submenu>li:hover{
+	background-color:rgba(255,255,255,0.4);
+	color:white;
+}
+section{
+	width:1000px;
+	min-height:500px;
+	background-color:black;
+}
+.imgs{
+	width:800px;
+	height:300px;
+	position:relative;
+	overflow:hidden;
+}
+.imgs img{
+	width:100%;
+	height:100%;
+	position:absolute;
+	transition:all 1.4s;
+}
+.welcome{
+	text-align:center;
+	border-radius:50px;
+	color:white;
+	background-color:rgba(255,255,255,0.3);
+	position:absolute;
+	z-index:1;
+	left:550px; top:270px;
+}
+nav{
+	width:1000px;
+	min-height:500px;
+	background-color:black;
+}
+.notice{
+	position:relative;
+	width:50%;
+	float:left;
+	left:30px;
+}
+.tb1{
+	color:white;
+	float:left;
+}
+.h1{
+	text-align:center;
+	color:white;
+}
+.partner{
+	width:50%;
+	float:right;
+	position:relative;
+	overflow:hidden;	
+}
+.pimg{
+	width:100%;
+	height: 200px;
+}
+.pimg img{
+	width:70%;
+	position:absolute;
+	left:70px;
+	top:50px;
+	transition:all 1.4s;
+	overflow:hidden;
+}
+.clear{
+	clear:both;
+}
+.icons{
+	margin-top:50px;
+	width:100%;
+	text-align:center;
+}
+.icon{
+	width:300px;
+	display:inline-block;
+	color:white;
+}
+.bt1{
+	border-radius:50px;
+	color:white;
+	background-color:rgba(255,255,255,0.6);
+}
+.bt1:hover{
+	cursor:pointer;
+	background-color:gray;
+}
+footer{
+	width:1000px;
+	min-height:100px;
+	background-color:black;
+	color:white;
+}
+.ft1{
+	width:45%;
+	min-height:100px;
+	line-height:60px;
+	float:left;
+	text-align:center;
+	background-color:rgba(255,255,255,0.4);
+	margin-left:50px;
+}
+.ft2{
+	width:50%;
+	background-color:rgba(255,255,255,0.4);
+	float:left;
+	min-height:100px;
+}

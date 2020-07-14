@@ -1,0 +1,27 @@
+*{
+	margin:0 auto;
+	padding:0;
+	list-style:none;
+	font-family:"맑은 고딕";
+}
+a{text-decoration:none;color:inherit;}
+#wrap{width:1000px;}
+#left{width:200px;float:left;}
+#center{width:800px;min-height:500px;float:left;}
+.menu{width:100%;background-color:black;color:white;}
+.menu>li{padding:5px;position:relative;}
+.menu>li:hover{background-color:white;color:black;}
+.submenu{
+	position:absolute;float:left;z-index:1;left:200px;top:-2px;
+	width:200px;background-color:black;opacity:0.5;
+	display:none;color:white;
+}
+.submenu>li{
+	height:20px;padding:5px;
+}
+.submenu>li:hover{
+	background-color:orange;opacity:0.5;
+}
+
+
+

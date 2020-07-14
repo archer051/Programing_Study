@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title></title>
+   <script>
+      //if 문장switch 문장은 조건분기측면 .. 동일
+      //if문장 : 범위를 특정 switch: 값을 특정
+      var site=prompt("즐겨사용하는 포털사이트","");
+      var url;
+         switch(site){
+            case "구글":url="www.google.com"
+               break;
+            case "다음":url="www.daum.com"
+               break;
+            case "네이버":url="www.naver.com"
+               break;
+            default:alert("존재하지않는 사이트 입니다.")
+         }
+         if(url){
+            location.href="http://"+url;
+         }
+   </script>
+</head>
+<body>
+
+</body>
+</html>

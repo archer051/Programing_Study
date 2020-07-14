@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script>
+    //book p63 조건식에 논리형 데이터가 아닌 다른 형이 오는 경우
+    var v1=0;
+    console.log("if v1전");
+    if(v1) { //v1에 0,null,""(빈문자),undefined 같은 값이 들어오면 표출이 안됨.
+      console.log("조건문 v1 안에 들어옴");
+      document.write(v1);
+    }
+
+    var vn1=10;
+    var vn2=2;
+    var result;
+    result=vn1+vn2;
+    console.log(result);
+    document.write(result);
+    result=vn1-vn2;
+    console.log(result);
+    document.write(result);
+    result=vn1*vn2;
+    console.log(result);
+    document.write(result);
+    result=vn1/vn2;
+    console.log(result);
+    document.write(result);
+    result=vn1%vn2;
+    console.log(result);
+    document.write(result);
+    //변수명 에러 일부러 내기 - document.write(result2);
+    document.write(result2);
+    //잡히지 않은 참조오류: result2 is not undefined at
+  </script>
+  </head>
+  <body>
+
+  </body>
+
+</html>

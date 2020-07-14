@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title></title>
+   <script>
+      var name1= new Array();
+      var type1= new Array();
+      var speed1= new Array();
+      var age1= new Array();
+      var nationality1=new Array();
+      var balltype1=new Array();
+      var cnt=-1;
+      function input(){
+         cnt++;
+         name1[cnt]=frm1.name.value;
+         type1[cnt]=frm1.type.value;
+         speed1[cnt]=frm1.speed.value;
+         age1[cnt]=frm1.age.value;
+         nationality1[cnt]=frm1.nationality.value;
+         balltype1[cnt]=frm1.balltype.value;
+         frm1.name.value="";
+         frm1.type.value="";
+         frm1.speed.value="";
+         frm1.age.value="";
+         frm1.nationality.value="";
+         frm1.balltype.value="";
+         frm1.name.focus();
+      }
+      function output(){
+         document.write("<table border='1'>");
+         document.write("<tr>");
+         document.write("<td>이름</td>");
+         document.write("<td>유형</td>");
+         document.write("<td>구속</td>");
+         document.write("<td>나이</td>");
+         document.write("<td>국적</td>");
+         document.write("<td>변화구</td>");
+         document.write("</tr>");
+         for(var i=0; i<name1.length;i++){
+           document.write("<tr>");
+           document.write("<td>"+name1[i]+"</td>");
+           document.write("<td>"+type1[i]+"</td>");
+           document.write("<td>"+speed1[i]+"</td>");
+           document.write("<td>"+age1[i]+"</td>");
+           document.write("<td>"+nationality1[i]+"</td>");
+           document.write("<td>"+balltype1[i]+"</td>");
+           document.write("</tr>");
+         }
+         document.write("</table>");
+      }
+
+   </script>
+</head>
+<body>
+   <form name="frm1">
+      <table border="1" cellspacing="5" cellpadding="5">
+         <h3>입력창</h3>
+         <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"></td>
+         </tr>
+         <tr>
+            <td>유형</td>
+            <td><select name="type">
+                  <option value="우완">우완</option>
+                  <option value="좌완">좌완</option>
+                  <option value="언더">언더</option>
+            </select></td>
+         </tr>
+         <tr>
+            <td>구속</td>
+            <td><input type="text" name="speed"></td>
+         </tr>
+         <tr>
+            <td>나이</td>
+            <td><input type="text" name="age"></td>
+         </tr>
+         <tr>
+            <td>국적</td>
+            <td><input type="text" name="nationality"></td>
+         </tr>
+         <tr>
+            <td>변화구</td>
+            <td><select name="balltype">
+               <option value="체인지업">체인지업</option>
+               <option value="커브">커브</option>
+               <option value="슬라이더">슬라이더</option>
+            </select></td>
+         </tr>
+         <tr>
+            <td colspan="2" align="center"><input type="button" value="입력" onclick="input()">
+               <input type="button" value="출력" onclick="output()">
+            </td>
+         </tr>
+      </table>
+   </form>
+
+</body>
+</html>

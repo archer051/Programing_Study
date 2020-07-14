@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function send() {
+            var name = frm1.name.value;
+            var grade = frm1.grade.value;
+            var gradenum;
+            var toeic = frm1.toeic.value;
+            var toeicnum;
+            var lisence = frm1.lisence.value;
+            var lisencenum;
+            var gongmo = frm1.gongmo.value;
+            var gongmonum;
+            var result;
+            if(grade == "대학원졸") {
+                gradenum = 20;
+                console.log(gradenum);
+            }else if(grade =="대졸") {
+                gradenum = 15;
+                console.log(gradenum);
+            }else if(grade =="초대졸") {
+                gradenum = 10;
+                console.log(gradenum);
+            }else {
+                gradenum = 5;
+                console.log(gradenum);
+            }
+            if(toeic >= 800) {
+                toeicnum = 20;
+                console.log(toeicnum);
+            }else if(toeic >= 600) {
+                toeicnum = 10;
+                console.log(toeicnum);
+            }else {
+                toeicnum = 0;
+            }
+            if(lisence == "4") {
+                lisencenum = 20;
+                console.log(lisencenum);
+            }else if(lisence == "3") {
+                lisencenum = 15;
+                console.log(lisencenum);
+            }else if(lisence == "2") {
+                lisencenum = 10;
+                console.log(lisencenum);
+            }else if(lisence == "1") {
+                lisencenum = 5;
+                console.log(lisencenum);
+            }else {
+              lisencenum = 0;
+              console.log(lisencenum);
+            }
+            if(gongmo == "4") {
+                gongmonum = 20;
+                console.log(gongmonum);
+            }else if(gongmo == "3") {
+                gongmonum = 15;
+                console.log(gongmonum);
+            }else if(gongmo == "2") {
+                gongmonum = 10;
+                console.log(gongmonum);
+            }else if(gongmo == "1") {
+                gongmonum = 5;
+                console.log(gongmonum);
+            }else {
+              gongmonum = 0;
+              console.log(gongmonum);
+            }
+            result = gradenum+toeicnum+lisencenum+gongmonum;
+            if(result >= 80) {
+                document.write(name + "님의 점수는" + result + "이므로 최종면접합격입니다");
+                //document.write("<meta http-equiv="refresh" content="3;url=test02_18.html">");
+                //document.write('"<meta http-equiv='"refresh"' content='"3;url=test02_18.html"'>"');
+                //document.write("<meta http-equiv='"refresh"' content='"3;url=test02_18.html"'>");
+                //document.write("<meta http-equiv=\"refresh\" content=\"3;url=test02_18.html\">");
+
+                //var temp ="<meta http-equiv=\"refresh\" content=\"3;url=test02_18.html\">";
+                //document.write(temp);
+
+                // var temp1="\"refresh\"";
+                // var temp2="\"3;url=test02_18.html\"";
+                // document.write("<meta http-equiv="+temp1+"content="+temp2+">");
+
+                //window.history.back();
+                // window.location.reload();
+                //setTimeout("location.reload()",3000);
+            }else {
+                document.write(name + "님의 점수는" + result + "이므로 불합격입니다");
+                //document.write("<meta http-equiv="refresh" content="3;url=test02_18.html">");
+                //document.write('"<meta http-equiv='"refresh"' content='"3;url=test02_18.html"'>"');
+                //document.write("<meta http-equiv=\"refresh\" content=\"3;url=test02_18.html\">");
+
+                //var temp ="<meta http-equiv=\"refresh\" content=\"3;url=test02_18.html\">";
+                //document.write(temp);
+
+                // var temp1="\"refresh\"";
+                // var temp2="\"3;url=test02_18.html\"";
+                // document.write("<meta http-equiv="+temp1+"content="+temp2+">");
+                //window.history.back();
+
+                //window.location.reload();
+                //setTimeout("location.reload()",3000);
+
+            }
+        }
+    </script>
+</head>
+<body>
+<form name="frm1">
+    <table>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>최종학력</td>
+            <td><select name="grade">
+                <option value="대학원졸">대학원졸</option>
+                <option value="대졸">대졸</option>
+                <option value="초대졸">초대졸</option>
+                <option value="고졸">고졸</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>토익</td>
+            <td><input type="text" name="toeic"><br></td>
+        </tr>
+        <tr>
+            <td>보유자격증</td>
+            <td><select name="lisence">
+                <option value="0">0개</option>
+                <option value="1">1개</option>
+                <option value="2">2개</option>
+                <option value="3">3개</option>
+                <option value="4">4개</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>공모전수상</td>
+            <td><select name="gongmo">
+                <option value="0">0개</option>
+                <option value="1">1개</option>
+                <option value="2">2개</option>
+                <option value="3">3개</option>
+                <option value="4">4개</option>
+            </select><br></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="판별" onclick="send()"></td>
+            <!-- <meta http-equiv="refresh" content="4;url=test02_18.html"> -->
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

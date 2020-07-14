@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <title>Document</title>
+  <script>
+    $(function () {
+      //2020년 부터 이전 10년까지
+      var today = new Date();
+      var fYear;
+      var fMonth;
+      fYear = today.getFullYear();
+      $("#year").empty();
+      for (var i = fYear; i > fYear - 10; i--) {
+        var option = $("<option value=" + i + ">" + i + "</option>");
+        $("#year").append(option);
+      }
+      //월초기화
+      month_start();
+      function month_start() {
+        $("#month").empty();
+        for (var i = 1; i <= 12; i++) {
+          var option = $("<option value=" + i + ">" + i + "</option>");
+          $("#month").append(option);
+        }
+      }
+      //일초기화
+      day_start();
+      function day_start() {
+        $("#day").empty();
+        for (var i = 1; i <= 31; i++) {
+          var option = $("<option value=" + i + ">" + i + "</option>");
+          $("#day").append(option);
+        }
+      }
+      //change이벤트를 건다
+      $("#year").change(function () {
+        var fYear = parseInt(frm1.year.value);
+        month_start();
+        day_start();
+      });
+      //월에 이벤트를 건다.
+      $("#month").change(function () {
+        //console.log("month:change");
+        fMonth = frm1.month.value;
+        // console.log("month:" + fMonth);
+        var dayCount;
+        if (fMonth == 1 || fMonth == 3 || fMonth == 5 || fMonth == 7 || fMonth == 8 ||
+          fMonth == 10 || fMonth == 12) {
+          dayCount = 31;
+        } else if (fMonth == 4 || fMonth == 6 || fMonth == 9 || fMonth == 11) {
+          dayCount = 30;
+        } else { //윤년이냐 아니냐를 따져줘야 한다
+          if (isLeap(fYear) == true)
+            dayCount = 29;
+          else
+            dayCount = 28;
+
+          console.log("daycount:" + dayCount);
+        }
+
+        $("#day").empty();
+        for (i = 1; i <= dayCount; i++) {
+          var option = $("<option value=" + i + ">" + i + "</option>");
+          $("#day").append(option);
+        }
+      });
+
+      function isLeap(pYear) {
+        var year = parseInt(pYear);
+        //console.log("year:" + year);
+        //윤년조건 :조건1=4로나누어떨어지고100으로나누어떨어지면안됨 조건2=400으로 나누어 떨어지면 윤년.
+        if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+          return true;
+        else
+          return false;
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <!-- 제이쿼리의 주요기능 중 apeend와 empty메서드를 응용 -->
+  <form name="frm1">
+    <select id="year"></select>년
+    <select id="month"></select>월
+    <select id="day"></select>일
+  </form>
+</body>
+
+</html>

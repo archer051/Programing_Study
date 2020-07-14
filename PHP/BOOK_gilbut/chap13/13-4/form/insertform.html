@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="utf-8">
+<title>레코드 추가</title>
+<link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div>
+  <!-- 입력 폼을 만든다 -->
+  <form method="POST" action="insert_member.php">
+    <ul>
+      <li>
+        <label>이름:
+        <input type="text" name="name" placeholder="이름">
+        </label>
+      </li>
+      <li>
+        <label>나이:
+        <input type="number" name="age" placeholder="숫자">
+        </label>
+      </li>
+      <li>성별:
+        <label><input type="radio" name="sex" value="남" checked>남성</label>
+        <label><input type="radio" name="sex" value="여">여성</label>
+      </li>
+      <li><input type="submit" value="추가"></li>
+    </ul>
+  </form>
+</div>
+</body>
+</html>

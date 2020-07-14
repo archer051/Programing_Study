@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+  //현재 날짜부터 연말까지의 며칠이 남았는지 구하시오.
+  var today=new Date(); //파라미터가 없으면 현재날짜인식
+  var nowYear=today.getFullYear();
+  var theDate=new Date(nowYear,11,31);
+  //파라미터를 주면 해당날짜인식
+  var diffDate=theDate.getTime()-today.getTime();
+  document.write("연말까지는 "+diffDate+"일 남았습니다.","<br>");
+  var result=Math.ceil(diffDate/(60*1000*60*24)); //ceil:소수점버림
+  document.write("연말까지는 "+result+"일 남았습니다.","<br>");
+  //문제 본인의 출생년도를 입력하여 현재까지 몇일을 살아왔는지 구하시오.
+  var iBirthYear = parseInt(prompt("출생년도를 입력하시오","1986"));
+  var iBirthMonth = parseInt(prompt("출생월을 입력하시오","9"));
+  var iBirthDay = parseInt(prompt("출생일을 입력하시오","18"));
+  theDate=new Date(iBirthYear,iBirthMonth-1,iBirthDay);
+  diffDate=today.getTime()-theDate.getTime();
+  document.write("이인간이 숨쉬고 있는 날을 "+diffDate+"초로 계산하면 이만큼입니다.","<br>");
+  result=Math.ceil(diffDate/(60*1000*60*24)); //ceil:소수점올림
+  document.write("이인간이 숨쉬고 있는 날이 "+result+"일 입니다.","<br>");
+  //Math.abs, Math.round, Math.ceil, Math.floor
+  var v1=-10;
+  // result=Math.abs(v1);
+  var result=Math.abs(v1);
+  var result2=Math.abs(v1);
+  document.write(result2,"<br>");
+  var v2=3.5;
+  var result3=Math.round(v2);//4 반올림
+  var result4=Math.floor(v2);//3 내림
+  var result5=Math.ceil(v2);//4 올림
+  document.write("3.5 -> round 반올림:"+result3,"<br>");
+  document.write("3.5 -> floor 내림:"+result4,"<br>");
+  document.write("3.5 -> ceil 올림:"+result5,"<br>");
+</script>
+</head>
+</html>

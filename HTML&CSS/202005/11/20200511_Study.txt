@@ -1,0 +1,33 @@
+-- CREATE TABLE member(
+-- id VARCHAR(15) NOT NULL PRIMARY KEY,
+-- pw VARCHAR(15) NOT NULL,
+-- name varchar(20) not null,
+-- hp VARCHAR(15) NOT NULL,
+-- emil VARCHAR(20) NOT NULL,
+-- gender CHAR(1) NOT NULL,
+-- hobby1 VARCHAR(10),
+-- hobby2 VARCHAR(10),
+-- hobby3 VARCHAR(10),
+-- hobby4 VARCHAR(10),
+-- hobby5 VARCHAR(10),
+-- testdbcomment TEXT,
+-- level varchar(15)
+-- );
+==================오후실습과제======================
+나는프로그래밍언어 커뮤니티 사이트의 관리자이다.
+어제와 같이 회원들의 정보를 관리하고자 한다
+
+아이디:중복체크
+비밀번호:
+비밀번호확인:
+닉네임:중복체크
+이메일:
+관심분야 checkbox처리
+	C C++ java html css php javascript
+성적: radio 처리
+최종학력:select 개체 처리
+이메일수신여부:checkbox 처리
+남기고싶은말:textarea
+
+가입완료,새로작성 버튼
+========================================================

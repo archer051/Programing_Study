@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		function send() {
+			var juminNo = frm1.juminNo.value;
+			var hap = 0;
+			for (var i = 0; i < 8; i++) {
+				hap += juminNo.charAt(i) * (i + 2);
+			}
+			for (var i = 8; i < 12; i++) {
+				hap += juminNo.charAt(i) * (i - 6);
+			}
+			var result = hap % 11;
+			result = 11 - result;
+			if (result != juminNo.charAt(12)) {
+				alert("주민번호가 유효하지 않습니다.");
+			} else {
+				alert("유효한 주민번호입니다.");
+			}
+		}
+	</script>
+</head>
+<body>
+	<form name="frm1">
+		<input type="text" name="juminNo" maxlength="13">
+		<input type="button" value="주민번호체크" onclick="send()">
+	</form>
+</body>
+</html>
+//charAt함수를 이용을해서 for문장으로
+//변수값구할것.
+//9 0 1 1 2   2 1 8  1 1   3 6 5 ->주민번호
+//2 3 4 5 6   7 8 9  2 3   4 5
+//18 0 4 5 12 14 8 72 2 3 12 30=>덧셈의 결과:180
+//180을 11로 나눈 나머지:=> 4
+//11에서 4를 뺀다=> 7
+//7을 본인 주민번호의 마지막값과 비교...
+//같으면 유효한 주민번호, 다르면 가라...

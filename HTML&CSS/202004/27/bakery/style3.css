@@ -1,0 +1,104 @@
+* {
+	margin: 0 auto; /*줄칸띄우기간격*/
+	padding: 0; /*줄간간격*/
+	list-style: none; /*불릿 안생기게 하기 위해*/
+	font-family: "맑은 고딕"; 글자전체 맑은 고딕으로 변경
+}
+
+a {
+	text-decoration: none; /*하이퍼텍스트 밑줄 없애기*/
+	color: inherit;  /*파란색,빨간색 표출 없애기*/
+}
+
+header {
+	width: 900px;
+	height: 150px;
+	/*border: 1px solid #000;*/
+}
+
+.logo {
+	width: 300px;
+	height: 150px;		
+	float: left;
+	overflow: hidden;
+}
+
+.logo>a>img {
+	width: 100%;
+	height: 100%;
+	
+}
+
+nav {
+	width: 600px;
+	height: 150px;
+	text-align: center;
+	float: right;
+}
+
+.menu {
+	width: 590px;
+	height: 30px;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 1.6em;
+	font-weight: bold;
+
+}
+
+.menu>li {
+	width: 194px;
+	margin-top: 60px;
+	float: left;
+	position: relative;
+}
+
+.menu>li:hover {
+	background-color: #ba682d;
+	color: white;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.submenu {
+	width: 194px;
+	position: absolute;
+	z-index: 1;
+	display: none;
+	background-color: rgba(255,255,255,0.8);
+	color: #000;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.submenu>li {
+	transition: all 0.3s;
+	border-bottom: 2px solid #7A422E;
+
+}
+
+.submenu>li:hover {
+	background-color: #ba692d;
+	color: white;
+}
+
+section {
+	width: 900px;
+	position: relative;
+	/*border: 1px solid #000;*/
+}
+
+.imgslide {
+	width: 900px;
+	height: 200px;
+	position: absolute;
+	/*border: 1px solid #000;*/
+}
+
+.imgslide img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/*transition: all 1s;	*/
+	transition: all 1s;	
+}

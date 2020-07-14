@@ -1,0 +1,107 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<title></title>
+<style>
+*{
+  margin:0 auto;padding:0;list-style:none;font-family:"맑은 고딕";
+}
+#box{
+  width:500px;height:35px;border:1px solid #ccc;overflow:hidden;
+}
+.news{position:relative;}
+.news>p{height:30px;padding-top:5px;padding-left:5px;position:absolute;}
+</style>
+<script>
+$(function(){
+  var now=0; var imgs=4;
+  start();
+  function start(){
+    $(".news>p").eq(0).css({"top":"0px"});
+    $(".news>p").eq(1).css({"top":"35px"});
+    $(".news>p").eq(2).css({"top":"70px"});
+    $(".news>p").eq(3).css({"top":"105px"});
+    $(".news>p").eq(4).css({"top":"140px"});
+    play=setInterval(function(){slide();},3000);
+  }
+  function slide(){
+      now++;
+      if(now==5){now=0;}
+
+      if(now==1){
+        $(".news>p").eq(0).css("display","block");
+        $(".news>p").eq(1).css("display","block");
+        $(".news>p").eq(2).css("display","none");
+        $(".news>p").eq(3).css("display","none");
+        $(".news>p").eq(4).css("display","none");  
+        $(".news>p").eq(1).animate({"top":"0px"});
+        $(".news>p").eq(2).animate({"top":"35px"});
+        $(".news>p").eq(3).animate({"top":"70px"});
+        $(".news>p").eq(4).animate({"top":"105px"});
+        $(".news>p").eq(0).animate({"top":"-35px"});
+    
+      }else if(now==2){
+        $(".news>p").eq(1).css("display","block");
+        $(".news>p").eq(2).css("display","block");
+        $(".news>p").eq(3).css("display","none");
+        $(".news>p").eq(4).css("display","none");
+        $(".news>p").eq(0).css("display","none");
+        $(".news>p").eq(2).animate({"top":"0px"});
+        $(".news>p").eq(3).animate({"top":"35px"});
+        $(".news>p").eq(4).animate({"top":"70px"});
+        $(".news>p").eq(0).animate({"top":"105px"});
+        $(".news>p").eq(1).animate({"top":"-35px"});
+    
+      }else if(now==3){
+        $(".news>p").eq(2).css("display","block");
+        $(".news>p").eq(3).css("display","block");
+        $(".news>p").eq(4).css("display","none");
+        $(".news>p").eq(0).css("display","none");
+        $(".news>p").eq(1).css("display","none");
+        $(".news>p").eq(3).animate({"top":"0px"});
+        $(".news>p").eq(4).animate({"top":"35px"});
+        $(".news>p").eq(0).animate({"top":"70px"});
+        $(".news>p").eq(1).animate({"top":"105px"});
+        $(".news>p").eq(2).animate({"top":"-35px"});
+    
+      }else if(now==4){
+        $(".news>p").eq(3).css("display","block");
+        $(".news>p").eq(4).css("display","block");
+        $(".news>p").eq(0).css("display","none");
+        $(".news>p").eq(1).css("display","none");
+        $(".news>p").eq(2).css("display","none");
+        $(".news>p").eq(4).animate({"top":"0px"});
+        $(".news>p").eq(0).animate({"top":"35px"});
+        $(".news>p").eq(1).animate({"top":"70px"});
+        $(".news>p").eq(2).animate({"top":"105px"});
+        $(".news>p").eq(3).animate({"top":"-35px"});
+    
+      }else if(now==0){
+        $(".news>p").eq(4).css("display","block");
+        $(".news>p").eq(0).css("display","block");
+        $(".news>p").eq(1).css("display","none");
+        $(".news>p").eq(2).css("display","none");
+        $(".news>p").eq(3).css("display","none");
+        $(".news>p").eq(0).animate({"top":"0px"});
+        $(".news>p").eq(1).animate({"top":"35px"});
+        $(".news>p").eq(2).animate({"top":"70px"});
+        $(".news>p").eq(3).animate({"top":"105px"});
+        $(".news>p").eq(4).animate({"top":"-35px"});  
+      }
+  }
+});
+</script>
+</head>
+<body>
+  <br><br>
+  <div id="box">
+    <div class="news">
+      <p>첫번째 뉴스입니다.</p>
+      <p>두번째 뉴스입니다.</p>
+      <p>세번째 뉴스입니다.</p>
+      <p>네번째 뉴스입니다.</p>
+      <p>다섯번째 뉴스입니다.</p>
+    </div>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script src="script.js"></script>
+	<title></title>
+	<style>
+		#pop01 {
+			width: 300px;
+			height: 400px;
+			background-color: #3d3d3d;
+			color: #fff;
+			position: absolute;
+			top: 10px;
+			left: 100px;
+			text-align: center;
+			border: 2px solid #000;
+			display: none;
+		}
+
+		#pop02 {
+			width: 300px;
+			height: 400px;
+			background-color: #3d3d3d;
+			color: #fff;
+			position: absolute;
+			top: 10px;
+			left: 500px;
+			text-align: center;
+			border: 2px solid #000;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<!--오늘하루 팝업창 띄우기-->
+	<!--플러그인작업으로 쿠키클래스를 받아와야한다.-->
+	<!--cdnjs.com에 접속. jquery cookie를 검색한다.-->
+	<!--cookie란 웹서버로부터 받은 파일의 정보를 
+	서버에 저장하지 않고 내 PC에 저장하는 저장파일-->
+	<form name="frmPopUp" method="post">
+		<div id="pop01">
+			<div style="height:350px;">
+				안녕하세요 제이쿼리 강좌 오픈합니다.<br>
+				<a href="#"><b>팝업강좌 바로가기</b></a>
+			</div>
+			<div>
+				<input type="checkbox" name="popup01">오늘하루 이창을 다시 열지 않음
+				<div id="close01" style="width:100px;margin:auto;cursor:pointer;">close</div>
+			</div>
+		</div>
+		<div id="pop02">
+			<div style="height:350px;">
+				안녕하세요 php/mysql 강좌 오픈합니다.<br>
+				<a href="#"><b>팝업강좌 바로가기</b></a>
+			</div>
+			<div>
+				<input type="checkbox" name="popup02">오늘하루 이창을 다시 열지 않음
+				<div id="close02" style="width:100px;margin:auto;cursor:pointer;">close</div>
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>

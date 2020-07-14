@@ -1,0 +1,122 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>20200527 선택자</title>
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    //요소들의 현재상태를 읽어온다.
+    //alert("하이");
+    //사진,유튜브,동영상 읽어오지 않는다.
+    //inner와outer의 차이는 border를 포함하느냐 마느냐의 차이
+    var hei=$(".menu").outerHeight();
+    //alert(hei);
+    $(".submenu").css("height",hei);
+  });
+    $(function() {
+      //$("#menu li:first").css("background-color","#ff0");
+      //$("#menu li:last").css("color","#0ff");
+      //$("#menu li:even").css("background-color","#ff0"); //홀수
+      //$("#menu li:odd").css("color","#0ff"); //짝수
+      //$("#menu li").eq(2).css("background-color","#ff0"); //인덱스 3번째
+      //$("#menu li:lt(2)").css("background-color","#ff0"); //2미만 lt미만
+      //$("#menu li:gt(2)").css("background-color","#f0f"); //2초과 gt초과
+//   $("li:first-of-type").css("background-color","red"); //모든 ul li 첫번째 적용
+//   $("li:last-of-type").css("background-color","green");//모든 ul li 마지막 적용
+      //$("#menu1 li:nth-child(1)").css("background-color","#ff0");
+      //$("#menu1 li:nth-child(2n)").css("border","2px dashed #f00");
+      //$("#menu2 li:nth-last-child(2)").css("background-color","#0ff");
+      //var idxNum=$("li").index($("#list3"));//Id 찾기
+      //alert(idxNum);
+      $(".menu>li").mouseover(function() {
+        var idx=$(this).index();
+        //alert(idx);
+        $(".submenu").eq(idx).css("display","block");
+        $(".submenu").eq(idx).siblings().css("display","none");
+      });
+
+    });
+  </script>
+  <style>
+    * {
+      margin:0 auto;
+      padding:0;
+      list-style:none;
+      font-family:"맑은 고딕";
+    }
+    #wrap {
+      width:600px;
+    }
+    #area1 {
+      width:150px;
+      float:left;
+    }
+    #area2 {
+      width:450px;
+      float:left;
+      position:relative;
+    }
+    .menu {
+      width:100%;
+      background-color:black;
+      color:white;
+    }
+    .menu>li {
+      padding:5px;
+    }
+    .menu>li:hover {
+      background-color:white;
+      color:black;
+    }
+    .submenu {
+      width:100%;
+      background-color:red;
+      position:absolute;
+      display:none;
+    }
+  </style>
+</head>
+
+<body>
+  <!--<h1>탐색 선택자</h1>
+   <ul id="menu">
+    <li>내용1-1</li>
+    <li>내용1-2</li>
+    <li>내용1-3</li>
+  </ul>
+  <ul id="menu1">
+    <li>내용1-1</li>
+    <li>내용1-2</li>
+    <li>내용1-3</li>
+  </ul>
+  <ul id="menu2">
+    <li>내용2-1</li>
+    <li>내용2-2</li>
+    <li>내용2-3</li>
+  </ul>-->
+
+  <!-- <h1>배열관련함수</h1>
+   <ul>
+    <li>내용1-1</li>
+    <li>내용1-2</li>
+    <li id="list3">내용1-3</li>
+  </ul> -->
+  <div id="wrap">
+    <div id="area1">
+      <ul class="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+      </ul>
+    </div>
+    <div id="area2">
+      <div class="submenu">서브메뉴1</div>
+      <div class="submenu">서브메뉴2</div>
+      <div class="submenu">서브메뉴3</div>
+    </div>
+  </div>
+
+</body>
+
+</html>

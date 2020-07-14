@@ -1,0 +1,74 @@
+2020.05.08 수업
+* = 아스터리스크
+공지사항 제작 루틴.
+1. 테이블생성.
+  create table notice(
+    no int auto_increment not null primary key,
+    writer varchar(30),
+    title varchar(100),
+    content text,
+    writeday varchar(30),
+    hit int default 0
+  );
+  -- INSERT INTO notice
+  -- (writer,title,content,writeday)
+  -- VALUES
+  -- ('관리자','회식공지합니다','전원참석요망','2020-05-08');
+
+  -- INSERT INTO notice
+  -- (writer,title,content,writeday)
+  -- VALUES
+  -- ('관리자','안오면벌금1만원 부과','전원참석요망','2020-05-08');
+  --
+  -- INSERT INTO notice
+  -- (writer,title,content,writeday)
+  -- VALUES
+  -- ('관리자','회식 참여비 2만원','전원참석요망','2020-05-08');
+
+  -- SELECT * FROM notice ORDER BY NO DESC;
+2. notice.php(index) 제작
+  select * from notice order by no desc;
+  표 작성
+    -글번호,제목,작성자,작성일,조회수
+3. notice_write.php
+4. notice_write_ok.php
+  $writer=$_POST["writer"];
+  $title=$_POST["title"];
+  $content=$_POST["content"];
+  $writeday=date("Y-m-d"); ->2020-05-08
+            date("y-m-d"); ->20-05-08
+            date("Y-m-d[h:i:s]"); ->2020-05-08[04:27:38]
+            date("Y/m/d"); ->2020/05/08
+5. content.php
+  $no=$_GET["no"];
+  $query1="update notice set hit = hit+1 whre no = $no;"
+  mysqli_query($conn,$query);
+
+  $query2="select * from notice whre no = $no;"
+  $rs = mysqliquery($conn,$Query2);
+  $row = mysqli_fetch_array($rs);
+
+  글번호: <?php echo $row["no"] ?>
+  글제목: <?php echo $row["title"] ?>
+  글내용: <?php echo nl2br$row["content"] ?>
+  작성자: <?php echo $row["writer"] ?>
+  작성일: <?php echo $row["writeday"] ?>
+  조회수: <?php echo $row["hit"] ?>
+6. notice_edit.php
+  $no = $_GET["no"];
+  "select * from notice where no = $no;"
+  글번호: readonly
+  글제목:
+  글내용
+  <textarea name="content"><?php echo $row["content"] ?></textarea>
+
+7. notice_edit_ok.php
+  포스트로 변수 받을것
+  update notice set title= '$title', content = '$contente'
+  where no = $no;
+
+8. notice_delete.php
+delete from notice where no = $no;
+데이터 삭제시 이빨빠진 글번호는 복구불가.
+12567
+

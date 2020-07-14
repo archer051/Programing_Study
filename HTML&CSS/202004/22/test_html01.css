@@ -1,0 +1,72 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	font-family: "맑은 고딕";
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+/* 헤드 영역 */
+#head{
+	width: 100%;
+	height: 426px;
+	background-color: red;
+	position: relative;
+}
+	/* 로고 영역 */
+	.logo{
+		width: 100%;
+		height: 426px;
+		position: absolute;
+	}
+	.logo img{
+		width: 100%;
+		height: 426px;
+	}
+	/* 로그인, 회원가입, ID/PW찾기 영역 */
+	.luf_area{
+		width: 130px;
+		height: 50px;
+		position: absolute;
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 1.4em;
+		color: white;
+		line-height: 50px;
+		text-align: center;
+		border-radius: 50px
+	}
+	.luf_area:hover{
+		cursor: pointer;
+		color: orange;
+	}
+/* 탑메뉴영역 영역 */
+#topmenu{
+	width: 100%;
+	height: 80px;
+	background-color: navy;
+	border-radius: 30px;
+
+}
+	/* 메뉴 영역 */
+	.menubar{
+		width: 80%;
+		height: 50px;
+		text-align: center;
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 1.6em;
+	}
+	/* 메뉴 글자 영역 */
+	.menubar > li {
+		width: 14%;
+		height: 30px;
+		float: left;
+		color: white;
+		line-height: 80px;
+	}
+	/* 글자같다었을때 */
+	.menubar:hover{
+		cursor: pointer;
+		color: orange;
+	}

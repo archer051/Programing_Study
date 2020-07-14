@@ -1,0 +1,37 @@
+<html lang="ko"> 
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>  
+  <!-- jQuery 라이브러리 참조 -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>  
+  <!-- plugin 참조 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!--// plugin 참조 -->
+  <script>
+    $(document).ready(function(){            
+        // 닫기 버튼 클릭시
+        $("#close").click(function(){
+            // 링크의 페이지 이동 속성 강제 차단
+            //event.preventDefault();             
+            if($('#nopopup').is(":checked")){
+                // 쿠키값을 "Y"로 하여 하루동안 저장시킴
+                $.cookie("nopopup", "Y", {
+                    expires : 1
+                });
+            }            
+            // 팝업창 닫기
+            self.close();
+        });
+    });
+  </script>
+ </head>
+ <body>     
+    <h1>팝업창</h1>
+    <div>
+        이 페이지는 팝업창입니다.<br></br>
+        <label for="nopopup"> 오늘 하루 이 창 열지 않음 </label>
+        <input type="checkbox" id="nopopup" />
+        <a href="#" id="close">닫기</a>
+    </div>
+ </body>
+</html>

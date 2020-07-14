@@ -1,0 +1,113 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	font-family: "맑은 고딕";
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+/*헤더*/
+header{
+	width: 100%;
+	height: 80px;
+	/*border:1px solid black;*/
+	position: relative;
+}
+	/*관리자로그인*/
+	.adminlogin{
+		position: absolute;
+		right: 0px;
+		color: green;
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 20px;
+	}
+	.adminlogin:hover{
+		cursor: pointer;
+		font-weight: bold;
+	}
+	/*로고영역 지정*/
+	.logo{
+		width: 180px;
+		height: 80px;
+	}
+	/*로고영역에서 이미지 크기 지정*/
+	.logo>a>img{
+		width: 100%;
+		height: 100%;
+	}
+/*메뉴 네비게이션*/
+nav{
+	width: 100%;
+	height: 40px;
+	background-color: #666;
+	color:white;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+	/*메뉴 영역*/
+	.menu{
+		width: 600px;
+	}
+	.menu>li{
+		width: 200px;
+		float: left;
+		line-height: 40px;
+		position: relative;
+	}
+	.menu>li:hover{
+		font-weight: bold;
+		color: orange;
+	}
+		/*서브메뉴 영역*/
+		.submenu{
+			width: 200px;
+			background-color: rgba(66,66,66,0.5);
+			color: black;
+			display: none;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 20px;
+		}
+		.submenu>li{
+			position: relative;
+			border-bottom: 1px solid white;
+			width: 200px;
+		}
+		.submenu>li:hover{
+			color: orange;
+		}
+/*감싸는영역*/
+#wrap{
+
+}
+	/*이미지 슬라이드*/
+	#imgslide{
+		width: 100%;
+		height: 300px;
+		background-color: #999;
+		/*box-shadow: 2px 2px 20px inset;*/
+	}
+		/*이미지들*/
+		.imgs{
+			position: relative;
+			/*width: 600px;
+			height: 200px;*/
+			/*background-color: black;*/
+			
+			
+		}
+		.imgs img{
+			position: absolute;
+			width: 600px;
+			height: 200px;
+			top: 45px;
+			left: 50%;
+			transform: translateX(-50%);
+			overflow: hidden;
+		}
+/*바닥글*/
+footer{
+
+}

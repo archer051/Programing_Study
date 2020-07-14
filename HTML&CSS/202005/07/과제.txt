@@ -1,0 +1,67 @@
+나는 우리회사의 급여정산을 하는 경리이다
+다음과 같이 급여프로그램을 만들고자 한다. 단 급여관리 추가,수정,삭제 할 수 있는 권한은 로그인 후 세션을 받고 사용가능하도록 개발되어야 한다.
+
+index.php
+사번		이름		직급		추가수당		총급여
+01			홍길동	과장		50				250
+02			유관순	부장		30				280
+03			강감찬	대리		70				250
+
+write.php, edit.php
+사번:
+이름:
+직급:select 개체로 처리
+추가근무시간:0시간 ~ 60시간까지 select 개체로 처리.
+추가버튼 배치(session으로 보였다 사라졌다.)
+
+직급별 기본급-사장:400, 부장:250, 과장:200, 대리:180, 사원:150
+추가수당계산방법: 시간당 2만원
+
+CREATE TABLE `r_pay` (
+	`sawon_num` INT(11) NOT NULL,
+	`sawon_name` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`positon` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`addcash` INT(11) NULL,
+	`totalcash` INT(11) NULL,
+	PRIMARY KEY (`sawon_num`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+
+CREATE TABLE `b_pay_config` (
+	`b_hour` INT(11) NOT NULL,
+	`b_unitpay` INT(11) NOT NULL,
+	`b_maxhour` INT(11) NOT NULL
+)
+COMMENT='시간단위,시간단위수당,시간최대단위 정의\r\n\r\n'
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `b_position` (
+	`position_type` INT(11) NOT NULL,
+	`position_name` VARCHAR(20) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`position_cash` INT(11) NOT NULL,
+	PRIMARY KEY (`position_type`) USING BTREE
+)
+COMMENT='직급코드 및 이름 및 기본급 정의 '
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+
+
+
+CREATE TABLE `salary` (
+	`sawon_num` INT(11) NOT NULL,
+	`sawon_name` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`positon` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`addcash` INT(11) NULL,
+	`totalcash` INT(11) NULL,
+	PRIMARY KEY (`sawon_num`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;

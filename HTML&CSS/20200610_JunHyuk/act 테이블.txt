@@ -1,0 +1,9 @@
+create table act(
+   no int auto_increment primary key
+   ,name varchar(20)
+   ,birth varchar(20)
+   ,height varchar(10)
+   ,weight varchar(10)
+   ,pic varchar(20)
+   ,memo text
+);

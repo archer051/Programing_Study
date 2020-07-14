@@ -1,0 +1,182 @@
+1. 아래와 같이 게시판 테이블을 만들고자 한다.
+테이블 생성시 사용할 SQL문을 정의하시오(10점)
+(일련번호,글제목,글내용,작성자,작성일,조회수,첨부파일)
+
+create table board(
+  serial_num int not null primary key comment '일련번호',
+  title varchar(20) not null comment '글제목',
+  content text comment '글내용',
+  writer varchar(20) comment '작성자',
+  write_date datetime comment '작성일',
+  hit int comment '조회수',
+  filename varchar(255) COMMENT '첨부파일'
+)COMMENT='게시판';
+
+2.위 작성된 테이블에 데이터를 추가시 사용할 명령문을 정의하시오(10점)
+
+INSERT INTO board
+(
+	serial_num,
+	title,
+	content,
+	writer,
+	write_date,
+	hit,
+	filename
+)
+VALUES
+(
+	1,
+	'시험에관해서',
+	'txt파일로 메일로 보냈으면 좋겠습니다.',
+	'이인환',
+	now(),
+	1,
+	'시험.txt'
+);
+
+3.위 작성된 테이블에 데이터를 수정하고 삭제할시 사용할 명령문 2가지를 정의하시오.
+-수정시
+UPDATE
+	board
+SET
+	content = 'txt파일로 제출하게 해주셔서 감사합니다.'
+WHERE
+	serial_num = 1;
+-삭제시
+delete from board where serial_num = 1;
+
+4.위 작성된 테이블의 구조를 파악하기 위해 사용할 명령문을 정의하시오.(10점)
+desc board;
+
+5.보안성 강화를 위해 뷰를 작성하고자 한다 게시판 테이블에서 2019년도의
+글제목,글내용,작성자만 볼 수 있도록 뷰를 정의 하시오(20점)
+
+create view vw_board
+as
+SELECT
+	title,content,writer
+FROM
+	board
+WHERE
+	write_date >= '2019-01-01 00:00:00';
+
+6.아래테이블을 설계하고 주문번호,이름,주문일자,상품명,수량을 조인문장으로
+작성하시오.(20점)
+고객테이블(고객번호,이름,주소,전화번호)
+주문테이블(주문번호,고객번호,주문일자,상품명,수량)
+
+create table customer(
+  cust_num int not null primary key comment '고객번호',
+  name varchar(20) comment '이름',
+  addr varchar(200) comment '주소',
+  mobilenumber char(13) comment '전화번호'
+)COMMENT='고객';
+
+CREATE TABLE orders(
+  order_num int not NULL AUTO_INCREMENT comment '주문번호',
+  cust_num int not null comment '고객번호',
+  order_date datetime comment '주문일자',
+  product_name varchar(100) comment '상품명',
+  product_amount int COMMENT '수량',
+  primary KEY(order_num,cust_num)
+)COMMENT='주문';
+
+ALTER TABLE orders
+ADD CONSTRAINT fw_orders FOREIGN KEY(cust_num) REFERENCES customer(cust_num);
+
+SELECT
+	o.order_num,
+	c.name,
+	o.order_date,
+	o.product_name,
+	o.product_amount
+FROM
+	orders AS o,
+	customer AS c
+WHERE
+	o.cust_num = c.cust_num
+
+7.아래테이블에서 각 학생들의 학과별 총점,평균을 sql문장으로 정의하시오.(10점)
+학번,학과,이름,인문학개론
+1     A   홍길동 70
+2     A   유관순 90
+3     B   강감찬 70
+
+create table test_score(
+  class_num int not null primary key AUTO_INCREMENT comment '학번',
+  department varchar(20) not null comment '학과',
+  name varchar(20) comment '이름',
+  humanism int DEFAULT 0 comment '인물학개론점수'
+)comment='test';
+
+insert into
+  test_score
+(
+  department,
+  name,
+  humanism
+)
+values
+(
+  'A',
+  '홍길동',
+  70
+);
+
+insert into
+  test_score
+(
+  department,
+  name,
+  humanism
+)
+values
+(
+  'A',
+  '유관순',
+  90
+);
+
+insert into
+  test_score
+(
+  department,
+  name,
+  humanism
+)
+values
+(
+  'B',
+  '강감찬',
+  70
+);
+
+select
+  department as '학과',
+  sum(humanism) as '학과별총점',
+  round(avg(humanism)) as '학과별평균'
+from
+  test_score
+GROUP BY department;
+
+8.아래테이블에서 학생들의 학과별 최고점수자의 학과와 이름과 점수를 sql문장으로
+정의하시오(10점)
+학번,학과,이름,   인문학개론
+1     A   홍길동 70
+2     A   유관순 90
+3     B   강감찬 70
+
+SELECT
+   a.*
+FROM
+   test_score as a 
+INNER JOIN (SELECT
+               department,
+               MAX(humanism) AS humanism
+            FROM
+               test_score
+            GROUP BY department
+  ) as b
+   ON (a.department = b.department AND
+   a.humanism = b.humanism);

@@ -1,0 +1,79 @@
+<html>
+<!-- 미완성 -->
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="script.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div id="logo">
+      <a href="index.html"><img src=""></a>
+    </div>
+    <nav>
+      <ul>
+        <li>H&S소개
+        </li>
+        <li>파트너
+          <ul>
+            <li>예복</li>
+            <li>사진영상</li>
+            <li>플라워</li>
+            <li>주얼리</li>
+          </ul>
+        </li>
+        <li>커뮤니티
+          <ul>
+            <li>예식준비</li>
+            <li>예식비용</li>
+            <li>신혼여행</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section id="imgslide">
+    <article class="slides">
+      <div id="welcome"></div>
+      <div class="imgs"></div>
+      <div class="prev">이전</div>
+      <div class="next">다음</div>
+    </article>
+    <article id="notice"></article>
+    <article id="partner"></article>
+    <article id="icons"></article>
+    <article id="interview">
+      <iframe width="789" height="444" src="https://www.youtube.com/embed/iP-2Ktgsypo" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+    <article id="maps">
+      <!-- * 카카오맵 - 지도퍼가기 -->
+      <!-- 1. 지도 노드 -->
+      <div id="daumRoughmapContainer1591082719011" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+      <!--
+      	2. 설치 스크립트
+      	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+      -->
+      <script charset="UTF-8" class="daum_roughmap_loader_script"
+        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+      <!-- 3. 실행 스크립트 -->
+      <script charset="UTF-8">
+        new daum.roughmap.Lander({
+          "timestamp": "1591082719011",
+          "key": "yn2b",
+          "mapWidth": "640",
+          "mapHeight": "360"
+        }).render();
+      </script>
+    </article>
+  </section>
+  <footer></footer>
+</body>
+
+</html>

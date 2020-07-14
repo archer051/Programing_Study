@@ -1,0 +1,532 @@
+집계 함수 처리 sum,avg,min,max
+[sum함수]
+정보보안2기에서 학생들의 평균점수의 총점을 구하고 싶다.
+select sum(avr) as 'totals' from record; => $row["totals"];
+
+[avg함수]
+정보보안2기에서 학생들의 평균을 구하고 싶다.
+select avg(avr) as 'aver' from record; => $row["aver"];
+
+[min함수]
+정보보안2기에서 학생들 중 최저평균점수를 구하고 싶다.
+select min(avr) as 'min_student' from record; => $row["min_student"];
+
+[max함수]
+정보보안2기에서 학생들 중 최고평균점수를 구하고 싶다.
+select max(avr) as 'max_student' from record; => $row["max_student"];
+
+용어설명
+- as = alias 알리아스 or 얼리어스 라고 부름. 별칭이라는 뜻임
+
+select sum(avr) as 'totals' from record;
+select avg(avr) as 'aver' from record ;
+select round(avg(avr)) as 'aver' from record ;
+select min(avr) as 'min_student' from record;
+select max(avr) as 'max_student' from record;
+
+select
+	sum(avr) as 'totals',
+	avg(avr) as 'aver',
+	min(avr) as 'min_student',
+	max(avr) as 'max_student'
+from record;
+
+
+create table record (
+  no varchar(10) not null primary height comment '학번',
+  major varchar(20) not null comment '학과',
+  network int comment '네트워크과목점수',
+  html int comment 'HTML과목점수',
+  db int comment '데이터베이스과목점수',
+  total int comment '총점',
+  avr int comment '평균'
+)comment='점수테이블';
+
+insert into
+(
+  no,
+  major,
+  network,
+  html,
+  db,
+  total,
+  avr
+)
+values
+(
+  '0001',
+  '정보보안2기',
+  100,
+  100,
+  100,
+  300,
+  100
+);
+
+insert into
+(
+  no,
+  major,
+  network,
+  html,
+  db,
+  total,
+  avr
+)
+values
+(
+  '0002',
+  '정보보안2기',
+  90,
+  90,
+  90,
+  270,
+  90
+);
+
+insert into
+(
+  no,
+  major,
+  network,
+  html,
+  db,
+  total,
+  avr
+)
+values
+(
+  '0003',
+  '정보보안2기',
+  80,
+  80,
+  80,
+  240,
+  80
+);
+insert into
+(
+  no,
+  major,
+  network,
+  html,
+  db,
+  total,
+  avr
+)
+values
+(
+  '0004',
+  '정보보안2기',
+  95,
+  95,
+  95,
+  285,
+  95
+);
+
+insert into
+(
+  no,
+  major,
+  network,
+  html,
+  db,
+  total,
+  avr
+)
+values
+(
+  '0005',
+  '정보보안2기',
+  60,
+  60,
+  60,
+  180,
+  60
+);
+
+Q1.정보보안2기에서 최고점수를 획득한 사람의 학번과 학과를 보고싶다.(시상)
+A1-1.
+SELECT record.no,record.major,max(avr) as 'max_student' FROM record;
+A1-2.
+select no,major FROM record WHERE avr = (SELECT MAX(avr) FROM record);
+Q2.정보보안2기에서 db점수를 최저로 획득한 사람의 학번과 학과를 보고 싶다.(보강)
+A2-1.
+SELECT record.no,record.major,min(avr) as 'min_student' FROM record;
+A2-2.
+select no,major FROM record WHERE avr = (SELECT min(avr) FROM record);
+Q3.정보보안2기에서 network과목이 평균점수 이하인 사람의 학번과 학과를 보고싶다(평균점수 이하 보강대상)
+A3-1.연구를 좀 해보자.
+select
+  no,
+  major
+from
+  record
+where
+  network
+    <=
+  (
+  select
+    avg(network)
+  from
+    record
+  );
+A3-2.민준이가 지적 하는 부분 네트워크 평균이 아닌 전체평균의 평균
+select
+  no,
+  major
+from
+  record
+where
+  network
+    <=
+  (
+  select
+    avg(avr)
+  from
+    record
+  );
+Q4.정보보안 2기과정의 학생은 총 몇명인가?
+select count(*) as cnt from record where major = '정보보안2기'; => row["cnt"];
+단어설명 : => row["cnt"];
+  -php에서 변수 받아 올때 사용.
+
+Q5.정보보안2기과정의 학생중 db점수가 평균 이상인 사람의 명단만 따로 관리하고 싶다.(뷰로관리)
+-뷰테이블 장점 : 1.메모리에서 로드 하는것이기 때문에 빠르다.
+                 2.뷰테이블은 삽입,업데이트,삭제가 불가능하고 읽기만 가능하다.
+-뷰테이블 만드는법
+create view vw_record
+as
+select * from record where db >= (select avg(db) from record);
+-확인법
+select * from vw_record;
+
+Q6-1.정보보안1기과정자 삽입
+insert into record
+values
+(
+'0006',
+'정보보안1기',
+50,
+50,
+50,
+150,
+50
+);
+
+insert into record
+values
+(
+'0007',
+'정보보안1기',
+70,
+70,
+70,
+210,
+70
+);
+-해석:컬럼부분을 안적은 이유는 컬럼 각 값을 정확하게 개수 만큼 순서로 입력을 했기 때문에 들어가는것. 적게 입력해도 컬럼 순번대로 입력하면됨. 하지만 이런방식은 비추천함.컬럼값을 넣는것을 추천함.
+Q7.학과별로 전체 평균점수 최우수점수를 보고싶다.
+select max(avr) as 'maxscroe',major from record group by major;
+Q8.학과별로 전체 평균점수 최우수점수를 보고싶다.
+select avg(db) as 'scroe',major from record group by major;
+select round(avg(db)) as 'scroe',major from record group by major;
+Q9.학과별 db의 평균점수를 구하는 결과를 뷰로 작성하고 싶다.
+A9-1.점수가 소수점이 나올때
+create view vw_record_db
+as
+select avg(db) as 'scroe',major from record group by major;
+select * from vw_record_db;
+A9-1.점수가 소수점이 안 나오게 할때
+create view vw_record_db
+as
+select round(avg(db)) as 'scroe',major from record group by major;
+select * from vw_record_db;
+Q10-0.
+나는 프로야구선수들의 명단을 관리하는 KBO 데이터관리자이다.
+다음과같은 컬럼을 만들고 싶다.
+선수일련번호,선수명,소속구단,연봉,포지션,키,몸무게
+1,이대호,롯데,25억,내야수,190,180
+2,손아섭,롯데,10억,외야수,175,80
+3,양의지,nc,20억,포수,175,90
+4,이재학,nc,5억,투수,180,80
+5,김현수,LG,7억,외야수,182,100
+6,추신수,텍사스,230억,외야수,182,90
+A10-0.
+create table kbo_member (
+  serial_num int not null primary height comment '선수일련번호',
+  name varchar(20) comment '선수명',
+  club varchar(20) comment '소속구단',
+  salary bigint comment '연봉',
+  position varchar(20) comment '포지션',
+  height int comment '키',
+  weight int comment '몸무게'
+)comment='KBO 멤버';
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  1,
+  '이대호',
+  '롯데',
+   2500000000,
+  '내야수',
+  190,
+  180
+);
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  2,
+  '손아섭',
+  '롯데',
+   1000000000,
+  '외야수',
+  175,
+  80
+);
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  3,
+  '양의지',
+  'NC',
+   2000000000,
+  '포수',
+  175,
+  90
+);
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  4,
+  '이재학',
+  'NC',
+   500000000,
+  '투수',
+  180,
+  80
+);
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  5,
+  '김현수',
+  'LG',
+   700000000,
+  '외야수',
+  182,
+  100
+);
+
+insert into kbo_member
+(
+  serial_num,
+  name,
+  club,
+  salary,
+  position,
+  height,
+  weight
+)
+values
+(
+  6,
+  '추신수',
+  '텍사스',
+   23000000000,
+  '외야수',
+  180,
+  90
+);
+
+Q10-1.소속구단별로 최고연봉자의 연봉액을 구하시오.
+A10-1-1.select문 작성
+select
+  club,
+  max(salary) as 'max_salary'
+from
+  kbo_member
+group by club;
+-해설
+조회해라
+  소속구단,
+  최대연봉함수 별명을 max_salary라고 하자
+무엇으로부터?
+  kbo_member 테이블로부터
+그룹별로(group by) 소속구단(club);
+
+Q10-2.포지션별로 최고연봉자의 연봉액을 구하시오.
+A10-2-1.
+select
+  position,
+  min(salary) as 'min_salary'
+from
+  kbo_member
+group by position;
+Q10-3.연봉이 10억이상인 사람의 명단을 뷰로 작성해보시오.
+A10-3-1.select문 작성
+select
+  name
+from
+  kbo_member
+where
+  salary >= 1000000000;
+A10-3-2.뷰테이블 작성
+create view vw_salary10bilion
+as
+select
+  name
+from
+  kbo_member
+where
+  salary >= 1000000000;
+-작업요령
+  1.조회문(select)을 먼저 작성 한다
+  2.조회문을 실행하여 맞는지 확인한다
+  3.create view 문을 사용하여 뷰테이블을 작성한다.
+
+Q10-4.연봉이 가장 많은 사람의 소속구단과 이름과 연봉을 쿼리하시오.
+A10-4-1.select문작성
+select
+  name,
+  club,
+  salary
+from
+  kbo_member
+where
+  salary =
+  (
+    select
+      max(salary) as 'max_salary'
+    from
+      kbo_member
+  );
+
+Q10-5.연봉이 평균 이하인 사람의 이름과 연봉을 구하시오.
+A10-5-1.select문작성
+select
+  name,
+  salary
+from
+  kbo_member
+where
+  salary <=
+  (
+    select
+      avg(salary) as 'avg_salary'
+    from
+      kbo_member
+  );
+
+Q10-6.소속구단이 롯데이고 연봉이 15억 이상인 사람의 이름과 포지션을 구하시오.
+A10-6-1.select문작성
+select
+  name,
+  position
+from
+  kbo_member
+where
+  club = '롯데'
+and
+  salary >= 1500000000;
+
+Q10-7.
+코로나로 인해 구단별로 연봉삭감에 합의하였다.
+롯데는 전체연봉의 70%, nc,lg는 전체연봉의 80%를 삭감에 합의하였다.
+업데이트 문장을 작성하여 결과를 반환하시오.
+-작업요령
+  1.업데이트문을 한개만 실행 하도록 작성 한다(update하려는 원본값은 따로메모를 해둔다.)
+  2.업데이트문을 실행하여 맞는지 확인한다(select)
+  3.틀렸으면 고쳐서 그 하나가 맞아질때까지 원래대로 복구(update문을 사용하여 원래 연봉으로 고치는것)한뒤 다시 update 문을 작성하여 하나의 테이블에 적용해 본다.
+  4.맞게 들어갔는지 확인한뒤(select) update문을 전체적용 하는 것을 작성한다.신중히 해야한다!!잘못들어갔다간 혼나는건 나중이고 고치는게 우선이라 빨리 보고 하고 도움을 청하라! 만약 복구 할수있는 능력이 있는 사람이라면 상관없다. ㅋㅋ 그래서 업데이트 치기전엔 select into 문을 해당날짜시간으로 백업테이블을 만들어 두거나 디비자체를 백업을 해두고 사용하는데 이건 그냥 참고로 알아두삼.ㅋㅋ
+  5.맞게 들어갔는지 확인한다.
+
+A10-7-1.update문작성
+update kbo_member
+set
+  salary = salary - (salary * 0.7)
+where
+  serial_num = 1;
+A10-7-2.select문작성
+select * from kbo_member where serial_num = 1;
+A10-7-1.update문작성2
+update kbo_member
+set
+  salary = salary * 0.3
+where
+  serial_num = 1;
+A10-7-2.select문작성
+select * from kbo_member where serial_num = 1;
+A10-7-3.update문작성
+update kbo_member
+set
+  salary = 2500000000
+where
+  serial_num = 1;
+A10-7-4-1.update문작성 롯데적용
+update
+  kbo_member
+set
+  salary = salary - (salary * 0.7)
+where
+  club = '롯데';
+A10-7-4-2.update문작성 nc,lg
+update
+  kbo_member
+set
+  salary = salary - (salary * 0.8)
+where
+  club = 'NC'
+or
+  club = "LG";

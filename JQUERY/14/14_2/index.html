@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="script.js" defer="defer"></script>
+  <script>
+    $(function () {
+      //레디이벤트 메서드
+      $(document).ready(function () {
+        var h1 = $(".img1").height();
+        console.log("ready : ", h1);
+      });
+      //로드이벤트 메서드
+      $(window).load(function () {
+        var h2 = $(".img1").height();
+        console.log("load : ", h2);
+      })
+    });
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <p>
+    <img src="http://place-hold.it/300X300" class="img1">
+  </p>
+
+</body>
+
+</html>

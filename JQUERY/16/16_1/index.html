@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script>
+    $(function () {
+      // $("#contents").children().eq(0).css("display", "block");
+      // $("#contents").children().eq(0).siblings().css("display", "none");
+
+      $("#title>li").mouseover(function () {
+        var idx = $("#title>li").index(this);
+        // console.log("idx:" + idx);
+        $("#contents").children().eq(idx).css("display", "block");
+        $("#contents").children().eq(idx).siblings().css("display", "none");
+      });
+    });
+  </script>
+  <style>
+    * {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      font-family: "맑은 고딕";
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    #contents {
+      width: 600px;
+    }
+
+    #contents>li {
+      display: none;
+    }
+
+    #title {
+      width: 600px;
+    }
+
+    #title>li {
+      float: left;
+      width: 150px;
+      text-align: center;
+    }
+
+    .clear {
+      clear: both;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <br><br>
+  <ul id="title">
+    <li><a href="#">국민연금</a></li>
+    <li><a href="#">건강보험</a></li>
+    <li><a href="#">산재보험</a></li>
+    <li><a href="#">고용보험</a></li>
+  </ul>
+  <div class="clear"></div>
+  <ul id="contents">
+    <li>국민연금 많이 들수록 유리합니다.</li>
+    <li>건강보험이 있어 코로나를 이겨냈습니다.</li>
+    <li>산재보험 가입하여 산업재해 예방하자</li>
+    <li>전국민 고용보험...실업급여받자.</li>
+  </ul>
+</body>
+
+</html>

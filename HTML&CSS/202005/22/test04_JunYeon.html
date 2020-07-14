@@ -1,0 +1,150 @@
+<script>
+  var name0 = new Array();
+  var team = new Array();
+  var money = new Array();
+  var ps = new Array();
+  var num = new Array();
+  var age0 = new Array();
+  var str = "";
+  var cnt = -1;
+
+
+  function input() {
+    cnt++;
+    str = "";
+    name0[cnt] = frm.name.value;
+    team[cnt] = frm.team.value;
+    money[cnt] = frm.money.value;
+    num[cnt] = frm.num1.value;
+    var jumin = 0;
+
+    //주민번호 무결성 체크
+    var num1 = frm.num1.value;
+    var num2 = frm.num2.value;
+    var nm1 = "234567";
+    var nm2 = "892345";
+    var summ1 = 0;
+
+    for (var i = 0; i < nm1.length; i++) {
+      summ1 += parseInt(num1.charAt(i)) * parseInt(nm1.charAt(i));
+      summ1 += parseInt(num2.charAt(i)) * parseInt(nm2.charAt(i));
+    }
+
+    var summ2 = 11 - (summ1 % 11);
+
+    if (summ2 != num2[6]) {
+      alert("잘못된 주민번호 입니다");
+    }
+
+    //연봉체크
+    if (frm.money.value >= 0.2) {
+      money[cnt] = frm.money.value;
+    } else {
+      alert("연봉을 다시 입력해 주세요");
+    }
+
+    if (document.getElementById('ps1').checked == true) {
+      str += document.getElementById('ps1').value + " ";
+    }
+    if (document.getElementById('ps2').checked == true) {
+      str += document.getElementById('ps2').value + " ";
+    }
+    if (document.getElementById('ps3').checked == true) {
+      str += document.getElementById('ps3').value + " ";
+    }
+    if (document.getElementById('ps4').checked == true) {
+      str += document.getElementById('ps4').value + " ";
+    }
+    if (document.getElementById('ps5').checked == true) {
+      str += document.getElementById('ps5').value + " ";
+    }
+
+    if (document.getElementById('ps1').checked != true &&
+      document.getElementById('ps2').checked != true &&
+      document.getElementById('ps3').checked != true &&
+      document.getElementById('ps4').checked != true &&
+      document.getElementById('ps5').checked != true) {
+      alert("포지션을 체크해주세요");
+      return false;
+    }
+
+    ps[cnt] = str;
+
+
+    if (num2.charAt(0) == 1 || num2.charAt(0) == 2) {
+      jumin = 19;
+    } else if (num2.charAt(0) == 3 || num2.charAt(0) == 4) {
+      jumin = 20;
+    }
+
+    var date1 = new Date();
+    var date2 = new Date(parseInt(jumin + num1.charAt(0) + num1.charAt(1)), 1, 1);
+
+    age0[cnt] = date1.getFullYear() - date2.getFullYear();
+
+    frm.name.value = "";
+    frm.num1.value = "";
+    frm.num2.value = "";
+    frm.money.value = "";
+    document.getElementById('team').selectedIndex = 0;
+    frm.name.focus();
+
+    document.getElementById('ps1').checked = false;
+    document.getElementById('ps2').checked = false;
+    document.getElementById('ps3').checked = false;
+    document.getElementById('ps4').checked = false;
+    document.getElementById('ps5').checked = false;
+
+  }
+
+  function output() {
+
+    var table1 = "<table border = '1'>"
+    table1 += "<tr>";
+    table1 += "<td>";
+    table1 += "이름";
+    table1 += "</td>";
+    table1 += "<td>";
+    table1 += "소속구단";
+    table1 += "</td>";
+    table1 += "<td>";
+    table1 += "주민번호";
+    table1 += "</td>";
+    table1 += "<td>";
+    table1 += "나이";
+    table1 += "</td>";
+    table1 += "<td>";
+    table1 += "연봉";
+    table1 += "</td>";
+    table1 += "<td>";
+    table1 += "포지션";
+    table1 += "</td>";
+    table1 += "</tr>";
+
+    for (var k = 0; k < name0.length; k++) {
+      table1 += "<tr>"
+      table1 += "<td>";
+      table1 += name0[k];
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += team[k];
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += num[k];
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += age0[k] + 1;
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += money[k] + "억";
+      table1 += "</td>";
+      table1 += "<td>";
+      table1 += ps[k];
+      table1 += "</td>";
+      table1 += "</tr>"
+    }
+    table1 += "</table>";
+    document.write(table1);
+
+  }
+</script>

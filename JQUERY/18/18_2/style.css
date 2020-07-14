@@ -1,0 +1,41 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "맑은 고딕";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#box {
+  width: 500px;
+  height: 35px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: relative;
+}
+
+.news {
+  position: relative;
+}
+
+.news>p {
+  height: 30px;
+  padding-top: 5px;
+  padding-left: 5px;
+  position: absolute;
+}
+
+.prev, .next {
+  width: 30px;
+  height: 35px;
+  font-size: 3em;
+  line-height: 25px;
+  text-align: center;
+  background-color: #666;
+  float: right;
+  cursor: pointer;
+}

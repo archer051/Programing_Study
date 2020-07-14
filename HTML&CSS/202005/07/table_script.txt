@@ -1,0 +1,48 @@
+CREATE TABLE `r_pay` (
+	`sawon_num` INT(11) NOT NULL,
+	`sawon_name` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`positon` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`addcash` INT(11) NULL,
+	`totalcash` INT(11) NULL,
+	PRIMARY KEY (`sawon_num`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+
+CREATE TABLE `b_pay_config` (
+	`b_hour` INT(11) NOT NULL,
+	`b_unitpay` INT(11) NOT NULL,
+	`b_maxhour` INT(11) NOT NULL
+)
+COMMENT='시간단위,시간단위수당,시간최대단위 정의\r\n\r\n'
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `b_position` (
+	`position_type` INT(11) NOT NULL,
+	`position_name` VARCHAR(20) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`position_cash` INT(11) NOT NULL,
+	PRIMARY KEY (`position_type`) USING BTREE
+)
+COMMENT='직급코드 및 이름 및 기본급 정의 '
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+
+
+
+CREATE TABLE `salary` (
+	`sawon_num` INT(11) NOT NULL,
+	`sawon_name` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`positon` VARCHAR(20) NULL COLLATE 'utf8mb4_general_ci',
+	`addcash` INT(11) NULL,
+	`totalcash` INT(11) NULL,
+	PRIMARY KEY (`sawon_num`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;

@@ -1,0 +1,81 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script>
+	function isLeap(pYear){
+		var year=parseInt(pYear);
+if(((year % 4==0) && (year % 100 !=0)) || (year % 400==0)){
+	return true;
+}else{
+	return false;
+}
+	}
+	$(function(){
+		var today=new Date();
+		var fYear;var fMonth;
+		fYear=today.getFullYear();
+		$("#year").empty();
+		for(i=fYear;i>fYear-10;i--){
+var option=$("<option value="+i+">"+i+"</option>");
+			$("#year").append(option);
+		}
+		//초기화시 사용할 월함수 호출
+		month_start();day_start();
+function month_start(){		
+	$("#month").empty();
+	for(i=1;i<=12;i++){
+		var option=$("<option value="+i+">"+i+"</option>");
+		$("#month").append(option);
+	}
+}
+function day_start(){		
+	$("#day").empty();
+	for(i=1;i<=31;i++){
+		var option=$("<option value="+i+">"+i+"</option>");
+		$("#day").append(option);
+	}
+}	
+	//년도에 이벤트를 건다.
+	$("#year").change(function(){
+		//메서드혹은 루틴 수행
+		fYear=parseInt(frm1.year.value);
+		month_start();day_start();
+	});
+	//월에 이벤트를 건다. 
+	$("#month").change(function(){
+		//메서드 혹은 루틴 수행
+		fMonth=frm1.month.value;
+		//fYear,fMonth의 값을 갖고 일자를 선택
+		//하여 뿌려주기
+		var dayCount;
+		if(fMonth=="1" || fMonth=="3" || fMonth=="5" || fMonth=="7" || fMonth=="8" || fMonth=="10" || fMonth=="12"){
+			dayCount=31;
+		}else if(fMonth=="4" || fMonth=="6" || fMonth=="9" || fMonth=="11"){
+			dayCount=30;
+		}else{
+			if(isLeap(fYear)==true){
+				dayCount=29;
+			}else{
+				dayCount=28;
+			}
+		}
+		$("#day").empty();
+		for(i=1;i<=dayCount;i++){
+			var option=$("<option value="+i+">"+i+"</option>");
+			$("#day").append(option);
+		}
+	});
+	
+	});
+	</script>
+</head>
+<body>
+<form name="frm1">
+	<select id="year"></select>년
+	<select id="month"></select>월
+	<select id="day"></select>일	
+</form>
+</body>
+</html>

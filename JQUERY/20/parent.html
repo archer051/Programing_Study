@@ -1,0 +1,34 @@
+<script type="text/javascript">
+<!--
+	
+    function getCookie( name ){
+		var nameOfCookie = name + "=";
+		var x = 0;
+		
+		while ( x <= document.cookie.length )
+		{
+			var y = (x+nameOfCookie.length);
+			if ( document.cookie.substring( x, y ) == nameOfCookie )
+			{
+				if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+					endOfCookie = document.cookie.length;
+				return unescape( document.cookie.substring( y, endOfCookie ) );
+			}
+			x = document.cookie.indexOf( " ", x ) + 1;
+			if ( x == 0 )
+				break;
+		}
+		return "";
+	}
+  
+    if(getCookie("pop1") != "done" )
+    {
+        PopupWin = window.open("popup.html", 'popup_main1', 'width=200,height=200,left=50,top=100,toolbar=no,location=no,status=no,menubar=no,resizable=no,scrollbars=no');
+		
+        PopupWin.focus();
+    } 
+ 
+//-->
+</script>
+
+

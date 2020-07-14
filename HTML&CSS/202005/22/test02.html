@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>20200522 Test 02 무결성체크 Quiz</title>
+  <script>
+    function send () {
+      var check1=false;//아무것도 입력안한거
+      var check2=false;//8자리에서 12자리인가?
+      var check3=false;//영문소문자로 시작하는가?
+
+      if (frm1.id.value != "") {
+        check1=true;
+      }
+
+      var id=frm1.id.value;
+      if (id.length >= 8) {
+        check2=true;
+      }
+
+      //id변수의 내부객체 아스키코드값변환 함수(첫번째(0))를 써서반환되는 값을
+      //idx변수에 대입하라
+      var idx=id.charCodeAt(0);
+      if(idx >= 97 && idx <= 122) {
+        //97은 영문소문자 a이고
+        //127은 영문소문자 끝 z 임
+        check3=true;
+      }
+
+      /*if (check1 && check2 && check3) {
+        document.write("유효");
+      }else {
+        alert("유효하지 않은 아이디입니다.");
+      }*/
+      //2번째 글자부터 영문자 혹은 숫자로 구성되어 있나?
+      var check4=false; //2번째 부터 글자영문자 혹은 숫자로구성되어있는지 여부
+      var iTempcount=0; //아이디갯수를 세기 위한 0으로 대입
+      for (var i=1; i < id.length; i++) {
+        //ABCDEFGHIJKLMNOPQRSTUVWXYZ 65~90 대문자 10진수
+        //abcdefghijklmnopqrstuvwxyz 97~122 소문자 10진수
+        //0123456789 48~57 숫자 10진수
+        idx=id.charCodeAt(i);
+        if ((idx >= 65 &&  idx <= 90) || (idx >= 97 && idx <= 122) ||
+        (idx >= 48 && idx <= 57)) {
+          iTempcount++;
+          console.log("i:"+i+"itempcount:"+iTempcount);
+        }
+      }
+      /* 4번째 조건만 맞는 경우
+      if ((id.length-1) == iTempcount) {
+        check4=true;
+      }
+      */
+
+      //5번째 조건 한글자는 특수문자 허용을 하기위해
+      if ((id.length-2) == iTempcount) {
+        check4=true;
+      }
+
+      //5번째 2번째 글자부터 특수문자가 하나 들어가있어야
+      var check5=false;
+      var sSpecialsymbol="~!@#$%^&*()_+=-/'\"\\|[]{?}.><,";
+      var iSpecialsymbol=0;
+      for (var i=1; i < id.length; i++) {
+        idx=id.charCodeAt(i);
+        for (var j=0; j<sSpecialsymbol.length; j++) {
+          iSpecialsymbol=sSpecialsymbol.charCodeAt(j);
+          if(idx == iSpecialsymbol) {
+            check5=true;
+            break;
+          }
+        }
+        if(check5) {
+          break;
+        }
+      }
+      console.log("check1:"+check1);
+      console.log("check2:"+check2);
+      console.log("check3:"+check3);
+      console.log("check4:"+check4);
+      console.log("check5:"+check5);
+      if (check1 && check2 && check3 && check4 && check5) {
+        document.write("유효");
+      }else {
+        alert("유효하지 않은 아이디입니다.");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <form name="frm1">
+    <input type="text" name="id" maxlength="12">
+    (아이디는 영문소문자로 시작하고 8~12자리까지의 영문자와 숫자의 조합으로 사용가능합니다.)<br>
+    <input type="password" name="pw" maxlength="12">
+    <input type="button" value="회원 가입" onclick="send()">
+  </form>
+</body>
+
+</html>

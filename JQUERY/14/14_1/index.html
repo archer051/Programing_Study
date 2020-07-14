@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="script.js" defer="defer"></script>
+  <script>
+    $(function () {
+      $(".bt1").click(function () {
+        $(".bt1").parent().next().css("color", "#f00");
+      });
+
+      //두번째 패턴 복수의 이벤트를 동시에 걸 수 있다.
+      $(".bt2").on({
+        "mouseover focus": function () {
+          $(".bt2").parent().next().css("color", "#0f0");
+        },
+        "mouseout blur": function () {
+          $(".bt2").parent().next().css("color", "#000");
+        }
+      });
+
+      //단일함수구성방식으로 강제로 이벤트발생시키기
+      $(".bt1").click();
+      //복수매서드방식으로 강제이벤트발생시키기
+      $(".bt2").trigger("mouseover");
+    });
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <p>
+    <button class="bt1">버튼01</button>
+  </p>
+  <P>내용1</P>
+  <p>
+    <button class="bt2">버튼02</button>
+  </p>
+  <P>내용2</P>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+//script.js
+$(".f1").click(function(){
+	$(".m1").fadeIn(1000);
+});
+$(".f2").click(function(){
+	$(".m2").fadeIn(1000);
+});
+$(".f3").click(function(){
+	$(".m3").fadeIn(1000);
+});
+$(".f4").click(function(){
+	$(".m4").fadeIn(1000);
+});

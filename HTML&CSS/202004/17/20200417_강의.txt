@@ -1,0 +1,8 @@
+간단한 쓰기,수정,삭제 부분 HTML태그, PHP, JAVASCRIPT로 만들기
+index.php
+write.php
+write_ok.php
+content.php
+edit.php
+edit_ok.php
+del.php

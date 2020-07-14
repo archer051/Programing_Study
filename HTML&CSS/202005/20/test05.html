@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let name1 = new Array();
+        let tel1 = new Array();
+        let cnt = -1;
+        function input() {
+            cnt++;
+            name1[cnt] = frm1.name.value;
+            tel1[cnt] = frm1.tel.value;
+            frm1.name.value = "";
+            frm1.tel.value = "";
+            frm1.name.focus();
+        }
+        function output() {
+            for(let i = 0; i < name1.length; i++) {
+                document.write(name1[i], " ");
+                document.write(tel1[i], "<br>");
+            }
+        }
+    </script>
+</head>
+<body>
+<form name="frm1">
+    <table border="1" cellspacing="5" cellpadding="10">
+        <tr>
+            <td>이름</td>
+            <td>
+                <input type="text" name="name">
+            </td>
+        </tr>
+        <tr>
+            <td>전화번호</td>
+            <td>
+                <input type="text" name="tel">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="입력" onclick="input()">
+                <input type="button" value="출력" onclick="output()">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

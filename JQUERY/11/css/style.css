@@ -1,0 +1,37 @@
+@charset "utf-8";
+*{
+	margin:0 auto;padding:0;
+	list-style:none;font-family:"맑은 고딕";
+}
+a{
+	text-decoration:none;color:inherit;
+}
+#imgslide{
+	width:1000px;height:350px;position:relative;overflow:hidden;
+}
+#imgslide>img{
+	width:100%;position:absolute;
+}
+#slides{width:1000px;height:350px;}
+#slides li{display:none;}
+#slides li:first-child{display:block;}
+#slides li img{width:1000px;height:350px;}
+.welcome{
+	width:300px;height:40px;
+	background-color:rgba(255,255,255,0.2);
+	position:absolute;
+	text-align:center;
+	line-height:40px;
+	left:50%;transform:translateX(-50%);top:0%;
+}
+.welcome h2{
+   color:#999;
+   font-family:"Times New Roman", Times, serif;
+}
+.btn_slides{
+	left:50%;transform:translateX(-50%);
+	bottom:5%;position:absolute;
+}
+.btn_slides a.off{
+	cursor:default;opacity:0.5;
+}

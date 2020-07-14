@@ -1,0 +1,27 @@
+OSI-7
+1물리계층
+2데이터링크계층
+3네트워크계층
+4전송계층 -> 데이터전송 TCP,UDP
+5세션계층 -> (상대와 연결 시켜주는 계층)
+6표현계층 -> 아스키,엡시딕(상대와 호환 되게 만들어주는 기능)
+7응용계층 -> 응용서비스 HTTP,DNS,SMTP..
+OSI-7
+Physical
+DataLink
+Network
+Transport
+Session
+Presentation
+Application
+
+TCP
+엑세스계층 OSI 1~2
+네트워크계층 OSI 3
+전송계층 OSI 4
+응용계층 OSI 5~7
+
+ASCII 코드 2의8승
+Parity Bit : 오류점검 Bit
+128자
+

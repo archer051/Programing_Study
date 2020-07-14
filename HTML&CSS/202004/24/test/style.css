@@ -1,0 +1,60 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	font-family: "맑은 고딕"
+}
+
+a {
+	text-decoration: none;
+	color: inherit
+}
+/*헤더영역*/
+header {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	
+}
+
+.adminlogin {
+	position: absolute;
+	font-family: 'Black Han Sans', sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: green;
+	right: 0;
+}
+
+.logo {
+	/* width: 522px;
+	height: 248px; */
+	width: 322px;
+	height: 48px;
+}
+
+.logo>a>img {
+	width: 100%;
+	height: 100%;
+
+	/*height: 246px;
+	/*white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;*/
+}
+/*나브영역*/
+nav {
+}
+
+.menu {
+}
+
+.menu>li {
+}
+/*웹영역*/
+#wrap {
+}
+/*바닥글영역*/
+#footer {
+}

@@ -1,0 +1,209 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Title</title>
+  <script>
+    //Do it! 자바스크립트+제이쿼리 입문 책 105p
+    var sTemp1="web he she";
+    /*charAt(index)=============================================================
+    문자열에서 인덱스 번호에 해당하는 문자를 반환합니다.
+    ==========================================================================*/
+    var result1=sTemp1.charAt(2);
+    document.write(result1,"<br>");
+
+    var sTemp2="web he she";
+    /*indexOf("찾을문자")=======================================================
+    문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 제일 먼저 일치하는
+    문자의 인덱스 번호를 반환합니다.
+    만일 찾는 문자가 없으면 -1을 반환합니다.
+    ==========================================================================*/
+    var result2=sTemp2.indexOf("he");
+    document.write(result2,"<br>");
+
+    var sTemp3="web he she";
+    /*lastIndexOf("찾을문자")===================================================
+    문자열에서 오른쪽부터 찾을 문자와 일치하는 문자를 찾아 제일 먼저 일치하는
+    문자의 인덱스 번호를 반환합니다.
+    만일 찾는 문자가 없으면 -1을 반환합니다.
+    ==========================================================================*/
+    var result3=sTemp3.lastIndexOf("he");
+    document.write(result3,"<br>");
+
+    var sTemp4="web he she he";
+    /*match("찾을 문자")========================================================
+    문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아
+    제일 먼저 찾은 문자를 반환합니다.
+    만일 찾는 문자가 없으면 null을 반환합니다.
+    ==========================================================================*/
+    //var result4=sTemp4.match("boy"); -> null값 반환
+    var result4=sTemp4.match("he"); //->he반환
+    document.write(result4,"<br>");
+
+    /*20200521_선생님_문제1
+    indexof와 match내장함수를 이용해서 이메일의 유효성을 확인하시오.
+    @가 들어있는지 없는지 구분
+    */
+
+    var sTemp5="web he she";
+    /*replace("바꿀문자","새 문자")=============================================
+    문자열에서 왼쪽부터 바꿀 문자와 일치하는 문
+    자를 찾아 제일 먼저 찾은 문자를 새 문자로 치환합니다.
+    ==========================================================================*/
+    var result5=sTemp5.replace("web","welcome");
+    document.write(result5,"<br>");
+
+    var sTemp6="web he she";
+    /*search("찾을문자")========================================================
+    문자열 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 제일 먼저 일치하는 인덱스
+    번호를 반환합니다.
+    ==========================================================================*/
+    var result6=sTemp6.search(2);
+    document.write(result6,"<br>");
+
+    var sTemp7="hello javascript";
+    /*slice(a,b)================================================================
+    a개의 문자를 자르고 b번째 이후에 문자를 자른 후 남은 문자를 반환합니다.
+    예:var str="hello javascript"  str.slice(3,7); ->"lo j"를 반환
+    str.slice(3,7)은 문자열에서 3글자 "hel"까지 자르고 7번째 이후부터 "avascript
+    "를 자른 후 나머지 "lo j"를 반환합니다.
+    예:var str="hello javascript" str.slice(3,-3); -> "llo javascr"를 반환함
+    여기에서 -1은 뒤에서부터 첫 번째 글자를 가르킵니다.
+    ==========================================================================*/
+    var result7=sTemp7.slice(3,7);
+    document.write(result7,"<br>");
+
+    var sTemp8="hello javascript";
+    /*substring(a,b)============================================================
+    a 인덱스부터 b 인덱스 구간의 문자를 반환합니다
+    예:var str="hello javascript"; str.substring(3,7); ->"lo j"를 반환함
+    예:var str="hello javascript"; str.substring(3,-3); ->"hel"을 반환함.여기에
+    서 -3은 인덱스 0을 가리킵니다. 그러므로 인덱스 0부터 인덱스 3인전 구간의 문
+    자를 반환합니다.
+    ==========================================================================*/
+    var result8=sTemp8.substring(3,7);
+    document.write(result8,"<br>");
+
+    //Do it! 자바스크립트+제이쿼리 입문 책 106p
+    var sTemp9="hello javascript";
+    /*substr(a,문자개수)========================================================
+    문자열 a 인덱스부터 지정한 문자 개수만큼 문자열을 반환합니다.
+    예:var str="hello javascript"; str.substr(3,2); ->"lo"를 반환함
+    str.substr(3,2);은 문자열에서 인덱스 3인 "l"부터 2글자를 가져와서 "lo"를 반
+    환합니다.
+    ==========================================================================*/
+    var result9=sTemp9.substr(3,7);
+    document.write(result9,"<br>");
+
+    var sTemp10="010-3333-4444";
+    /*split("문자")=============================================================
+    지정한 문자를 기주으로 문자 데이터를 나누어 배열에 저장하여 반환합니다.
+    예:var str="webkmobilek2002";
+    var arr=str.split("k"); -> arr[0]="web";
+                            -> arr[1]="mobile";
+                            -> arr[2]="2002";
+    ==========================================================================*/
+    var result10=sTemp10.split("-");
+    for (var i = 0; i < result10.length; i++) {
+      document.write(result10[i],"<br>");
+    }
+
+    /*20200521_선생님_문제2
+    텍스트박스안 aaa@naver.com 이렇게 되어 있는것을 입력 버튼 눌리면
+    텍스트박스2개로 aaaa naver.com으로 들어가게 split함수 이용해서 만들라
+    */
+
+    var sTemp11="HELLO JAVASCRIPT";
+    /*toLowerCase()=============================================================
+    문자열에서 영문 대문자를 모두 소문자로 바꿉니다.
+    예:var str="ABC"; str.toLowerCase(); ->"abc"로 반환함
+    ==========================================================================*/
+    var result11=sTemp11.toLowerCase();
+    document.write(result11,"<br>");
+
+    var sTemp12="hello javascript";
+    /*toUpperCase()=============================================================
+    문자열에서 영문 소문자를 모두 대문자로 바꿉니다.
+    예:var str="abc"; str.toUpperCase(); ->"ABC"로 반환함
+    ==========================================================================*/
+    var result12=sTemp12.toUpperCase();
+    document.write(result12,"<br>");
+
+    var sTemp13="javascript";
+    /*length====================================================================
+    문자열에서 문자의 개수를 반환합니다
+    예:var str="hello welcome"; str.length; ->13을 반환함
+    ==========================================================================*/
+    var result13=sTemp13.length;
+    document.write(result13,"<br>");
+
+    var sTemp14="script";
+    /*concat("새로운문자")======================================================
+    예:var str="hello"; str.concat("web"); -> "hello web"을 반환함
+    ==========================================================================*/
+    var result14=sTemp14.concat("Fighting!");
+    document.write(result14,"<br>");
+
+    /*20200521_선생님_문제
+    var str="javascript";
+    위 글자를 charAt함수와 length함수와 for문장을 이용해서 세로로 출력해보세요
+    j
+    a
+    v
+    a
+    s
+    c
+    r
+    i
+    p
+    t
+
+    for(var i = 0; i < str.length; i++) {
+      document.write(str.charAt(i),"<br>");
+    }
+    */
+
+    var sTemp15="ABC";
+    sTemp15="ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //65~90 대문자 10진수
+    sTemp15="abcdefghijklmnopqrstuvwxyz"; //97~122 소문자 10진수
+    sTemp15="0123456789"; //48~57 숫자 10진수
+    sTemp15="~!@#$%^&*()_+=-/'\"\\|[]{?}.><,";
+    /*charCodeAt(index)=========================================================
+    문자열에 index에 해당 문자의 아스키 코드값을 10진수 반환합니다
+    예:var str="ABC",str.charCodeAt(0) -> "A"의 아스키 코드값 65를 반환함
+    ==========================================================================*/
+    //var result15=sTemp15.charCodeAt(0);
+    //document.write(result15,"<br>");
+    for (var i = 0; i < sTemp15.length; i++) {
+      document.write(sTemp15.charCodeAt(i),"&nbsp;");
+    }
+    for (var i = 0; i < sTemp15.length; i++) {
+      document.write("문자:"+sTemp15.substr(i,1)+"  =  "+"아스키코드10진수:"+sTemp15.charCodeAt(i),"<br>");
+    }
+
+    /*fromCharCode(아스키 코드 값)==============================================
+    아스키코드값에 해당하는 문자를 반환합니다.
+    예:String.fromCharCode(65); -> "A"를 반환함
+    예:
+    var iTemp=47;
+    for (i = 0; i < 11; i++) {
+      document.write(String.fromCharCode(iTemp)+"&nbsp;"+"아스키코드값:"+iTemp,
+      "<br>");
+      iTemp--;
+    }
+    ==========================================================================*/
+    var result16=String.fromCharCode(94);
+    document.write(result16,"<br>");
+
+    var sTemp17="hello ";
+    /*trim()====================================================================
+    문자열 앞 또는 뒤에 공백 문자열을 삭제합니다("hello "->"hello" )
+    예:str="hello "; str.trim(); ->공백이 제거된 "hello"를 반환함
+    ==========================================================================*/
+    var result17=sTemp17.trim();
+    document.write(result17,"<br>");
+
+  </script>
+</head>
+
+</html>

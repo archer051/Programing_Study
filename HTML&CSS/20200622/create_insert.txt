@@ -1,0 +1,50 @@
+use testdb;
+-- select * from store;
+-- select * from member;
+-- update member set level='manager' where id = '1';
+-- create table manager(
+-- no int auto_increment primary key comment '일련번호'
+-- ,store_no int not null comment 'store테이블_번호'
+-- ,id varchar(20) not null comment 'member테이블ID'
+-- );
+-- select * from manager;
+-- insert into manager (store_no,id) values (1,1);
+
+-- SELECT  a.store_name
+--        ,c.name
+-- FROM store a,manager b,member c
+-- WHERE a.no=b.store_no 
+-- AND b.id=c.id 
+-- AND c.id=1;  
+
+-- SELECT  store.store_name
+--        ,member.name
+-- FROM store,manager,member
+-- WHERE store.no=manager.store_no 
+-- AND manager.id=member.id 
+-- AND member.id=1; 
+
+use testdb;
+-- create table store_re(
+--  no int auto_increment primary key
+--  ,pno int
+--  ,memo text
+--  ,writer varchar(20)
+--  );
+-- create table store_notice (
+-- 	no int auto_increment primary key comment '일련번호'
+--   ,pno int comment 'store테이블의 no값 즉 가게번호ㅋㅋ'
+--   ,writer varchar(20) comment '작성자'
+--   ,writeday varchar(20) comment '작성일'
+--   ,title varchar(100) comment '제목'
+--   ,memo text comment '공지사항내용'
+--   ,use_yn char(1) comment '공지사항보여지는 사용유무'
+-- );
+-- create table store_menu(
+--   no int auto_increment primary key comment '일련번호'
+--   ,pno int comment 'store테이블의번호'
+--   ,name varchar(30) comment '메뉴명'
+--   ,price int comment '가격'
+--   ,pic varchar(100) comment '사진명'
+--   ,memo text comment '메모'
+-- );

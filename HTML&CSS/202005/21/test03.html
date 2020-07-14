@@ -1,0 +1,383 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Teacher Afternoon Quiz 20200521</title>
+  <style>
+  * {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-family: "맑은 고딕";
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .body_table {
+    margin-top: 10%;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+    border-collapse: collapse;
+    color: #666;
+    text-align: center;
+  }
+
+  .body_table_tdleft {
+    width: 70px;
+    height: 40px;
+    border-bottom: 1px solid #666;
+}
+
+  .body_table_tdright {
+    width: 200px;
+    height: 40px;
+    border-bottom: 1px solid #666;
+  }
+
+  .body_table_tdright2 {
+    width: 200px;
+    height: 40px;
+    border-bottom: 1px solid #666;
+    text-align: left;
+  }
+
+  .body_table_text {
+    width: 200px;
+    height: 36px;
+    border: 1px solid #666;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .body_table_text:focus {
+    background-color: #666;
+    color:white;
+    font-size: 1.0em;
+    text-align: center;
+  }
+
+  .body_table_checkbox {
+    position: relative;
+    width:70px;
+    height:40px;
+    border:1px solid #666;
+    vertical-align:middle;
+}
+
+  .body_table_button {
+    width:70px;
+    height:40px;
+    border:1px solid #666;
+    text-align:center;
+    border-radius:10px;
+    color:white;
+    background-color:#666;
+  }
+
+  .body_table_button:hover {
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 1.0em;
+  }
+
+  </style>
+  <script>
+    //이름배열 누적저장을 위한 변수선언
+    var arName = [];
+    //출장경기배열 누적저장을 위한 변수선언
+    var arBusinesstripgame = [];
+    //골배열 누적저장을 위한 변수선언
+    var arGoal = [];
+    //도움배열 누적저장을 위한 변수선언
+    var arAsist = [];
+    //수상배열 누적저장을 위한 변수선언
+    var arAwarded = [];
+    //연봉배열 누적저장을 위한 변수선언
+    var arAnnualsalary=[];
+    //내년연봉배열 누적저장을 위한 변수선언
+    var arAftannualsalary=[];
+    //배열 순번을 위한 변수선언
+    var iSeq = -1;
+    //입력 합수 선언
+    function input() {
+      //배열 순번0에서 시작하기위한 증감연산자 사용.
+      iSeq++;
+      //이름배열에 이름텍스트폼에 입력한 값을 대입한다.
+      arName[iSeq] = frm1.Name.value;
+      //출장경기배열에 출장경기텍스트폼에 입력한 값을 대입한다.
+      arBusinesstripgame[iSeq] = frm1.Businesstripgame.value;
+      //골배열에 입력한 값을 대입한다.
+      arGoal[iSeq] = frm1.Goal.value;
+      //도움배열에 도움텍스트폼에 입력한 값을 대입한다.
+      arAsist[iSeq] = frm1.Asist.value;
+      //임시문자열변수를 선언한다.
+      var sTemp = "";
+      //수상개수를알기위해 변수선언한다.
+      var iAwardedcount = 0;
+      //수상-FIFA올해의선수가 체크가 되어있는지 비교한다
+      if (document.getElementById("fifanowyearplayer").checked == true) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //임시문자열변수에 수상이름을더한다
+        sTemp += document.getElementById("fifanowyearplayer").value;
+        //수상개수변수를 증가연사자를 사용해 증가한다
+        iAwardedcount++;
+      }
+      //수상-발롱도르가 체크가 되어있는지 비교한다
+      if (document.getElementById("balongdor").checked == true) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //임시문자열변수에 수상이름을더한다
+        sTemp += document.getElementById("balongdor").value;
+        //수상개수변수를 증가연사자를 사용해 증가한다
+        iAwardedcount++;
+      }
+      //수상-챔피언스리그가 체크가 되어있는지 비교한다
+      if (document.getElementById("championsleague").checked == true) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //임시문자열변수에 수상이름을더한다
+        sTemp += document.getElementById("championsleague").value;
+        //수상개수변수를 증가연사자를 사용해 증가한다
+        iAwardedcount++;
+      }
+      //수상-리그MVP가 체크가 되어있는지 비교한다
+      if (document.getElementById("leaguemvp").checked == true) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //임시문자열변수에 수상이름을더한다
+        sTemp += document.getElementById("leaguemvp").value;
+        //수상개수변수를 증가연사자를 사용해 증가한다
+        iAwardedcount++;
+      }
+      //수상-득점왕이 체크가 되어있는지 비교한다
+      if (document.getElementById("scoreking").checked == true) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //임시문자열변수에 수상이름을더한다
+        sTemp += document.getElementById("scoreking").value;
+        //수상개수변수를 증가연사자를 사용해 증가한다
+        iAwardedcount++;
+      }
+      //수상합배열에 임시문자열변수를 대입한다.
+      arAwarded[iSeq] = sTemp;
+      //현재연봉배열에 연봉폼에 입력한 값을 대입한다.
+      arAnnualsalary[iSeq] = frm1.Annualsalary.value;
+      //내년연봉계산을 위해 변수를 선언한다.
+      var iMoney = 0;
+      //골 20골이상이면 현재연봉의 100%인상, 10골이하이면 현재연봉의 50%인상
+      //숫자(정수)형으로 변경한 골배열현재순번에 있는 값이 20보다 크거나 같은지
+      //비교한다
+      if (parseInt(arGoal[iSeq]) >= 20) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //숫자(정수)형으로 변경한 연봉배열현재순번의값을 iMoney변수에
+        //iMoney변수의값 + 현재연봉금액을 대입한다.
+        iMoney += parseInt(arAnnualsalary[iSeq]);
+      }
+      //숫자(정수)형으로 변경한 골배열현재순번에 있는 값이 10보다 크거나 같고
+      //숫자(정수)형으로 변경한 골배열현재순번에 있는 값이 20보다 미만 인지 비교
+      //한다
+      else if (parseInt(arGoal[iSeq]) >= 10 && parseInt(arGoal[iSeq]) < 20) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //숫자(정수)형으로 변경한 연봉배열현재순번의값을 iMoney변수에
+        //iMoney변수의값 + (현재연봉금액*0.5)값을 대입한다.
+        iMoney += parseInt(arAnnualsalary[iSeq]) / 2;
+      }
+      //도움 10개이상이면 현재연봉의 100%인상, 5개이상 10개미만이면 현재연봉의
+      //50%인상
+      //숫자(정수)형으로 변경한 도움배열현재순번에 있는 값이 10보다 크거나 같은
+      //지 비교한다
+      if (parseInt(arAsist[iSeq]) >= 10) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //숫자(정수)형으로 변경한 연봉배열현재순번의값을 iMoney변수에
+        //iMoney변수의값 + 현재연봉금액을 대입한다.
+        iMoney += parseInt(arAnnualsalary[iSeq]);
+      }
+      //숫자(정수)형으로 변경한 도움배열현재순번에 있는 값이 5보다 크거나 같고
+      //숫자(정수)형으로 변경한 도움배열현재순번에 있는 값이 10보다 미만 인지 비
+      //교 한다
+      else if (parseInt(arAsist[iSeq]) >= 5 && parseInt(arAsist[iSeq]) < 10) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //숫자(정수)형으로 변경한 연봉배열현재순번의값을 iMoney변수에
+        //iMoney변수의값 + (현재연봉금액*0.5)값을 대입한다.
+        iMoney += parseInt(arAnnualsalary[iSeq]) / 2;
+      }
+      //수상 개당 1억원 인상
+      //iAwardedcount변수의 값이 0이 아닌지 비교한다
+      if (iAwardedcount != 0) {
+        //비교한 값이 0이 아니면 참(true)임으로 밑의 메소드를 실행한다.
+        //iMoney변수에 iMoney변수의값 + (100000000*iAwardedcount)값을
+        //대입한다.
+        iMoney += 100000000 * iAwardedcount;
+      }
+      //출장경기 30경기이상 1억원 인상 20경기이상 30경기미만 0.5억원 인상
+      // 10경기 이상 20억 미만이면  0.3억원 인상
+      //숫자(정수)형으로 변경한 출장경기배열현재순번에 있는 값이 30보다 크거나
+      //같은지 비교한다
+      if (parseInt(arBusinesstripgame[iSeq]) >= 30) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //iMoney변수에 iMoney변수의값 + 100000000값을 대입한다.
+        iMoney += 100000000;
+      }
+      //숫자(정수)형으로 변경한 출장경기배열현재순번에 있는 값이 20보다 크거나 같
+      //고숫자(정수)형으로 변경한 출장경기배열현재순번에 있는 값이 30보다 미만
+      //인지 비교 한다
+      else if (parseInt(arBusinesstripgame[iSeq]) >= 20 &&
+        parseInt(arBusinesstripgame[iSeq]) < 30) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //iMoney변수에 iMoney변수의값 + 50000000값을  대입한다.
+        iMoney += 50000000;
+      }
+      //숫자(정수)형으로 변경한 출장경기배열현재순번에 있는 값이 10보다 크거나
+      //같고 숫자(정수)형으로 변경한 출장경기배열현재순번에 있는 값이 20보다 미
+      //만 인지 비교 한다
+      else if (parseInt(arBusinesstripgame[iSeq]) >= 10 &&
+        parseInt(arBusinesstripgame[iSeq]) < 20) {
+        //비교한 값이 참(true)임으로 밑의 메소드를 실행한다.
+        //iMoney변수에 iMoney변수의값 + 30000000값을  대입한다.
+        iMoney += 30000000;
+      }
+      //내년연봉배열[순번]에 iMoney변수의 값을 대입한다.
+      arAftannualsalary[iSeq] = iMoney;
+      //입력폼 초기화를 함수를 실행한다.
+      forminit();
+    }
+    //초기화 함수 선언
+    function forminit() {
+      //이름 폼 값 재선언
+      frm1.Name.value = "";
+      //출장경기 폼 값 재선언
+      frm1.Businesstripgame.value = "";
+      //골 폼 값 재선언
+      frm1.Goal.value = "";
+      //도움 폼 값 재선언
+      frm1.Asist.value = "";
+      //각 체크박스 폼 값 재선언
+      document.getElementById("fifanowyearplayer").checked = false;
+      document.getElementById("balongdor").checked = false;
+      document.getElementById("championsleague").checked = false;
+      document.getElementById("leaguemvp").checked = false;
+      document.getElementById("scoreking").checked = false;
+      //연봉 폼 값 재선언
+      frm1.Annualsalary.value = "";
+    }
+    //출력 함수 선언
+    function output() {
+      document.write("이름","&nbsp;");
+      document.write("출장경기","&nbsp;");
+      document.write("골","&nbsp;");
+      document.write("도움","&nbsp;");
+      document.write("수상","&nbsp;");
+      document.write("연봉","&nbsp;");
+      document.write("내년연봉","<br>");
+      for (var i = 0; i < arName.length; i++) {
+         document.write(arName[i],"&nbsp;");
+         document.write(arBusinesstripgame[i],"&nbsp;");
+         document.write(arGoal[i],"&nbsp;");
+         document.write(arAsist[i],"&nbsp;");
+         document.write(arAwarded[i],"&nbsp;");
+         document.write(arAnnualsalary[i],"&nbsp;");
+         document.write(arAftannualsalary[i],"<br>");
+      }
+      // var sTable;
+      // sTable = "<table class='body_table'>";
+      // sTable += "<tr>";
+      // sTable += "<td class='body_table_tdleft'>이름</td>";
+      // sTable += "<td class='body_table_tdleft'>출장경기</td>";
+      // sTable += "<td class='body_table_tdleft'>골</td>";
+      // sTable += "<td class='body_table_tdleft'>도움</td>";
+      // sTable += "<td class='body_table_tdleft'>수상</td>";
+      // sTable += "<td class='body_table_tdleft'>연봉</td>";
+      // sTable += "<td class='body_table_tdleft'>내년연봉</td>";
+      // sTable += "</tr>";
+      // for (var i = 0; i < arName.length; i++) {
+      //   sTable += "<tr>";
+      //   sTable += "<td class='body_table_tdleft'>";
+      //   sTable += arName[i];
+      //   sTable += "</td>";
+      //   sTable += "<td class='body_table_tdleft'>";
+      //   sTable += arBusinesstripgame[i];
+      //   sTable += "</td>";
+      //   sTable += "<td class='body_table_tdleft'>";
+      //   sTable += arGoal[i];
+      //   sTable += "</td>";
+      //   sTable +=  "<td class='body_table_tdleft'>";
+      //   sTable += arAsist[i];
+      //   sTable += "</td>";
+      //   sTable +=  "<td class='body_table_tdleft'>";
+      //   sTable += arAnnualsalary[i];
+      //   sTable += "</td>";
+      //   sTable +=  "<td class='body_table_tdleft'>";
+      //   sTable += arAftannualsalary[i];
+      //   sTable += "</td>";
+      //   sTable +=  "</tr>";
+      // }
+      // sTable += "</table>";
+      // document.write(sTable);
+    }
+  </script>
+</head>
+<body>
+  <form name=frm1>
+    <table class="body_table">
+      <tr>
+        <td class="body_table_tdleft">이름</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Name" class="body_table_text">
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">출장경기</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Businesstripgame" class="body_table_text"
+          maxlength="3">
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">골</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Goal" class="body_table_text" maxlength="3">
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">도움</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Asist" class="body_table_text" maxlength="3">
+        </td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">수상</td>
+        <td class="body_table_tdright2">
+
+          <input type="checkbox" name="fifanowyearplayer" id="fifanowyearplayer"
+          class="body_table_checkbox" value="FIFA올해의선수 ">FIFA올해의선수<br>
+          <input type="checkbox" name="balongdor" id="balongdor"
+          class="body_table_checkbox" value="발롱도르 ">발롱도르<br>
+
+          <input type="checkbox" name="championsleague" id="championsleague"
+          class="body_table_checkbox" value="챔피언스리그 ">챔피언스리그<br>
+
+          <input type="checkbox" name="leaguemvp" id="leaguemvp"
+          class="body_table_checkbox" value="리그MVP ">리그MVP<br>
+
+          <input type="checkbox" name="scoreking" id="scoreking"
+          class="body_table_checkbox" value="득점왕 ">득점왕</td>
+      </tr>
+      <tr>
+        <td class="body_table_tdleft">연봉</td>
+        <td class="body_table_tdright">
+          <input type="text" name="Annualsalary" class="body_table_text"
+          maxlength="12">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="button" value="입력" class="body_table_button"
+          onclick="input()">
+          <input type="button" value="출력" class="body_table_button"
+          onclick="output()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

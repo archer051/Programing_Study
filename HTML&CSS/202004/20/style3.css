@@ -1,0 +1,77 @@
+/**/
+
+*{
+	margin: 0 auto;  /*중앙정렬 기능 */
+	padding: 0;
+	list-style: none;
+	font-family: "맑은 고딕";
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+#header{
+	width: 100%;
+	height: 150px;
+	background-color: #666;
+	color: #fff;
+}
+#content{
+	width: 1000px;
+	min-height: 600px;
+}
+#footer{
+	width: 100%;
+	height: 100px;
+	background-color: #18709c;
+	color: #fff;
+}
+.table1{
+	margin-top: 50px;
+	font-size: 0.9em;
+	color: #666; /*짙은회색*/
+	border: 1px solid #999;
+	border-collapse: collapse;/**/
+	width: 600px;
+}
+.table1 tr>th{/*세부 태그 지정*/
+	border: 1px solid #999;
+	padding: 5px;
+}
+.table1 tr>td{/*세부 태그 지정*/
+	text-align: right;
+	border: 1px solid #999;
+	padding: 5px;
+}
+#divp{
+	/* 미니멈 헤이트 가변적이다. 그냥 헤이트 지정은 무적권 지정 이다  */
+	width: 900px;
+	min-height: 500px; 
+	border:1px solid #00F; /* solid 실선 dotted 점선 */
+}
+#div1{
+	width: 300px;
+	height: 300px;
+	background-color: red;
+	float: left;
+}
+#div2{
+	width: 300px;
+	height: 300px;
+	background-color: green;
+	float: left;
+}
+#div3{
+	width: 300px;
+	height: 300px;
+	background-color: blue;
+	float: left;
+}
+#div4{
+	width: 350px;
+	height: 350px;
+	background-color: black;
+}
+.clear{
+	clear: both;/*both:둘다 */
+}

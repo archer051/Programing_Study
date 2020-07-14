@@ -1,0 +1,113 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		var nam = new Array(); //이름
+		var league = new Array(); //리그
+		var mile = new Array(); //구속;
+		var breaking = new Array(); //구종;
+		var sal = new Array(); //연봉
+		var cnt = -1;
+		var defaultSal = 1; //기본연봉
+		var prevSal; //예상연봉
+		var str = ""; //구종의 조합
+		function input() {
+			str = "";
+			cnt++;
+			nam[cnt] = frm1.name.value;
+			if (document.getElementById("m1").checked) {
+				league[cnt] = document.getElementById("m1").value;
+				prevSal = defaultSal + 1;
+			}
+			if (document.getElementById("m2").checked) {
+				league[cnt] = document.getElementById("m2").value;
+				prevSal = defaultSal + 0.5;
+			}
+			if (document.getElementById("m3").checked) {
+				league[cnt] = document.getElementById("m3").value;
+				prevSal = defaultSal;
+			}
+			var temp = parseInt(frm1.mile.value);
+			if (temp >= 150) {
+				prevSal = prevSal + 1;
+			} else if (temp >= 145 && temp < 150) {
+				prevSal = prevSal + 0.5;
+			}
+			mile[cnt] = frm1.mile.value;
+			//구종.....
+			if (document.getElementById("curve").checked) {
+				str += document.getElementById("curve").value;
+				prevSal = prevSal + 0.5;
+			}
+			if (document.getElementById("slider").checked) {
+				str += document.getElementById("slider").value;
+				prevSal = prevSal + 0.5;
+			}
+			if (document.getElementById("changeup").checked) {
+				str += document.getElementById("changeup").value;
+				prevSal = prevSal + 0.5;
+			}
+			if (document.getElementById("nuckle").checked) {
+				str += document.getElementById("nuckle").value;
+				prevSal = prevSal + 0.5;
+			}
+			if (document.getElementById("cutter").checked) {
+				str += document.getElementById("cutter").value;
+				prevSal = prevSal + 0.5;
+			}
+			if (document.getElementById("sinker").checked) {
+				str += document.getElementById("sinker").value;
+				prevSal = prevSal + 0.5; //아 조까치 힘들다.
+			}
+			breaking[cnt] = str;
+			sal[cnt] = prevSal;
+			//폼 초기화
+			//폼 객체 초기화
+      frm1.name.value = "";
+      document.getElementById("m1").checked = true;
+      document.getElementById("m2").checked = false;
+      document.getElementById("m3").checked = false;
+      frm1.mile.value = "";
+      document.getElementById("curve").checked = false;
+      document.getElementById("slider").checked = false;
+      document.getElementById("changeup").checked = false;
+      document.getElementById("nuckle").checked = false;
+      document.getElementById("cutter").checked = false;
+      document.getElementById("sinker").checked = false;
+		}
+
+		function output() {
+			for (var i = 0; i < nam.length; i++) {
+				document.write(nam[i], " ");
+				document.write(league[i], " ");
+				document.write(mile[i], " ");
+				document.write(breaking[i], " ");
+				document.write(sal[i], "<br>");
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form name="frm1">
+		이름:<input type="text" name="name"><br>
+		리그:
+		<input type="radio" name="league" id="m1" value="메이저리그" checked>메이저리그
+		<input type="radio" name="league" id="m2" value="마이너리그">마이너리그
+		<input type="radio" name="league" id="m3" value="독립리그">독립리그 <br>
+		구속:<input type="text" name="mile"><br>
+		구종:
+		<input type="checkbox" name="curve" id="curve" value="커브">커브
+		<input type="checkbox" name="slider" id="slider" value="슬라이더">슬라이더
+		<input type="checkbox" name="changeup" id="changeup" value="체인지업">체인지업
+		<input type="checkbox" name="sinker" id="sinker" value="싱커">싱커
+		<input type="checkbox" name="nuckle" id="nuckle" value="너클볼">너클볼
+		<input type="checkbox" name="cutter" id="cutter" value="커터">커터<br>
+		<input type="button" value="입력" onclick="input()">
+		<input type="button" value="출력" onclick="output()">
+	</form>
+</body>
+
+</html>
