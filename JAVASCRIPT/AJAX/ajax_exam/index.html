@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
+  <title>Document</title>
+</head>
+
+<body>
+  <p>안녕하세요 제 이름은 <span id="name"></span>입니다!</p>
+  <script>
+    $.ajax({
+      url: "myname.php",
+      type: "get",
+    }).done(function (data) {
+      $('#name').text(data);
+    });
+  </script>
+</body>
+
+</html>
