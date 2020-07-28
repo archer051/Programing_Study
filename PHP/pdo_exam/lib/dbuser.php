@@ -1,10 +1,10 @@
 <?php
   /// 여기는 필요한 설정으로 바꿔서 사용해주세요
   // 데이터베이스 사용자
-  $user = 'root';
-  $password = 'Ghkaud.100!';
+  $user = 'php7';
+  $password = 'php777';
   // 이용할 데이터베이스
-  $dbName = 'lih';
+  $dbName = 'testdb';
   $charset = "utf8";
   // MySQL 서버
   $host = 'localhost:3306';
